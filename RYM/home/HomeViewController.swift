@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 import CoreData
 
+// MARK - Basic class for navigation
 final class HomeViewController: UIViewController {
     private let homeRouter = HomeRouter.shared
     private let homePresenter = HomePresenter.shared
