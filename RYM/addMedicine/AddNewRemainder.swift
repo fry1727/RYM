@@ -11,7 +11,6 @@ import CoreData
 struct AddNewRemainder: View {
     @EnvironmentObject var viewModel: RemainderViewModel
     @Environment(\.self) var environment
-    
     let weekDays = Calendar.current.weekdaySymbols
 
     var body: some View {
@@ -37,10 +36,13 @@ struct AddNewRemainder: View {
             .frame(maxHeight: .infinity, alignment: .top)
             .padding()
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Add Medicine Remainder")
+            .navigationTitle(viewModel.editRemainder == nil ? "Add Medicine Remainder" : "Edit Medicine Remainder")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     xmarkButton
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    deleteButton
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     doneButton
@@ -195,7 +197,22 @@ struct AddNewRemainder: View {
             } label: {
                 Image(systemName: "xmark.circle")
             }
+            .tint(.white)
+        }
+    }
+
+    private var deleteButton: some View {
+        Group {
+            Button {
+                if viewModel.deleteRemainder(context: environment.managedObjectContext) {
+                    environment.dismiss()
+                }
+            } label: {
+                Image(systemName: "trash")
+            }
             .tint(.red)
+            .opacity(viewModel.editRemainder == nil ? 0 : 1)
+
         }
     }
 
@@ -206,7 +223,7 @@ struct AddNewRemainder: View {
                     environment.dismiss()
                 }
             }
-            .tint(.red)
+            .tint(.white)
             .disabled(!viewModel.doneStatus())
             .opacity(viewModel.doneStatus() ? 1 : 0.6)
         }

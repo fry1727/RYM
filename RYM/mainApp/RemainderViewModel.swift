@@ -23,9 +23,21 @@ class RemainderViewModel: ObservableObject {
     // MARK: Reminder Time Picker
     @Published var showTimePicker: Bool = false
 
+    // MARK: Edit Remainder
+    @Published var editRemainder: MedicineRemainder?
+
     // MARK: Adding remainder to Database
     func addRemainder(context: NSManagedObjectContext) -> Bool {
-        let remainder = MedicineRemainder(context: context)
+        var remainder: MedicineRemainder?
+        if let editRemainder = editRemainder {
+            remainder = editRemainder
+        } else {
+            remainder = MedicineRemainder(context: context)
+        }
+        guard let remainder = remainder else {
+            return false
+        }
+
         remainder.title = title
         remainder.color = remainderColor
         remainder.weekDays = weekDays
@@ -44,6 +56,17 @@ class RemainderViewModel: ObservableObject {
         return false
     }
 
+    // MARK: Deleting medicineRemainders from Database
+    func deleteRemainder(context: NSManagedObjectContext) -> Bool {
+        if let editRemainder = editRemainder {
+            context.delete(editRemainder)
+            if let _ = try? context.save() {
+                return true
+            }
+        }
+        return false
+    }
+
     // MARK: Erasing content
     func resetData() {
         title = ""
@@ -52,6 +75,21 @@ class RemainderViewModel: ObservableObject {
         isRemainderOn = false
         remainderText = ""
         remainderDate = Date()
+        editRemainder = nil
+    }
+
+    // MARK: Restoring editing data
+    func restoreEditingData() {
+        if let editRemainder = editRemainder {
+            title = editRemainder.title ?? ""
+            remainderColor = editRemainder.color ?? "Card-1"
+            weekDays = editRemainder.weekDays ?? []
+            isRemainderOn = editRemainder.isRemainderOn
+            remainderText = editRemainder.remainderText ?? ""
+            remainderDate = editRemainder.notificationDate ?? Date()
+        }
+
+
     }
 
     // MARK: Done button status

@@ -9,11 +9,10 @@ import SwiftUI
 import CoreData
 
 struct RemaindersListView: View {
-
     @FetchRequest(entity: MedicineRemainder.entity(),
                   sortDescriptors: [NSSortDescriptor(keyPath: \MedicineRemainder.dateAdded, ascending: false)],
                   predicate: nil, animation: .easeInOut) var remainders: FetchedResults<MedicineRemainder>
-    @StateObject var viewmodel = RemainderViewModel()
+    @StateObject var viewModel = RemainderViewModel()
     @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {
@@ -23,7 +22,7 @@ struct RemaindersListView: View {
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .leading) {
                     Button {
-                        viewmodel.addNewRemainder.toggle()
+                        viewModel.addNewRemainder.toggle()
                     } label: {
                         Image(systemName: "plus.circle")
                             .font(.title3)
@@ -44,18 +43,26 @@ struct RemaindersListView: View {
                 VStack(spacing: 15) {
                     ForEach(remainders) { remainder in
                         MedicineReminderCard(medicineRemainder: remainder)
+                            .padding(.bottom, 10)
+                            .onTapGesture {
+                                viewModel.editRemainder = remainder
+                                viewModel.restoreEditingData()
+                                viewModel.addNewRemainder.toggle()
+                            }
                     }
                 }
+                .padding(.bottom, 60)
+
             }
 
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()
-        .sheet(isPresented: $viewmodel.addNewRemainder) {
-            viewmodel.resetData()
+        .sheet(isPresented: $viewModel.addNewRemainder) {
+            viewModel.resetData()
         } content: {
             AddNewRemainder()
-                .environmentObject(viewmodel)
+                .environmentObject(viewModel)
                 .environment(\.managedObjectContext, viewContext)
         }
         .environment(\.managedObjectContext, viewContext)
