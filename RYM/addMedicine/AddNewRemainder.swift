@@ -138,6 +138,7 @@ struct AddNewRemainder: View {
             Toggle(isOn: $viewModel.isRemainderOn) {}
                 .labelsHidden()
         }
+        .opacity(viewModel.notificationAccess ? 1 : 0)
     }
 
     private var timePickerOverlay: some View {
@@ -188,6 +189,7 @@ struct AddNewRemainder: View {
         }
         .frame(height: viewModel.isRemainderOn ? nil : 0)
         .opacity(viewModel.isRemainderOn ? 1 : 0)
+        .opacity(viewModel.notificationAccess ? 1 : 0)
     }
 
     private var xmarkButton: some View {

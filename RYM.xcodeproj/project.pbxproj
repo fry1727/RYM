@@ -148,7 +148,7 @@
 				E67EF1C428C24EC90032A747 /* app */,
 				E67EF1D428C2567E0032A747 /* home */,
 				E67EF1DE28C2570A0032A747 /* onboarding */,
-				E67EF1DB28C256E60032A747 /* mainApp */,
+				E67EF1DB28C256E60032A747 /* remainderList */,
 				E673795928C61A0E00C785F2 /* addMedicine */,
 				E67EF1C928C255B90032A747 /* core */,
 				E67EF19D28C24D410032A747 /* Assets.xcassets */,
@@ -224,14 +224,14 @@
 			path = home;
 			sourceTree = "<group>";
 		};
-		E67EF1DB28C256E60032A747 /* mainApp */ = {
+		E67EF1DB28C256E60032A747 /* remainderList */ = {
 			isa = PBXGroup;
 			children = (
 				E673795D28C641B100C785F2 /* supplimentary */,
 				E67EF1DC28C256F50032A747 /* RemaindersListView.swift */,
 				E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */,
 			);
-			path = mainApp;
+			path = remainderList;
 			sourceTree = "<group>";
 		};
 		E67EF1DE28C2570A0032A747 /* onboarding */ = {

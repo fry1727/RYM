@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import UserNotifications
 
 class RemainderViewModel: ObservableObject {
 
@@ -25,6 +26,17 @@ class RemainderViewModel: ObservableObject {
 
     // MARK: Edit Remainder
     @Published var editRemainder: MedicineRemainder?
+
+    // MARK: Notification access status
+    @Published var notificationAccess: Bool = false
+
+    func requestNotificationAccess() {
+        UNUserNotificationCenter.current().requestAuthorization { status, _ in
+            DispatchQueue.main.async {
+                self.notificationAccess = status
+            }
+        }
+    }
 
     // MARK: Adding remainder to Database
     func addRemainder(context: NSManagedObjectContext) -> Bool {
@@ -47,7 +59,10 @@ class RemainderViewModel: ObservableObject {
         remainder.notificationIDs = []
 
         if isRemainderOn {
-            // MARK: Shedule notifications
+            remainder.notificationIDs = sheduleNotifications()
+            if let _ = try? context.save() {
+                return true
+            }
         } else {
             if let _ = try? context.save() {
                 return true
@@ -88,18 +103,47 @@ class RemainderViewModel: ObservableObject {
             remainderText = editRemainder.remainderText ?? ""
             remainderDate = editRemainder.notificationDate ?? Date()
         }
+    }
 
+    // MARK: Adding Notifications
+    func sheduleNotifications() -> [String] {
+        let content = UNMutableNotificationContent()
+        content.title = "Medicine Remander"
+        content.subtitle = remainderText
+        content.sound = UNNotificationSound.default
 
+        // MARK: Scheduling Ids
+        var notificationsIds: [String] = []
+        let calendar = Calendar.current
+        let weekdaySymbols: [String] = calendar.weekdaySymbols
+        for weekDay in weekDays {
+            let id = UUID().uuidString
+            let hour = calendar.component(.hour, from: remainderDate)
+            let minutes = calendar.component(.minute, from: remainderDate)
+            let day = weekdaySymbols.firstIndex { currentDay in
+                return currentDay == weekDay
+            } ?? -1
+            if day != -1 {
+                var components = DateComponents()
+                components.day = day + 1
+                components.hour = hour
+                components.minute = minutes
+                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+                let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request)
+                notificationsIds.append(id)
+            }
+        }
+        return notificationsIds
     }
 
     // MARK: Done button status
     func doneStatus() -> Bool {
         let remainderStatus = isRemainderOn ? remainderText == "" : false
-
         if title == "" || weekDays.isEmpty || remainderStatus {
             return false
         }
-         return true
+        return true
     }
 
 }
