@@ -10,26 +10,26 @@ import CoreData
 import UserNotifications
 
 class RemainderViewModel: ObservableObject {
-
+    
     // MARK: - New Remainder Properties
     @Published var addNewRemainder: Bool = false
-
+    
     @Published var title: String = ""
     @Published var remainderColor: String = "Card-1"
     @Published var weekDays: [String] = []
     @Published var isRemainderOn: Bool = false
     @Published var remainderText: String = ""
     @Published var remainderDate: Date = Date()
-
+    
     // MARK: Reminder Time Picker
     @Published var showTimePicker: Bool = false
-
+    
     // MARK: Edit Remainder
     @Published var editRemainder: MedicineRemainder?
-
+    
     // MARK: Notification access status
     @Published var notificationAccess: Bool = false
-
+    
     func requestNotificationAccess() {
         UNUserNotificationCenter.current().requestAuthorization { status, _ in
             DispatchQueue.main.async {
@@ -37,19 +37,20 @@ class RemainderViewModel: ObservableObject {
             }
         }
     }
-
+    
     // MARK: Adding remainder to Database
     func addRemainder(context: NSManagedObjectContext) -> Bool {
         var remainder: MedicineRemainder?
         if let editRemainder = editRemainder {
             remainder = editRemainder
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: editRemainder.notificationIDs ?? [])
         } else {
             remainder = MedicineRemainder(context: context)
         }
         guard let remainder = remainder else {
             return false
         }
-
+        
         remainder.title = title
         remainder.color = remainderColor
         remainder.weekDays = weekDays
@@ -57,7 +58,7 @@ class RemainderViewModel: ObservableObject {
         remainder.remainderText = remainderText
         remainder.notificationDate = remainderDate
         remainder.notificationIDs = []
-
+        
         if isRemainderOn {
             remainder.notificationIDs = sheduleNotifications()
             if let _ = try? context.save() {
@@ -70,10 +71,13 @@ class RemainderViewModel: ObservableObject {
         }
         return false
     }
-
+    
     // MARK: Deleting medicineRemainders from Database
     func deleteRemainder(context: NSManagedObjectContext) -> Bool {
         if let editRemainder = editRemainder {
+            if editRemainder.isRemainderOn {
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: editRemainder.notificationIDs ?? [])
+            }
             context.delete(editRemainder)
             if let _ = try? context.save() {
                 return true
@@ -81,7 +85,7 @@ class RemainderViewModel: ObservableObject {
         }
         return false
     }
-
+    
     // MARK: Erasing content
     func resetData() {
         title = ""
@@ -92,7 +96,7 @@ class RemainderViewModel: ObservableObject {
         remainderDate = Date()
         editRemainder = nil
     }
-
+    
     // MARK: Restoring editing data
     func restoreEditingData() {
         if let editRemainder = editRemainder {
@@ -104,14 +108,14 @@ class RemainderViewModel: ObservableObject {
             remainderDate = editRemainder.notificationDate ?? Date()
         }
     }
-
+    
     // MARK: Adding Notifications
     func sheduleNotifications() -> [String] {
         let content = UNMutableNotificationContent()
         content.title = "Medicine Remander"
         content.subtitle = remainderText
         content.sound = UNNotificationSound.default
-
+        
         // MARK: Scheduling Ids
         var notificationsIds: [String] = []
         let calendar = Calendar.current
@@ -136,7 +140,7 @@ class RemainderViewModel: ObservableObject {
         }
         return notificationsIds
     }
-
+    
     // MARK: Done button status
     func doneStatus() -> Bool {
         let remainderStatus = isRemainderOn ? remainderText == "" : false
@@ -145,5 +149,5 @@ class RemainderViewModel: ObservableObject {
         }
         return true
     }
-
+    
 }

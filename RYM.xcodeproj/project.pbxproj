@@ -10,6 +10,7 @@
 		E673795128C5E5AA00C785F2 /* RemainderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */; };
 		E673795328C5E79400C785F2 /* AddNewRemainder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795228C5E79400C785F2 /* AddNewRemainder.swift */; };
 		E673795F28C641EF00C785F2 /* MedicineReminderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795E28C641EF00C785F2 /* MedicineReminderCard.swift */; };
+		E67379A228C8DEF100C785F2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67379A128C8DEF100C785F2 /* Notifications.swift */; };
 		E67EF19228C24D3F0032A747 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF19128C24D3F0032A747 /* AppDelegate.swift */; };
 		E67EF19C28C24D3F0032A747 /* RYM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E67EF19A28C24D3F0032A747 /* RYM.xcdatamodeld */; };
 		E67EF19E28C24D410032A747 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E67EF19D28C24D410032A747 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewModel.swift; sourceTree = "<group>"; };
 		E673795228C5E79400C785F2 /* AddNewRemainder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRemainder.swift; sourceTree = "<group>"; };
 		E673795E28C641EF00C785F2 /* MedicineReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineReminderCard.swift; sourceTree = "<group>"; };
+		E67379A128C8DEF100C785F2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		E67EF18E28C24D3F0032A747 /* RYM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RYM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E67EF19128C24D3F0032A747 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E67EF19B28C24D3F0032A747 /* RYM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RYM.xcdatamodel; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				E67EF1CF28C255FD0032A747 /* extensions */,
 				E67EF1CA28C255C10032A747 /* navigation */,
+				E67379A128C8DEF100C785F2 /* Notifications.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				E67EF1E028C257220032A747 /* OnboardingView.swift in Sources */,
 				E67EF1D328C256430032A747 /* UIView+Extensions.swift in Sources */,
 				E67EF1C628C255590032A747 /* AppConfig.swift in Sources */,
+				E67379A228C8DEF100C785F2 /* Notifications.swift in Sources */,
 				E67EF1CC28C255D90032A747 /* BaseRouter.swift in Sources */,
 				E67EF1D128C256250032A747 /* UINavigation+Extensions.swift in Sources */,
 				E67EF1E728C25AC60032A747 /* Colors.swift in Sources */,
