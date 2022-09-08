@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CoreData
-import UserNotifications
 
 class RemainderViewModel: ObservableObject {
 
