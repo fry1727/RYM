@@ -32,6 +32,7 @@
 		E67EF1E228C2573F0032A747 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E128C2573F0032A747 /* OnboardingViewModel.swift */; };
 		E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E328C257590032A747 /* OnboardingRouter.swift */; };
 		E67EF1E728C25AC60032A747 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E628C25AC60032A747 /* Colors.swift */; };
+		E6E28D0428CA322B00300FC1 /* OnboardingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		E67EF1E128C2573F0032A747 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		E67EF1E328C257590032A747 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		E67EF1E628C25AC60032A747 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeatureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,8 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				E673795D28C641B100C785F2 /* supplimentary */,
-				E67EF1DC28C256F50032A747 /* RemaindersListView.swift */,
 				E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */,
+				E67EF1DC28C256F50032A747 /* RemaindersListView.swift */,
 			);
 			path = remainderList;
 			sourceTree = "<group>";
@@ -240,11 +242,20 @@
 		E67EF1DE28C2570A0032A747 /* onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				E6E28D0228CA320C00300FC1 /* supplimentary */,
 				E67EF1DF28C257220032A747 /* OnboardingView.swift */,
 				E67EF1E128C2573F0032A747 /* OnboardingViewModel.swift */,
 				E67EF1E328C257590032A747 /* OnboardingRouter.swift */,
 			);
 			path = onboarding;
+			sourceTree = "<group>";
+		};
+		E6E28D0228CA320C00300FC1 /* supplimentary */ = {
+			isa = PBXGroup;
+			children = (
+				E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */,
+			);
+			path = supplimentary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +420,7 @@
 				E67379A228C8DEF100C785F2 /* Notifications.swift in Sources */,
 				E67EF1CC28C255D90032A747 /* BaseRouter.swift in Sources */,
 				E67EF1D128C256250032A747 /* UINavigation+Extensions.swift in Sources */,
+				E6E28D0428CA322B00300FC1 /* OnboardingFeatureView.swift in Sources */,
 				E67EF1E728C25AC60032A747 /* Colors.swift in Sources */,
 				E67EF1D628C256900032A747 /* HomeViewController.swift in Sources */,
 				E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */,
