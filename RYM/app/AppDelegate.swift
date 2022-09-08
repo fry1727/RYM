@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
 
+        Notifications.shared.requestAutorization()
+
         return true
     }
 

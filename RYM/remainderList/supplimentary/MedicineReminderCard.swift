@@ -12,27 +12,46 @@ struct MedicineReminderCard: View {
 
     var body: some View {
         VStack(spacing: 6) {
-            HStack {
-                Text(medicineRemainder.title ?? "")
-                    .font(.callout)
-                    .fontWeight(.semibold)
-                    .lineLimit(1)
 
-                Image(systemName: "bell.badge.fill")
-                    .font(.callout)
-                    .foregroundColor(Color(medicineRemainder.color ?? "Card-1"))
-                    .scaleEffect(0.9)
-                    .opacity(medicineRemainder.isRemainderOn ? 1 : 0)
+            remainderTitle
+                .padding(.horizontal, 10)
 
-                Spacer()
+            calendarView
+                .padding(.top, 15)
 
-                let count = (medicineRemainder.weekDays?.count ?? 0)
-                Text(count == 7 ? "Everyday" : "\(count) times a week")
-                    .font(.callout)
-                    .foregroundColor(.gray)
-            }
-            .padding(.horizontal, 10)
+        }
+        .padding(.vertical)
+        .padding(.horizontal, 6)
+        .background {
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(Color.gray.opacity(0.5))
+        }
+    }
 
+    private var remainderTitle: some View {
+        HStack {
+            Text(medicineRemainder.title ?? "")
+                .font(.callout)
+                .fontWeight(.semibold)
+                .lineLimit(1)
+
+            Image(systemName: "bell.badge.fill")
+                .font(.callout)
+                .foregroundColor(Color(medicineRemainder.color ?? "Card-1"))
+                .scaleEffect(0.9)
+                .opacity(medicineRemainder.isRemainderOn ? 1 : 0)
+
+            Spacer()
+
+            let count = (medicineRemainder.weekDays?.count ?? 0)
+            Text(count == 7 ? "Everyday" : "\(count) times a week")
+                .font(.callout)
+                .foregroundColor(.gray)
+        }
+    }
+
+    private var calendarView: some View {
+        Group {
             let calendar = Calendar.current
             let currentWeek = calendar.dateInterval(of: .weekOfMonth, for: Date())
             let symbols = calendar.weekdaySymbols
@@ -72,17 +91,9 @@ struct MedicineReminderCard: View {
                     .frame(maxWidth: .infinity)
                 }
             }
-            .padding(.top, 15)
-
-        }
-        .padding(.vertical)
-        .padding(.horizontal, 6)
-        .background {
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(Color.gray.opacity(0.5))
         }
     }
-    
+
     func dateToString(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd"

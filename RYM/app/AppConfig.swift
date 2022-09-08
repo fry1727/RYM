@@ -11,4 +11,5 @@ final class AppConfig {
     static let shared = AppConfig()
 
     @AppStorage("isFinishOnboarding") var isFinishOnboarding = true
+    @AppStorage("isNotificationAccess")var notificationAccess = false
 }

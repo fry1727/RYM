@@ -26,11 +26,17 @@ class RemainderViewModel: ObservableObject {
     // MARK: Edit Remainder
     @Published var editRemainder: MedicineRemainder?
 
+    // MARK: Notification access status
+    @Published var notificationAccess: Bool = AppConfig.shared.notificationAccess
+
+    var notificationsIds: [String] = []
+
     // MARK: Adding remainder to Database
     func addRemainder(context: NSManagedObjectContext) -> Bool {
         var remainder: MedicineRemainder?
         if let editRemainder = editRemainder {
             remainder = editRemainder
+            Notifications.shared.removePendingNotifications(IDs: remainder?.notificationIDs ?? [])
         } else {
             remainder = MedicineRemainder(context: context)
         }
@@ -47,7 +53,11 @@ class RemainderViewModel: ObservableObject {
         remainder.notificationIDs = []
 
         if isRemainderOn {
-            // MARK: Shedule notifications
+            sheduleNotificationsAndCreateIds()
+            remainder.notificationIDs = notificationsIds
+            if let _ = try? context.save() {
+                return true
+            }
         } else {
             if let _ = try? context.save() {
                 return true
@@ -59,6 +69,10 @@ class RemainderViewModel: ObservableObject {
     // MARK: Deleting medicineRemainders from Database
     func deleteRemainder(context: NSManagedObjectContext) -> Bool {
         if let editRemainder = editRemainder {
+            if editRemainder.isRemainderOn {
+                UNUserNotificationCenter.current()
+                    .removePendingNotificationRequests(withIdentifiers: editRemainder.notificationIDs ?? [])
+            }
             context.delete(editRemainder)
             if let _ = try? context.save() {
                 return true
@@ -76,6 +90,7 @@ class RemainderViewModel: ObservableObject {
         remainderText = ""
         remainderDate = Date()
         editRemainder = nil
+        notificationsIds = []
     }
 
     // MARK: Restoring editing data
@@ -88,18 +103,35 @@ class RemainderViewModel: ObservableObject {
             remainderText = editRemainder.remainderText ?? ""
             remainderDate = editRemainder.notificationDate ?? Date()
         }
+    }
 
+    // MARK: Adding Notifications
+    func sheduleNotificationsAndCreateIds() {
+        let calendar = Calendar.current
+        let weekdaySymbols: [String] = calendar.weekdaySymbols
+        for weekDay in weekDays {
+            let id = UUID().uuidString
+
+            let day = weekdaySymbols.firstIndex { currentDay in
+                return currentDay == weekDay } ?? -1
+            if day != -1 {
+                Notifications.shared.scheduleNotification(remainderText: remainderText,
+                                                          remainderId: id,
+                                                          currentWeekDay: day,
+                                                          remainderDate: remainderDate)
+                notificationsIds.append(id)
+            }
+        }
 
     }
 
     // MARK: Done button status
     func doneStatus() -> Bool {
         let remainderStatus = isRemainderOn ? remainderText == "" : false
-
         if title == "" || weekDays.isEmpty || remainderStatus {
             return false
         }
-         return true
+        return true
     }
 
 }
