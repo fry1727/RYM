@@ -14,45 +14,28 @@ struct RemaindersListView: View {
                   predicate: nil, animation: .easeInOut) var remainders: FetchedResults<MedicineRemainder>
     @StateObject var viewModel = RemainderViewModel()
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     var body: some View {
         VStack {
             Text("Remainders")
                 .font(.title2.bold())
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .leading) {
-                    Button {
-                        viewModel.addNewRemainder.toggle()
-                    } label: {
-                        Image(systemName: "plus.circle")
-                            .font(.title3)
-                            .foregroundColor(.white)
-                    }
+                    plusButton
                 }
                 .overlay(alignment: .trailing) {
-                    Button {
-
-                    } label: {
-                        Image(systemName: "gearshape")
-                            .font(.title3)
-                            .foregroundColor(.white)
-                    }
+                    settingsButton
                 }
 
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 15) {
-                    ForEach(remainders) { remainder in
-                        MedicineReminderCard(medicineRemainder: remainder)
-                            .padding(.bottom, 10)
-                            .onTapGesture {
-                                viewModel.editRemainder = remainder
-                                viewModel.restoreEditingData()
-                                viewModel.addNewRemainder.toggle()
-                            }
+                    if remainders.count == 0 {
+                        remaindersEmptyView
+                    } else {
+                        reminderCardList
                     }
                 }
                 .padding(.bottom, 60)
-
             }
 
         }
@@ -66,6 +49,59 @@ struct RemaindersListView: View {
                 .environment(\.managedObjectContext, viewContext)
         }
         .environment(\.managedObjectContext, viewContext)
+    }
+
+    private var plusButton: some View {
+        Group {
+            Button {
+                viewModel.addNewRemainder.toggle()
+            } label: {
+                Image(systemName: "plus.circle")
+                    .font(.title3)
+                    .foregroundColor(.white)
+            }
+        }
+    }
+
+    private var settingsButton: some View {
+        Group {
+            Button {
+            } label: {
+                Image(systemName: "gearshape")
+                    .font(.title3)
+                    .foregroundColor(.white)
+            }
+        }
+    }
+
+    private var remaindersEmptyView: some View {
+        VStack {
+            Text("There is no medicine remainders")
+                .foregroundColor(.white)
+                .font(.title2.bold())
+                .frame(maxWidth: .infinity)
+                .padding(.top, 100)
+            Group {
+                Text("Tap the icon ") +
+                Text(Image(systemName: "plus.circle")) +
+                Text(" to add new Medicine Reminder")
+            }
+            .foregroundColor(.white)
+            .multilineTextAlignment(.center)
+            .padding(.top, 15)
+        }
+    }
+
+    private var reminderCardList: some View {
+        ForEach(remainders) { remainder in
+            MedicineReminderCard(medicineRemainder: remainder)
+                .padding(.bottom, 10)
+                .onTapGesture {
+                    viewModel.editRemainder = remainder
+                    viewModel.restoreEditingData()
+                    viewModel.addNewRemainder.toggle()
+                }
+        }
     }
 }
 
