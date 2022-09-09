@@ -26,7 +26,9 @@ struct LaunchScreenView: View {
         if AppConfig.shared.isFinishOnboarding {
             navigationController?.setViewControllers([HomeViewController(viewContex: viewContext)], animated: false)
         } else {
-            navigationController?.setViewControllers([UIHostingController(rootView: OnboardingView())], animated: false)
+            let viewModel = OnboardingViewModel(navController: navigationController, viewContext: viewContext)
+            navigationController?.setViewControllers(
+                [UIHostingController(rootView: OnboardingView(viewModel: viewModel))], animated: false)
         }
     }
 }

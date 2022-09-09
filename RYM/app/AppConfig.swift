@@ -10,6 +10,6 @@ import SwiftUI
 final class AppConfig {
     static let shared = AppConfig()
 
-    @AppStorage("isFinishOnboarding") var isFinishOnboarding = true
+    @AppStorage("isFinishOnboarding") var isFinishOnboarding = false
     @AppStorage("isNotificationAccess")var notificationAccess = false
 }
