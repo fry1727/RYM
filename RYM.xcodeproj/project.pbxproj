@@ -33,6 +33,7 @@
 		E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E328C257590032A747 /* OnboardingRouter.swift */; };
 		E67EF1E728C25AC60032A747 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E628C25AC60032A747 /* Colors.swift */; };
 		E6E28D0428CA322B00300FC1 /* OnboardingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */; };
+		E6E28D0728CB866D00300FC1 /* NotificationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E28D0628CB866D00300FC1 /* NotificationsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		E67EF1E328C257590032A747 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		E67EF1E628C25AC60032A747 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeatureView.swift; sourceTree = "<group>"; };
+		E6E28D0628CB866D00300FC1 /* NotificationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				E67EF1AB28C24D410032A747 /* RYMTests.swift */,
+				E6E28D0628CB866D00300FC1 /* NotificationsTest.swift */,
 			);
 			path = RYMTests;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6E28D0728CB866D00300FC1 /* NotificationsTest.swift in Sources */,
 				E67EF1AC28C24D410032A747 /* RYMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

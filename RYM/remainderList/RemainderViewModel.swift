@@ -70,8 +70,7 @@ class RemainderViewModel: ObservableObject {
     func deleteRemainder(context: NSManagedObjectContext) -> Bool {
         if let editRemainder = editRemainder {
             if editRemainder.isRemainderOn {
-                UNUserNotificationCenter.current()
-                    .removePendingNotificationRequests(withIdentifiers: editRemainder.notificationIDs ?? [])
+                Notifications.shared.removePendingNotifications(IDs: editRemainder.notificationIDs ?? [])
             }
             context.delete(editRemainder)
             if let _ = try? context.save() {
