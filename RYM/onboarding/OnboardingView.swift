@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct OnboardingView: View {
+    var viewModel: OnboardingViewModel
+
     var body: some View {
         VStack {
             Image(systemName: "pills.circle")
@@ -20,7 +23,7 @@ struct OnboardingView: View {
             Spacer()
 
             featuresView
-            .padding(.horizontal, 5)
+                .padding(.horizontal, 5)
 
             Spacer()
 
@@ -60,18 +63,18 @@ struct OnboardingView: View {
     private var continueButton: some View {
         Group {
             Button {
-
+                viewModel.loginUser()
             } label: {
-                Text("Continue")
-                    .foregroundColor(.white)
-                    .font(.callout)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .fill(Color.orange)
+                    Text("Continue")
+                        .foregroundColor(.white)
+                        .font(.callout)
+                }
             }
             .frame(maxWidth: .infinity)
             .frame(height: 50)
-            .background {
-                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(Color.orange)
-            }
             .padding(.horizontal, 15)
         }
     }
@@ -79,6 +82,6 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        OnboardingView(viewModel: OnboardingViewModel(viewContext: NSPersistentContainer()))
     }
 }
