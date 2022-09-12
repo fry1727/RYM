@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E625F32D28CF254A00D24337 /* NotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E625F32C28CF254A00D24337 /* NotificationsTests.swift */; };
+		E625F32F28CF2FF000D24337 /* ReminderViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */; };
 		E673795128C5E5AA00C785F2 /* RemainderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */; };
 		E673795328C5E79400C785F2 /* AddNewRemainder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795228C5E79400C785F2 /* AddNewRemainder.swift */; };
 		E673795F28C641EF00C785F2 /* MedicineReminderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795E28C641EF00C785F2 /* MedicineReminderCard.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E625F32C28CF254A00D24337 /* NotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTests.swift; sourceTree = "<group>"; };
+		E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModelTest.swift; sourceTree = "<group>"; };
 		E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewModel.swift; sourceTree = "<group>"; };
 		E673795228C5E79400C785F2 /* AddNewRemainder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRemainder.swift; sourceTree = "<group>"; };
 		E673795E28C641EF00C785F2 /* MedicineReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineReminderCard.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				E67EF1AB28C24D410032A747 /* RYMTests.swift */,
+				E625F32C28CF254A00D24337 /* NotificationsTests.swift */,
+				E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */,
 			);
 			path = RYMTests;
 			sourceTree = "<group>";
@@ -437,6 +443,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E625F32D28CF254A00D24337 /* NotificationsTests.swift in Sources */,
+				E625F32F28CF2FF000D24337 /* ReminderViewModelTest.swift in Sources */,
 				E67EF1AC28C24D410032A747 /* RYMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
