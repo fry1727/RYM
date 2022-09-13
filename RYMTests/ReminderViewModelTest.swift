@@ -11,17 +11,14 @@ import XCTest
 class ReminderViewModelTest: XCTestCase {
     var sut: RemainderViewModel!
 
-
     override func setUpWithError() throws {
         try super.setUpWithError()
         sut = RemainderViewModel()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDownWithError() throws {
         sut = nil
         try super.tearDownWithError()
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testResetData() throws {
@@ -45,35 +42,12 @@ class ReminderViewModelTest: XCTestCase {
         XCTAssertEqual(sut.notificationsIds, [])
 
         let expectedDateTimeInterval = Date.timeIntervalSinceReferenceDate
-        XCTAssertEqual(sut.remainderDate.timeIntervalSinceReferenceDate, expectedDateTimeInterval, accuracy: 0.001)
-
+        XCTAssertEqual(sut.remainderDate.timeIntervalSinceReferenceDate, expectedDateTimeInterval, accuracy: 0.1)
     }
-
-//    func testRestoreEditingData() {
-//        var editReminder = MedicineRemainder(
-//        editReminder.title = "Edit Reminder title"
-//        editReminder.color = "Card-5"
-//        editReminder.weekDays = ["two, four"]
-//        editReminder.isRemainderOn = true
-//        editReminder.remainderText = "Edit remainder Text"
-//        editReminder.notificationDate = Date(timeIntervalSince1970: 19992)
-//        editReminder.notificationIDs = ["1111", "2222"]
-//
-//        sut.restoreEditingData()
-//
-//        XCTAssertEqual(sut.title, editReminder.title)
-//        XCTAssertEqual(sut.remainderColor, editReminder.color)
-//        XCTAssertEqual(sut.weekDays, editReminder.weekDays)
-//        XCTAssertEqual(sut.isRemainderOn, editReminder.isRemainderOn)
-//        XCTAssertEqual(sut.remainderText, editReminder.remainderText)
-//        XCTAssertEqual(sut.notificationsIds, editReminder.notificationIDs)
-//
-//        let expectedDateTimeInterval = editReminder.notificationDate?.timeIntervalSinceReferenceDate
-//        XCTAssertEqual(sut.remainderDate.timeIntervalSinceReferenceDate, expectedDateTimeInterval!, accuracy: 0.001)
-//    }
 
     func testDoneStatusTrue() {
         var status = true
+        sut.resetData()
 
         sut.isRemainderOn = true
         sut.title = "aaa"
@@ -87,6 +61,7 @@ class ReminderViewModelTest: XCTestCase {
 
     func testDoneStatusRemainderOff() {
         var status = true
+        sut.resetData()
 
         sut.isRemainderOn = false
         sut.title = "aaa"
@@ -100,6 +75,7 @@ class ReminderViewModelTest: XCTestCase {
 
     func testDoneStatusTitleEmpty() {
         var status = true
+        sut.resetData()
 
         sut.isRemainderOn = true
         sut.title = ""
@@ -113,6 +89,7 @@ class ReminderViewModelTest: XCTestCase {
 
     func testDoneStatusRemainderTextEmpty() {
         var status = true
+        sut.resetData()
 
         sut.isRemainderOn = true
         sut.title = "dwdw"
@@ -126,6 +103,7 @@ class ReminderViewModelTest: XCTestCase {
 
     func testDoneStatusWeekDaysEmpty() {
         var status = true
+        sut.resetData()
 
         sut.isRemainderOn = true
         sut.title = "dwdw"
@@ -139,6 +117,7 @@ class ReminderViewModelTest: XCTestCase {
 
     func testDoneStatusAllFaulse() {
         var status = true
+        sut.resetData()
 
         sut.isRemainderOn = false
         sut.title = ""
@@ -151,6 +130,7 @@ class ReminderViewModelTest: XCTestCase {
     }
 
     func testCreateIds() {
+        sut.resetData()
         sut.notificationsIds = []
         sut.weekDays = ["Monday", "Tuesday", "Friday"]
 

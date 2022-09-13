@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E625F32D28CF254A00D24337 /* NotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E625F32C28CF254A00D24337 /* NotificationsTests.swift */; };
+		CD86545528D07041001CB65D /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545428D07041001CB65D /* CoreDataTest.swift */; };
+		CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545828D074BB001CB65D /* CoreDataStack.swift */; };
+		CD86545C28D0B520001CB65D /* OnboardingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */; };
+		CD86545E28D0B895001CB65D /* OnboardingRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */; };
 		E625F32F28CF2FF000D24337 /* ReminderViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */; };
 		E673795128C5E5AA00C785F2 /* RemainderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */; };
 		E673795328C5E79400C785F2 /* AddNewRemainder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795228C5E79400C785F2 /* AddNewRemainder.swift */; };
@@ -33,7 +36,6 @@
 		E67EF1E028C257220032A747 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1DF28C257220032A747 /* OnboardingView.swift */; };
 		E67EF1E228C2573F0032A747 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E128C2573F0032A747 /* OnboardingViewModel.swift */; };
 		E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E328C257590032A747 /* OnboardingRouter.swift */; };
-		E67EF1E728C25AC60032A747 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E628C25AC60032A747 /* Colors.swift */; };
 		E6E28D0428CA322B00300FC1 /* OnboardingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E625F32C28CF254A00D24337 /* NotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTests.swift; sourceTree = "<group>"; };
+		CD86545428D07041001CB65D /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
+		CD86545828D074BB001CB65D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTest.swift; sourceTree = "<group>"; };
+		CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouterTest.swift; sourceTree = "<group>"; };
 		E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModelTest.swift; sourceTree = "<group>"; };
 		E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewModel.swift; sourceTree = "<group>"; };
 		E673795228C5E79400C785F2 /* AddNewRemainder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRemainder.swift; sourceTree = "<group>"; };
@@ -85,7 +90,6 @@
 		E67EF1DF28C257220032A747 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		E67EF1E128C2573F0032A747 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		E67EF1E328C257590032A747 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
-		E67EF1E628C25AC60032A747 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeatureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,7 +167,6 @@
 				E67EF19F28C24D410032A747 /* LaunchScreen.storyboard */,
 				E67EF1A228C24D410032A747 /* Info.plist */,
 				E67EF19A28C24D3F0032A747 /* RYM.xcdatamodeld */,
-				E67EF1E628C25AC60032A747 /* Colors.swift */,
 			);
 			path = RYM;
 			sourceTree = "<group>";
@@ -172,8 +175,10 @@
 			isa = PBXGroup;
 			children = (
 				E67EF1AB28C24D410032A747 /* RYMTests.swift */,
-				E625F32C28CF254A00D24337 /* NotificationsTests.swift */,
 				E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */,
+				CD86545428D07041001CB65D /* CoreDataTest.swift */,
+				CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */,
+				CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */,
 			);
 			path = RYMTests;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				E67EF19128C24D3F0032A747 /* AppDelegate.swift */,
 				E67EF1C528C255590032A747 /* AppConfig.swift */,
 				E67EF1C728C255A50032A747 /* LaunchScreenView.swift */,
+				CD86545828D074BB001CB65D /* CoreDataStack.swift */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -427,11 +433,11 @@
 				E67EF1CC28C255D90032A747 /* BaseRouter.swift in Sources */,
 				E67EF1D128C256250032A747 /* UINavigation+Extensions.swift in Sources */,
 				E6E28D0428CA322B00300FC1 /* OnboardingFeatureView.swift in Sources */,
-				E67EF1E728C25AC60032A747 /* Colors.swift in Sources */,
 				E67EF1D628C256900032A747 /* HomeViewController.swift in Sources */,
 				E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */,
 				E67EF1DD28C256F50032A747 /* RemaindersListView.swift in Sources */,
 				E67EF1DA28C256C50032A747 /* HomePresenter.swift in Sources */,
+				CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */,
 				E67EF19228C24D3F0032A747 /* AppDelegate.swift in Sources */,
 				E67EF1C828C255A50032A747 /* LaunchScreenView.swift in Sources */,
 				E673795128C5E5AA00C785F2 /* RemainderViewModel.swift in Sources */,
@@ -443,9 +449,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E625F32D28CF254A00D24337 /* NotificationsTests.swift in Sources */,
+				CD86545528D07041001CB65D /* CoreDataTest.swift in Sources */,
+				CD86545C28D0B520001CB65D /* OnboardingViewModelTest.swift in Sources */,
 				E625F32F28CF2FF000D24337 /* ReminderViewModelTest.swift in Sources */,
 				E67EF1AC28C24D410032A747 /* RYMTests.swift in Sources */,
+				CD86545E28D0B895001CB65D /* OnboardingRouterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

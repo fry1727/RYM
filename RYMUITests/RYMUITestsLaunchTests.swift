@@ -5,18 +5,18 @@
 //  Created by Yauheni Skiruk on 02/09/2022.
 //
 
-//import XCTest
-//
-//class RYMUITestsLaunchTests: XCTestCase {
-//
-//    override class var runsForEachTargetApplicationUIConfiguration: Bool {
-//        true
-//    }
-//
-//    override func setUpWithError() throws {
-//        continueAfterFailure = false
-//    }
-//
+import XCTest
+
+class RYMUITestsLaunchTests: XCTestCase {
+
+    override class var runsForEachTargetApplicationUIConfiguration: Bool {
+        true
+    }
+
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+    }
+
 //    func testLaunch() throws {
 //        let app = XCUIApplication()
 //        app.launch()
@@ -29,4 +29,4 @@
 //        attachment.lifetime = .keepAlways
 //        add(attachment)
 //    }
-//}
+}
