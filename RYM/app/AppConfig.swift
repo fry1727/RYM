@@ -22,5 +22,5 @@ final class AppConfig {
 
 #endif
     @AppStorage("isFinishOnboarding") var isFinishOnboarding = false
-    @AppStorage("isNotificationAccess")var notificationAccess = false
+    @AppStorage("isNotificationAccess") var notificationAccess = false
 }

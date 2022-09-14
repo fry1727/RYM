@@ -7,7 +7,7 @@
 
 import XCTest
 
-class RYMUITests: XCTestCase {
+class MainScreenTests: XCTestCase {
 
     override func setUpWithError() throws {
         XCUIDevice.shared.orientation = .portrait
@@ -23,17 +23,10 @@ class RYMUITests: XCTestCase {
         app.launch()
 
         let addButton = app.scrollViews.otherElements.buttons["Add"]
-        XCTAssert(addButton.waitForExistence(timeout: 10))
-//        addButton.tap()
-
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+        let reminderTitle = app.scrollViews.staticTexts["Remainders"]
+        let mainText = app.staticTexts["There is no medicine remainders"]
+        XCTAssert(mainText.waitForExistence(timeout: 3))
+        XCTAssert(reminderTitle.waitForExistence(timeout: 3))
+        XCTAssert(addButton.waitForExistence(timeout: 3))
     }
 }
