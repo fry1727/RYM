@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD034D3728D1CE7E00106D65 /* AddRemainderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD034D3628D1CE7E00106D65 /* AddRemainderUITests.swift */; };
+		CD034D4128D1E18400106D65 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E328C257590032A747 /* OnboardingRouter.swift */; };
+		CD034D4228D1E18E00106D65 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1C528C255590032A747 /* AppConfig.swift */; };
+		CD034D4428D1E19F00106D65 /* OnboardingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */; };
+		CD034D4528D1E1B400106D65 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1D728C256A30032A747 /* HomeRouter.swift */; };
+		CD034D4628D1E1BB00106D65 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1D928C256C50032A747 /* HomePresenter.swift */; };
+		CD034D4728D1E1C300106D65 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1CB28C255D90032A747 /* BaseRouter.swift */; };
+		CD034D4828D1E1C700106D65 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1CD28C255E80032A747 /* BasePresenter.swift */; };
+		CD034D4928D1E1CD00106D65 /* UINavigation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1D028C256250032A747 /* UINavigation+Extensions.swift */; };
+		CD86545528D07041001CB65D /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545428D07041001CB65D /* CoreDataTest.swift */; };
+		CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545828D074BB001CB65D /* CoreDataStack.swift */; };
+		CD86545C28D0B520001CB65D /* OnboardingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */; };
+		CD86545E28D0B895001CB65D /* OnboardingRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */; };
+		E625F32F28CF2FF000D24337 /* ReminderViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */; };
 		E673795128C5E5AA00C785F2 /* RemainderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */; };
 		E673795328C5E79400C785F2 /* AddNewRemainder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795228C5E79400C785F2 /* AddNewRemainder.swift */; };
 		E673795F28C641EF00C785F2 /* MedicineReminderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795E28C641EF00C785F2 /* MedicineReminderCard.swift */; };
@@ -16,8 +30,7 @@
 		E67EF19E28C24D410032A747 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E67EF19D28C24D410032A747 /* Assets.xcassets */; };
 		E67EF1A128C24D410032A747 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67EF19F28C24D410032A747 /* LaunchScreen.storyboard */; };
 		E67EF1AC28C24D410032A747 /* RYMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1AB28C24D410032A747 /* RYMTests.swift */; };
-		E67EF1B628C24D410032A747 /* RYMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1B528C24D410032A747 /* RYMUITests.swift */; };
-		E67EF1B828C24D410032A747 /* RYMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1B728C24D410032A747 /* RYMUITestsLaunchTests.swift */; };
+		E67EF1B628C24D410032A747 /* MainScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1B528C24D410032A747 /* MainScreenTests.swift */; };
 		E67EF1C628C255590032A747 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1C528C255590032A747 /* AppConfig.swift */; };
 		E67EF1C828C255A50032A747 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1C728C255A50032A747 /* LaunchScreenView.swift */; };
 		E67EF1CC28C255D90032A747 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1CB28C255D90032A747 /* BaseRouter.swift */; };
@@ -31,7 +44,6 @@
 		E67EF1E028C257220032A747 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1DF28C257220032A747 /* OnboardingView.swift */; };
 		E67EF1E228C2573F0032A747 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E128C2573F0032A747 /* OnboardingViewModel.swift */; };
 		E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E328C257590032A747 /* OnboardingRouter.swift */; };
-		E67EF1E728C25AC60032A747 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E628C25AC60032A747 /* Colors.swift */; };
 		E6E28D0428CA322B00300FC1 /* OnboardingFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +65,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD034D3628D1CE7E00106D65 /* AddRemainderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemainderUITests.swift; sourceTree = "<group>"; };
+		CD86545428D07041001CB65D /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
+		CD86545828D074BB001CB65D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTest.swift; sourceTree = "<group>"; };
+		CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouterTest.swift; sourceTree = "<group>"; };
+		E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModelTest.swift; sourceTree = "<group>"; };
 		E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewModel.swift; sourceTree = "<group>"; };
 		E673795228C5E79400C785F2 /* AddNewRemainder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRemainder.swift; sourceTree = "<group>"; };
 		E673795E28C641EF00C785F2 /* MedicineReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineReminderCard.swift; sourceTree = "<group>"; };
@@ -66,8 +84,7 @@
 		E67EF1A728C24D410032A747 /* RYMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RYMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E67EF1AB28C24D410032A747 /* RYMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYMTests.swift; sourceTree = "<group>"; };
 		E67EF1B128C24D410032A747 /* RYMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RYMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E67EF1B528C24D410032A747 /* RYMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYMUITests.swift; sourceTree = "<group>"; };
-		E67EF1B728C24D410032A747 /* RYMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E67EF1B528C24D410032A747 /* MainScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTests.swift; sourceTree = "<group>"; };
 		E67EF1C528C255590032A747 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		E67EF1C728C255A50032A747 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		E67EF1CB28C255D90032A747 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -81,7 +98,6 @@
 		E67EF1DF28C257220032A747 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		E67EF1E128C2573F0032A747 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		E67EF1E328C257590032A747 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
-		E67EF1E628C25AC60032A747 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E6E28D0328CA322B00300FC1 /* OnboardingFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFeatureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +175,6 @@
 				E67EF19F28C24D410032A747 /* LaunchScreen.storyboard */,
 				E67EF1A228C24D410032A747 /* Info.plist */,
 				E67EF19A28C24D3F0032A747 /* RYM.xcdatamodeld */,
-				E67EF1E628C25AC60032A747 /* Colors.swift */,
 			);
 			path = RYM;
 			sourceTree = "<group>";
@@ -168,6 +183,10 @@
 			isa = PBXGroup;
 			children = (
 				E67EF1AB28C24D410032A747 /* RYMTests.swift */,
+				E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */,
+				CD86545428D07041001CB65D /* CoreDataTest.swift */,
+				CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */,
+				CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */,
 			);
 			path = RYMTests;
 			sourceTree = "<group>";
@@ -175,8 +194,8 @@
 		E67EF1B428C24D410032A747 /* RYMUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E67EF1B528C24D410032A747 /* RYMUITests.swift */,
-				E67EF1B728C24D410032A747 /* RYMUITestsLaunchTests.swift */,
+				E67EF1B528C24D410032A747 /* MainScreenTests.swift */,
+				CD034D3628D1CE7E00106D65 /* AddRemainderUITests.swift */,
 			);
 			path = RYMUITests;
 			sourceTree = "<group>";
@@ -187,6 +206,7 @@
 				E67EF19128C24D3F0032A747 /* AppDelegate.swift */,
 				E67EF1C528C255590032A747 /* AppConfig.swift */,
 				E67EF1C728C255A50032A747 /* LaunchScreenView.swift */,
+				CD86545828D074BB001CB65D /* CoreDataStack.swift */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -275,6 +295,8 @@
 			dependencies = (
 			);
 			name = RYM;
+			packageProductDependencies = (
+			);
 			productName = RYM;
 			productReference = E67EF18E28C24D3F0032A747 /* RYM.app */;
 			productType = "com.apple.product-type.application";
@@ -311,6 +333,8 @@
 				E67EF1B328C24D410032A747 /* PBXTargetDependency */,
 			);
 			name = RYMUITests;
+			packageProductDependencies = (
+			);
 			productName = RYMUITests;
 			productReference = E67EF1B128C24D410032A747 /* RYMUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -347,6 +371,8 @@
 				Base,
 			);
 			mainGroup = E67EF18528C24D3F0032A747;
+			packageReferences = (
+			);
 			productRefGroup = E67EF18F28C24D3F0032A747 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -421,11 +447,11 @@
 				E67EF1CC28C255D90032A747 /* BaseRouter.swift in Sources */,
 				E67EF1D128C256250032A747 /* UINavigation+Extensions.swift in Sources */,
 				E6E28D0428CA322B00300FC1 /* OnboardingFeatureView.swift in Sources */,
-				E67EF1E728C25AC60032A747 /* Colors.swift in Sources */,
 				E67EF1D628C256900032A747 /* HomeViewController.swift in Sources */,
 				E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */,
 				E67EF1DD28C256F50032A747 /* RemaindersListView.swift in Sources */,
 				E67EF1DA28C256C50032A747 /* HomePresenter.swift in Sources */,
+				CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */,
 				E67EF19228C24D3F0032A747 /* AppDelegate.swift in Sources */,
 				E67EF1C828C255A50032A747 /* LaunchScreenView.swift in Sources */,
 				E673795128C5E5AA00C785F2 /* RemainderViewModel.swift in Sources */,
@@ -437,7 +463,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD86545528D07041001CB65D /* CoreDataTest.swift in Sources */,
+				CD86545C28D0B520001CB65D /* OnboardingViewModelTest.swift in Sources */,
+				E625F32F28CF2FF000D24337 /* ReminderViewModelTest.swift in Sources */,
 				E67EF1AC28C24D410032A747 /* RYMTests.swift in Sources */,
+				CD86545E28D0B895001CB65D /* OnboardingRouterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,8 +475,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E67EF1B628C24D410032A747 /* RYMUITests.swift in Sources */,
-				E67EF1B828C24D410032A747 /* RYMUITestsLaunchTests.swift in Sources */,
+				E67EF1B628C24D410032A747 /* MainScreenTests.swift in Sources */,
+				CD034D4828D1E1C700106D65 /* BasePresenter.swift in Sources */,
+				CD034D4228D1E18E00106D65 /* AppConfig.swift in Sources */,
+				CD034D4628D1E1BB00106D65 /* HomePresenter.swift in Sources */,
+				CD034D3728D1CE7E00106D65 /* AddRemainderUITests.swift in Sources */,
+				CD034D4128D1E18400106D65 /* OnboardingRouter.swift in Sources */,
+				CD034D4728D1E1C300106D65 /* BaseRouter.swift in Sources */,
+				CD034D4428D1E19F00106D65 /* OnboardingFeatureView.swift in Sources */,
+				CD034D4928D1E1CD00106D65 /* UINavigation+Extensions.swift in Sources */,
+				CD034D4528D1E1B400106D65 /* HomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

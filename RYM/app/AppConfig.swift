@@ -8,8 +8,19 @@
 import SwiftUI
 
 final class AppConfig {
+
+#if TEST
+    // Only used for tests
+    static var sharedInstance: AppConfig!
+
+    override init() {
+        super.init()
+    }
+
+#else
     static let shared = AppConfig()
 
+#endif
     @AppStorage("isFinishOnboarding") var isFinishOnboarding = false
-    @AppStorage("isNotificationAccess")var notificationAccess = false
+    @AppStorage("isNotificationAccess") var notificationAccess = false
 }

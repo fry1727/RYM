@@ -102,6 +102,7 @@ class RemainderViewModel: ObservableObject {
             isRemainderOn = editRemainder.isRemainderOn
             remainderText = editRemainder.remainderText ?? ""
             remainderDate = editRemainder.notificationDate ?? Date()
+            notificationsIds = editRemainder.notificationIDs ?? []
         }
     }
 

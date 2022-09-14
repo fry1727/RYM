@@ -11,6 +11,7 @@ import CoreData
 struct LaunchScreenView: View {
     weak var navigationController: UINavigationController?
     var viewContext: NSPersistentContainer
+    let isFinishOnboarding = AppConfig.shared.isFinishOnboarding
 
     var body: some View {
         Color.blue
@@ -23,7 +24,7 @@ struct LaunchScreenView: View {
     }
 
     private func showInitialView() {
-        if AppConfig.shared.isFinishOnboarding {
+        if isFinishOnboarding {
             navigationController?.setViewControllers([HomeViewController(viewContex: viewContext)], animated: false)
         } else {
             let viewModel = OnboardingViewModel(navController: navigationController, viewContext: viewContext)

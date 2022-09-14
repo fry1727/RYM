@@ -12,12 +12,26 @@ import UserNotifications
 
 final class Notifications: NSObject, UNUserNotificationCenterDelegate {
 
+#if TEST
+
+    // Only used for tests
+    static var sharedNotifications: Notifications!
+
+    // Public init
+    override init() {
+        super.init()
+    }
+
+#else
+
     static let shared = Notifications()
 
     func initialize() {
         requestAutorization()
         UNUserNotificationCenter.current().delegate = self
     }
+
+#endif
 
     // MARK: - Properties
     let notificationCenter = UNUserNotificationCenter.current()
