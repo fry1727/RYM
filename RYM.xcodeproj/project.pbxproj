@@ -16,6 +16,9 @@
 		CD034D4728D1E1C300106D65 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1CB28C255D90032A747 /* BaseRouter.swift */; };
 		CD034D4828D1E1C700106D65 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1CD28C255E80032A747 /* BasePresenter.swift */; };
 		CD034D4928D1E1CD00106D65 /* UINavigation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1D028C256250032A747 /* UINavigation+Extensions.swift */; };
+		CD3748B628D370730049E01F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3748B528D370730049E01F /* SettingsView.swift */; };
+		CD3748B928D370D40049E01F /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3748B828D370D40049E01F /* SettingsButton.swift */; };
+		CD3748BB28D375FE0049E01F /* SettingsButtonNofitication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3748BA28D375FE0049E01F /* SettingsButtonNofitication.swift */; };
 		CD86545528D07041001CB65D /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545428D07041001CB65D /* CoreDataTest.swift */; };
 		CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545828D074BB001CB65D /* CoreDataStack.swift */; };
 		CD86545C28D0B520001CB65D /* OnboardingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */; };
@@ -66,6 +69,9 @@
 
 /* Begin PBXFileReference section */
 		CD034D3628D1CE7E00106D65 /* AddRemainderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemainderUITests.swift; sourceTree = "<group>"; };
+		CD3748B528D370730049E01F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CD3748B828D370D40049E01F /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		CD3748BA28D375FE0049E01F /* SettingsButtonNofitication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonNofitication.swift; sourceTree = "<group>"; };
 		CD86545428D07041001CB65D /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		CD86545828D074BB001CB65D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTest.swift; sourceTree = "<group>"; };
@@ -126,6 +132,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD034D5128D2186E00106D65 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				CD3748B728D370C30049E01F /* supplimentary */,
+				CD3748B528D370730049E01F /* SettingsView.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		CD3748B728D370C30049E01F /* supplimentary */ = {
+			isa = PBXGroup;
+			children = (
+				CD3748B828D370D40049E01F /* SettingsButton.swift */,
+				CD3748BA28D375FE0049E01F /* SettingsButtonNofitication.swift */,
+			);
+			path = supplimentary;
+			sourceTree = "<group>";
+		};
 		E673795928C61A0E00C785F2 /* addMedicine */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +193,7 @@
 				E67EF1D428C2567E0032A747 /* home */,
 				E67EF1DE28C2570A0032A747 /* onboarding */,
 				E67EF1DB28C256E60032A747 /* remainderList */,
+				CD034D5128D2186E00106D65 /* settings */,
 				E673795928C61A0E00C785F2 /* addMedicine */,
 				E67EF1C928C255B90032A747 /* core */,
 				E67EF19D28C24D410032A747 /* Assets.xcassets */,
@@ -447,6 +472,7 @@
 				E67EF1CC28C255D90032A747 /* BaseRouter.swift in Sources */,
 				E67EF1D128C256250032A747 /* UINavigation+Extensions.swift in Sources */,
 				E6E28D0428CA322B00300FC1 /* OnboardingFeatureView.swift in Sources */,
+				CD3748B928D370D40049E01F /* SettingsButton.swift in Sources */,
 				E67EF1D628C256900032A747 /* HomeViewController.swift in Sources */,
 				E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */,
 				E67EF1DD28C256F50032A747 /* RemaindersListView.swift in Sources */,
@@ -456,6 +482,8 @@
 				E67EF1C828C255A50032A747 /* LaunchScreenView.swift in Sources */,
 				E673795128C5E5AA00C785F2 /* RemainderViewModel.swift in Sources */,
 				E673795F28C641EF00C785F2 /* MedicineReminderCard.swift in Sources */,
+				CD3748BB28D375FE0049E01F /* SettingsButtonNofitication.swift in Sources */,
+				CD3748B628D370730049E01F /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

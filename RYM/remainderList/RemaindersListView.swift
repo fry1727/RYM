@@ -13,6 +13,7 @@ struct RemaindersListView: View {
                   sortDescriptors: [NSSortDescriptor(keyPath: \MedicineRemainder.dateAdded, ascending: false)],
                   predicate: nil, animation: .easeInOut) var remainders: FetchedResults<MedicineRemainder>
     @StateObject var viewModel = RemainderViewModel()
+    @State var settingPresented = false
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
@@ -48,6 +49,13 @@ struct RemaindersListView: View {
                 .environmentObject(viewModel)
                 .environment(\.managedObjectContext, viewContext)
         }
+        .sheet(isPresented: $settingPresented) {
+//            settingPresented.toggle()
+        } content: {
+            SettingsView()
+//                .environmentObject(viewModel)
+//                .environment(\.managedObjectContext, viewContext)
+        }
         .environment(\.managedObjectContext, viewContext)
     }
 
@@ -66,6 +74,7 @@ struct RemaindersListView: View {
     private var settingsButton: some View {
         Group {
             Button {
+                settingPresented.toggle()
             } label: {
                 Image(systemName: "gearshape")
                     .font(.title3)
