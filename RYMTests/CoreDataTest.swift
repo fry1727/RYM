@@ -10,13 +10,13 @@ import XCTest
 import CoreData
 
 class CoreDataTest: XCTestCase {
-    var viewModel: RemainderViewModel!
+    var viewModel: RemainderViewService!
     var coreDataStack: CoreDataStack!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         coreDataStack = CoreDataStack()
-        viewModel = RemainderViewModel()
+        viewModel = RemainderViewService()
     }
 
     override func tearDownWithError() throws {

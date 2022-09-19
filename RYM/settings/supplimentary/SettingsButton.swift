@@ -20,11 +20,12 @@ struct SettingsButton: View {
                     .font(.callout)
                     .foregroundColor(.white)
             }
+            .padding(.horizontal, 16)
+            .frame(width: 165, height: 165)
+            .background(.orange)
+            .cornerRadius(30)
         }
-        .padding(.horizontal, 16)
-        .frame(width: 165, height: 165)
-        .background(.orange)
-        .cornerRadius(30)
+
     }
 }
 

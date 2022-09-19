@@ -9,8 +9,8 @@ import SwiftUI
 import UIKit
 
 struct AlertInfo {
-    let title: String? = nil
-    let message: String? = nil
+    let title: String?
+    let message: String?
     var buttons: [Button]
 
     struct Button {

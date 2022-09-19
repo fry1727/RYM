@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-class RemainderViewModel: ObservableObject {
+class RemainderViewService: ObservableObject {
 
     // MARK: - New Remainder Properties
     @Published var addNewRemainder: Bool = false
@@ -21,7 +21,10 @@ class RemainderViewModel: ObservableObject {
     @Published var remainderDate: Date = Date()
 
     // MARK: Reminder Time Picker
-    @Published var showTimePicker: Bool = false
+    @Published var showTimePicker = false
+    
+    //MARK: Setting presenter
+    @Published var settingPresented = false
 
     // MARK: Edit Remainder
     @Published var editRemainder: MedicineRemainder?
@@ -79,6 +82,21 @@ class RemainderViewModel: ObservableObject {
             }
         }
         return false
+    }
+
+    // MARK: Delete ALL data
+
+    func deleteAllData() {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            let managedContext = appDelegate.coreDataStack.persistentContainer.viewContext
+            let deleteAllEntities = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "MedicineRemainder"))
+            do {
+                try managedContext.execute(deleteAllEntities)
+            }
+            catch {
+                print(error)
+            }
+        }
     }
 
     // MARK: Erasing content

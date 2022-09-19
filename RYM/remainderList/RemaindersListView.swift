@@ -12,8 +12,7 @@ struct RemaindersListView: View {
     @FetchRequest(entity: MedicineRemainder.entity(),
                   sortDescriptors: [NSSortDescriptor(keyPath: \MedicineRemainder.dateAdded, ascending: false)],
                   predicate: nil, animation: .easeInOut) var remainders: FetchedResults<MedicineRemainder>
-    @StateObject var viewModel = RemainderViewModel()
-    @State var settingPresented = false
+    @StateObject var viewModel = RemainderViewService()
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
@@ -49,11 +48,10 @@ struct RemaindersListView: View {
                 .environmentObject(viewModel)
                 .environment(\.managedObjectContext, viewContext)
         }
-        .sheet(isPresented: $settingPresented) {
-//            settingPresented.toggle()
+        .sheet(isPresented: $viewModel.settingPresented) {
         } content: {
             SettingsView()
-//                .environmentObject(viewModel)
+                .environmentObject(viewModel)
 //                .environment(\.managedObjectContext, viewContext)
         }
         .environment(\.managedObjectContext, viewContext)
@@ -74,7 +72,7 @@ struct RemaindersListView: View {
     private var settingsButton: some View {
         Group {
             Button {
-                settingPresented.toggle()
+                viewModel.settingPresented.toggle()
             } label: {
                 Image(systemName: "gearshape")
                     .font(.title3)
