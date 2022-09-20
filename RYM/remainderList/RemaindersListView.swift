@@ -14,47 +14,53 @@ struct RemaindersListView: View {
                   predicate: nil, animation: .easeInOut) var remainders: FetchedResults<MedicineRemainder>
     @StateObject var viewModel = RemainderViewService()
     @Environment(\.managedObjectContext) private var viewContext
-    
+
     var body: some View {
-        VStack {
-            Text("Remainders")
-                .font(.title2.bold())
-                .frame(maxWidth: .infinity)
-                .overlay(alignment: .leading) {
+        NavigationView {
+            VStack {
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 15) {
+                        if remainders.count == 0 {
+                            remaindersEmptyView
+                        } else {
+                            reminderCardList
+                        }
+                    }
+                    .padding(.bottom, 60)
+                }
+            }
+            .frame(maxHeight: .infinity, alignment: .top)
+            .padding()
+            .sheet(isPresented: $viewModel.addNewRemainder) {
+                viewModel.resetData()
+            } content: {
+                AddNewRemainder()
+                    .environmentObject(viewModel)
+                    .environment(\.managedObjectContext, viewContext)
+            }
+            .sheet(isPresented: $viewModel.settingPresented) {
+            } content: {
+                let settingsModel = SettingViewModel(viewService: viewModel, contex: viewContext)
+                SettingsView(viewModel: settingsModel)
+                    .environmentObject(viewModel)
+//                    .environment(\.managedObjectContext, viewContext)
+            }
+            .environment(\.managedObjectContext, viewContext)
+
+            .navigationBarTitle(Text("Remainders"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
                     plusButton
                 }
-                .overlay(alignment: .trailing) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     settingsButton
                 }
-
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 15) {
-                    if remainders.count == 0 {
-                        remaindersEmptyView
-                    } else {
-                        reminderCardList
-                    }
-                }
-                .padding(.bottom, 60)
             }
+            .overlay(bigPlusButton, alignment: .bottom)
+        }
 
-        }
-        .frame(maxHeight: .infinity, alignment: .top)
-        .padding()
-        .sheet(isPresented: $viewModel.addNewRemainder) {
-            viewModel.resetData()
-        } content: {
-            AddNewRemainder()
-                .environmentObject(viewModel)
-                .environment(\.managedObjectContext, viewContext)
-        }
-        .sheet(isPresented: $viewModel.settingPresented) {
-        } content: {
-            SettingsView()
-                .environmentObject(viewModel)
-//                .environment(\.managedObjectContext, viewContext)
-        }
-        .environment(\.managedObjectContext, viewContext)
+
     }
 
     private var plusButton: some View {
@@ -67,6 +73,7 @@ struct RemaindersListView: View {
                     .foregroundColor(.white)
             }
         }
+
     }
 
     private var settingsButton: some View {
@@ -81,21 +88,44 @@ struct RemaindersListView: View {
         }
     }
 
+    private var bigPlusButton: some View {
+        HStack {
+            Spacer()
+            Button {
+                viewModel.addNewRemainder.toggle()
+            } label: {
+                Image(systemName: "plus")
+                    .resizable()
+                    .foregroundColor(.white)
+                    .frame(width: 20, height: 20)
+                    .background(
+                        Circle()
+                            .foregroundColor(.orange)
+                            .frame(width: 70, height: 70))
+            }
+            .padding(.horizontal, 40)
+            .padding(.vertical, 130)
+        }
+    }
+
     private var remaindersEmptyView: some View {
         VStack {
             Text("There is no medicine remainders")
                 .foregroundColor(.white)
                 .font(.title2.bold())
                 .frame(maxWidth: .infinity)
-                .padding(.top, 100)
+                .padding(.top, 200)
             Group {
                 Text("Tap the icon ") +
                 Text(Image(systemName: "plus.circle")) +
-                Text(" to add new Medicine Reminder")
+                Text(" to add new reminder")
             }
             .foregroundColor(.white)
             .multilineTextAlignment(.center)
             .padding(.top, 15)
+            Text("or tap on + button below")
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
         }
     }
 

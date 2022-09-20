@@ -13,15 +13,13 @@ class CoreDataStack: NSObject {
 
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
-        let description = NSPersistentStoreDescription()
-        description.url = URL(fileURLWithPath: "/dev/null")
+
         let container = NSPersistentContainer(name: "RYM")
-        container.persistentStoreDescriptions = [description]
-        container.loadPersistentStores { _, error in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-        }
+        })
         return container
     }()
 

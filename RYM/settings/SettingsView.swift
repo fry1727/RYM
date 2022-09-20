@@ -6,26 +6,66 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SettingsView: View {
-    @EnvironmentObject var viewModel: RemainderViewService
-    //    @Environment(\.self) var environment
-
+    @EnvironmentObject var viewService: RemainderViewService
+    @Environment(\.managedObjectContext) private var viewContext
+    @StateObject var appConfig = AppConfig.shared
+    @ObservedObject var viewModel : SettingViewModel
+    
     var body: some View {
         NavigationView {
+            Form {
+                Section(header: Text("Notifications settings")) {
+                    Toggle(isOn: $appConfig.notificationsTurnOn) {
+                        Text("Notification:")
+                    }
+                    .onChange(of: appConfig.notificationsTurnOn) { newValue in
+                        if newValue {
+                            if appConfig.notificationAccess == false {
+                                Notifications.shared.permissionGranted { granted in
+                                    if granted {
+                                        viewModel.turnOnNotifications()
+                                        appConfig.notificationsTurnOn = true
+                                    } else {
+                                        DispatchQueue.main.async {
+                                            appConfig.notificationsTurnOn = false
+                                            viewModel.goToSettingAlertPresent()
+                                        }
 
-            VStack{
-                HStack {
-                    SettingsButtonNofitication(buttonText: "Notification", buttonAction: {})
-                    SettingsButton(buttonText: "Erace all data", buttonAction: {
-                        deletionalert()
-                    })
+                                    }
+                                }
+                            } else {
+                                if appConfig.notificationsTurnOn {
+                                    viewModel.turnOffNotifications()
+                                    appConfig.notificationsTurnOn = false
+                                } else {
+                                    viewModel.turnOnNotifications()
+                                    appConfig.notificationsTurnOn = true
+                                }
+
+                            }
+                        }
+                    }
                 }
-                .padding(.top, 50)
-                Spacer()
+                
+                Section(header: Text("Sleep tracking settings")) {
+                    Button {
+                        viewModel.deleteButtonPressed(contex: viewContext)
+                    } label: {
+                        Text("Delete all data")
+                            .foregroundColor(Color.white)
+                    }
+                }
             }
+            .onAppear {
+                if !appConfig.notificationAccess {
+                    appConfig.notificationsTurnOn = false
+                }
+            }
+            .navigationBarTitle(Text("Settings"))
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Settings")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     xmarkButton
@@ -33,32 +73,21 @@ struct SettingsView: View {
             }
         }
     }
-
+    
     private var xmarkButton: some View {
         Group {
             Button {
-                viewModel.settingPresented.toggle()
+                viewService.settingPresented.toggle()
             } label: {
                 Image(systemName: "xmark.circle")
             }
             .tint(.white)
         }
     }
-
-    private func deletionalert() {
-        let alertBtnYes = AlertInfo.Button(title: "Yes", style: .destructive, action: {
-            viewModel.deleteAllData()
-        })
-        let alertBtnNo = AlertInfo.Button(title: "No", action: {})
-        let alert = AlertInfo(title: "Delete all remainders?",
-                              message: "By tapping YES you will remove all your data",
-                              buttons: [ alertBtnYes, alertBtnNo ])
-        HomePresenter.shared.show(alert: alert)
-    }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(viewModel: SettingViewModel(viewService: RemainderViewService(), contex: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)))
     }
 }

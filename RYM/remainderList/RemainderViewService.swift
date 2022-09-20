@@ -86,10 +86,24 @@ class RemainderViewService: ObservableObject {
 
     // MARK: Delete ALL data
 
-    func deleteAllData() {
+    func deleteAllData(context: NSManagedObjectContext) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
             let managedContext = appDelegate.coreDataStack.persistentContainer.viewContext
             let deleteAllEntities = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "MedicineRemainder"))
+
+            Notifications.shared.removePendingNotifications(IDs: notificationsIds)
+            var remainders: [MedicineRemainder] = []
+            let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
+            do {
+                remainders = try managedContext.fetch(fetchRequest)
+            } catch let error as NSError {
+                print("Could not fetch. \(error)")
+            }
+
+            for remainder in remainders {
+                context.delete(remainder)
+            }
+            self.notificationsIds = []
             do {
                 try managedContext.execute(deleteAllEntities)
             }
@@ -97,6 +111,38 @@ class RemainderViewService: ObservableObject {
                 print(error)
             }
         }
+    }
+
+    func turnOnAllNotifications(context: NSManagedObjectContext) {
+        var remainders: [MedicineRemainder] = []
+        let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
+        do {
+            remainders = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error)")
+        }
+        for remainder in remainders {
+            if remainder.isRemainderOn {
+                let calendar = Calendar.current
+                let weekdaySymbols: [String] = calendar.weekdaySymbols
+                if let remainderWeekdays = remainder.weekDays {
+                    for weekDay in remainderWeekdays {
+                        let id = UUID().uuidString
+
+                        let day = weekdaySymbols.firstIndex { currentDay in
+                            return currentDay == weekDay } ?? -1
+                        if day != -1 {
+                            Notifications.shared.scheduleNotification(remainderText: remainderText,
+                                                                      remainderId: id,
+                                                                      currentWeekDay: day,
+                                                                      remainderDate: remainderDate)
+                            notificationsIds.append(id)
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     // MARK: Erasing content
@@ -141,7 +187,6 @@ class RemainderViewService: ObservableObject {
                 notificationsIds.append(id)
             }
         }
-
     }
 
     // MARK: Done button status

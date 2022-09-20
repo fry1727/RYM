@@ -31,4 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        Notifications.shared.permissionGranted { granted in
+            AppConfig.shared.notificationAccess = granted
+        }
+    }
 }
