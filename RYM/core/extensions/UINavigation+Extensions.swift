@@ -13,7 +13,7 @@ extension UINavigationController: UIGestureRecognizerDelegate {
         interactivePopGestureRecognizer?.delegate = self
 
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .black
+        appearance.backgroundColor = .orange
         appearance.shadowColor = .clear
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor.white]

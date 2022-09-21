@@ -16,12 +16,14 @@
 		CD034D4728D1E1C300106D65 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1CB28C255D90032A747 /* BaseRouter.swift */; };
 		CD034D4828D1E1C700106D65 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1CD28C255E80032A747 /* BasePresenter.swift */; };
 		CD034D4928D1E1CD00106D65 /* UINavigation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1D028C256250032A747 /* UINavigation+Extensions.swift */; };
+		CD1653AF28D9E8FC003BFD49 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1653AE28D9E8FC003BFD49 /* SettingViewModel.swift */; };
+		CD3748B628D370730049E01F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3748B528D370730049E01F /* SettingsView.swift */; };
 		CD86545528D07041001CB65D /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545428D07041001CB65D /* CoreDataTest.swift */; };
 		CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545828D074BB001CB65D /* CoreDataStack.swift */; };
 		CD86545C28D0B520001CB65D /* OnboardingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */; };
 		CD86545E28D0B895001CB65D /* OnboardingRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */; };
 		E625F32F28CF2FF000D24337 /* ReminderViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */; };
-		E673795128C5E5AA00C785F2 /* RemainderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */; };
+		E673795128C5E5AA00C785F2 /* RemainderViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795028C5E5AA00C785F2 /* RemainderViewService.swift */; };
 		E673795328C5E79400C785F2 /* AddNewRemainder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795228C5E79400C785F2 /* AddNewRemainder.swift */; };
 		E673795F28C641EF00C785F2 /* MedicineReminderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795E28C641EF00C785F2 /* MedicineReminderCard.swift */; };
 		E67379A228C8DEF100C785F2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67379A128C8DEF100C785F2 /* Notifications.swift */; };
@@ -66,12 +68,14 @@
 
 /* Begin PBXFileReference section */
 		CD034D3628D1CE7E00106D65 /* AddRemainderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemainderUITests.swift; sourceTree = "<group>"; };
+		CD1653AE28D9E8FC003BFD49 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		CD3748B528D370730049E01F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CD86545428D07041001CB65D /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		CD86545828D074BB001CB65D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTest.swift; sourceTree = "<group>"; };
 		CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouterTest.swift; sourceTree = "<group>"; };
 		E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModelTest.swift; sourceTree = "<group>"; };
-		E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewModel.swift; sourceTree = "<group>"; };
+		E673795028C5E5AA00C785F2 /* RemainderViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewService.swift; sourceTree = "<group>"; };
 		E673795228C5E79400C785F2 /* AddNewRemainder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRemainder.swift; sourceTree = "<group>"; };
 		E673795E28C641EF00C785F2 /* MedicineReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineReminderCard.swift; sourceTree = "<group>"; };
 		E67379A128C8DEF100C785F2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD034D5128D2186E00106D65 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				CD1653AE28D9E8FC003BFD49 /* SettingViewModel.swift */,
+				CD3748B528D370730049E01F /* SettingsView.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
 		E673795928C61A0E00C785F2 /* addMedicine */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +182,7 @@
 				E67EF1D428C2567E0032A747 /* home */,
 				E67EF1DE28C2570A0032A747 /* onboarding */,
 				E67EF1DB28C256E60032A747 /* remainderList */,
+				CD034D5128D2186E00106D65 /* settings */,
 				E673795928C61A0E00C785F2 /* addMedicine */,
 				E67EF1C928C255B90032A747 /* core */,
 				E67EF19D28C24D410032A747 /* Assets.xcassets */,
@@ -253,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				E673795D28C641B100C785F2 /* supplimentary */,
-				E673795028C5E5AA00C785F2 /* RemainderViewModel.swift */,
+				E673795028C5E5AA00C785F2 /* RemainderViewService.swift */,
 				E67EF1DC28C256F50032A747 /* RemaindersListView.swift */,
 			);
 			path = remainderList;
@@ -450,12 +464,14 @@
 				E67EF1D628C256900032A747 /* HomeViewController.swift in Sources */,
 				E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */,
 				E67EF1DD28C256F50032A747 /* RemaindersListView.swift in Sources */,
+				CD1653AF28D9E8FC003BFD49 /* SettingViewModel.swift in Sources */,
 				E67EF1DA28C256C50032A747 /* HomePresenter.swift in Sources */,
 				CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */,
 				E67EF19228C24D3F0032A747 /* AppDelegate.swift in Sources */,
 				E67EF1C828C255A50032A747 /* LaunchScreenView.swift in Sources */,
-				E673795128C5E5AA00C785F2 /* RemainderViewModel.swift in Sources */,
+				E673795128C5E5AA00C785F2 /* RemainderViewService.swift in Sources */,
 				E673795F28C641EF00C785F2 /* MedicineReminderCard.swift in Sources */,
+				CD3748B628D370730049E01F /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

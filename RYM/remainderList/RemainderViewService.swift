@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-class RemainderViewModel: ObservableObject {
+class RemainderViewService: ObservableObject {
 
     // MARK: - New Remainder Properties
     @Published var addNewRemainder: Bool = false
@@ -21,7 +21,10 @@ class RemainderViewModel: ObservableObject {
     @Published var remainderDate: Date = Date()
 
     // MARK: Reminder Time Picker
-    @Published var showTimePicker: Bool = false
+    @Published var showTimePicker = false
+    
+    //MARK: Setting presenter
+    @Published var settingPresented = false
 
     // MARK: Edit Remainder
     @Published var editRemainder: MedicineRemainder?
@@ -81,6 +84,67 @@ class RemainderViewModel: ObservableObject {
         return false
     }
 
+    // MARK: Delete ALL data
+
+    func deleteAllData(context: NSManagedObjectContext) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            let managedContext = appDelegate.coreDataStack.persistentContainer.viewContext
+            let deleteAllEntities = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "MedicineRemainder"))
+
+            Notifications.shared.removePendingNotifications(IDs: notificationsIds)
+            var remainders: [MedicineRemainder] = []
+            let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
+            do {
+                remainders = try managedContext.fetch(fetchRequest)
+            } catch let error as NSError {
+                print("Could not fetch. \(error)")
+            }
+
+            for remainder in remainders {
+                context.delete(remainder)
+            }
+            self.notificationsIds = []
+            do {
+                try managedContext.execute(deleteAllEntities)
+            }
+            catch {
+                print(error)
+            }
+        }
+    }
+
+    func turnOnAllNotifications(context: NSManagedObjectContext) {
+        var remainders: [MedicineRemainder] = []
+        let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
+        do {
+            remainders = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error)")
+        }
+        for remainder in remainders {
+            if remainder.isRemainderOn {
+                let calendar = Calendar.current
+                let weekdaySymbols: [String] = calendar.weekdaySymbols
+                if let remainderWeekdays = remainder.weekDays {
+                    for weekDay in remainderWeekdays {
+                        let id = UUID().uuidString
+
+                        let day = weekdaySymbols.firstIndex { currentDay in
+                            return currentDay == weekDay } ?? -1
+                        if day != -1 {
+                            Notifications.shared.scheduleNotification(remainderText: remainderText,
+                                                                      remainderId: id,
+                                                                      currentWeekDay: day,
+                                                                      remainderDate: remainderDate)
+                            notificationsIds.append(id)
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
     // MARK: Erasing content
     func resetData() {
         title = ""
@@ -123,7 +187,6 @@ class RemainderViewModel: ObservableObject {
                 notificationsIds.append(id)
             }
         }
-
     }
 
     // MARK: Done button status

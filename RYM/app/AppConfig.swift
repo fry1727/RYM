@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class AppConfig {
+final class AppConfig: ObservableObject {
 
 #if TEST
     // Only used for tests
@@ -23,4 +23,5 @@ final class AppConfig {
 #endif
     @AppStorage("isFinishOnboarding") var isFinishOnboarding = false
     @AppStorage("isNotificationAccess") var notificationAccess = false
+    @AppStorage("notificationsTurnOn") var notificationsTurnOn = true
 }

@@ -9,11 +9,11 @@ import XCTest
 @testable import RYM
 
 class ReminderViewModelTest: XCTestCase {
-    var sut: RemainderViewModel!
+    var sut: RemainderViewService!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        sut = RemainderViewModel()
+        sut = RemainderViewService()
     }
 
     override func tearDownWithError() throws {

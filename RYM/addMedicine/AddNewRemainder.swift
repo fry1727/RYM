@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct AddNewRemainder: View {
-    @EnvironmentObject var viewModel: RemainderViewModel
+    @EnvironmentObject var viewModel: RemainderViewService
     @Environment(\.self) var environment
     let weekDays = Calendar.current.weekdaySymbols
 
@@ -235,7 +235,7 @@ struct AddNewRemainder: View {
 struct AddNewRemainder_Previews: PreviewProvider {
     static var previews: some View {
         AddNewRemainder()
-            .environmentObject(RemainderViewModel())
+            .environmentObject(RemainderViewService())
             .preferredColorScheme(.dark)
     }
 }
