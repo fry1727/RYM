@@ -133,8 +133,8 @@
 		CD034D5128D2186E00106D65 /* settings */ = {
 			isa = PBXGroup;
 			children = (
-				CD3748B528D370730049E01F /* SettingsView.swift */,
 				CD1653AE28D9E8FC003BFD49 /* SettingViewModel.swift */,
+				CD3748B528D370730049E01F /* SettingsView.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";

@@ -27,7 +27,6 @@ struct SettingsView: View {
                                 Notifications.shared.permissionGranted { granted in
                                     if granted {
                                         viewModel.turnOnNotifications()
-                                        appConfig.notificationsTurnOn = true
                                     } else {
                                         DispatchQueue.main.async {
                                             appConfig.notificationsTurnOn = false
@@ -37,11 +36,11 @@ struct SettingsView: View {
                                 }
                             } else {
                                 viewModel.turnOnNotifications()
-                                appConfig.notificationsTurnOn = true
                             }
                         } else {
-                            viewModel.turnOffNotifications()
-                            appConfig.notificationsTurnOn = false
+                            DispatchQueue.main.async {
+                                viewModel.turnOffNotificationAlertPresent()
+                            }
                         }
 
                     }

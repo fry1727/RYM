@@ -21,6 +21,7 @@ class SettingViewModel: ObservableObject {
     
     func turnOnNotifications() {
         self.viewService.turnOnAllNotifications(context: contex)
+        AppConfig.shared.notificationsTurnOn = true
     }
     
     func turnOffNotifications() {
@@ -59,10 +60,23 @@ class SettingViewModel: ObservableObject {
             }
         }
         let alertButtonCancel = AlertInfo.Button(title: "Cancel", action: {})
-        let alert = AlertInfo(title: "Notifications is turned of",
-                              message: "Please go to settings and Turn ON notifications",
+        let alert = AlertInfo(title: "Notifications is turned off",
+                              message: "Please go to settings and turn on notifications",
                               buttons: [ alertButtonCancel, alertButtonSettings ])
         HomePresenter.shared.show(alert: alert)
     }
-    
+
+    func turnOffNotificationAlertPresent() {
+        let alertButtonYes = AlertInfo.Button(title: "Yes") {
+            self.turnOffNotifications()
+            AppConfig.shared.notificationsTurnOn = false
+        }
+        let alertButtonNo = AlertInfo.Button(title: "No", action: {
+            AppConfig.shared.notificationsTurnOn = true
+        })
+        let alert = AlertInfo(title: "Do you realy want to turn off notifications?",
+                              message: nil,
+                              buttons: [ alertButtonYes, alertButtonNo ])
+        HomePresenter.shared.show(alert: alert)
+    }
 }
