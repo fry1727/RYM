@@ -33,20 +33,17 @@ struct SettingsView: View {
                                             appConfig.notificationsTurnOn = false
                                             viewModel.goToSettingAlertPresent()
                                         }
-
                                     }
                                 }
                             } else {
-                                if appConfig.notificationsTurnOn {
-                                    viewModel.turnOffNotifications()
-                                    appConfig.notificationsTurnOn = false
-                                } else {
-                                    viewModel.turnOnNotifications()
-                                    appConfig.notificationsTurnOn = true
-                                }
-
+                                viewModel.turnOnNotifications()
+                                appConfig.notificationsTurnOn = true
                             }
+                        } else {
+                            viewModel.turnOffNotifications()
+                            appConfig.notificationsTurnOn = false
                         }
+
                     }
                 }
                 
