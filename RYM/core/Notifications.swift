@@ -9,19 +9,15 @@ import UIKit
 import UserNotifications
 
 // MARK: - Notifications
-
+/// This is a class for working with Notification in Project
 final class Notifications: NSObject, UNUserNotificationCenterDelegate {
 
 #if TEST
-
     // Only used for tests
     static var sharedNotifications: Notifications!
-
-    // Public init
     override init() {
         super.init()
     }
-
 #else
 
     static let shared = Notifications()
@@ -30,7 +26,6 @@ final class Notifications: NSObject, UNUserNotificationCenterDelegate {
         requestAutorization()
         UNUserNotificationCenter.current().delegate = self
     }
-
 #endif
 
     // MARK: - Properties
@@ -38,6 +33,10 @@ final class Notifications: NSObject, UNUserNotificationCenterDelegate {
 
     // MARK: - Request permissions
 
+    /**
+     Call this function for showing reuqest for showing user a Notifications.
+     - Iportant: acording via Apple GuideLines you can show request only 1 time
+     */
     func requestAutorization() {
         notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             guard granted else {
@@ -48,11 +47,10 @@ final class Notifications: NSObject, UNUserNotificationCenterDelegate {
         }
     }
 
-    func unregisteredFromNotifications() {
-        notificationCenter.removeAllPendingNotificationRequests()
-    }
     // MARK: - Create Notification
-
+    /**
+     Function for creating local user notifications.
+     */
     func scheduleNotification(remainderText: String, remainderId: String, currentWeekDay: Int, remainderDate: Date) {
 
         let content = UNMutableNotificationContent()
@@ -73,12 +71,26 @@ final class Notifications: NSObject, UNUserNotificationCenterDelegate {
         notificationCenter.add(request)
     }
 
-    // MARK: - Delete Notifications
+    // MARK: - Delete notifications
+    /**
+     Function for deleting local user notifications by id
+     */
     func removePendingNotifications(IDs: [String]) {
         notificationCenter
             .removePendingNotificationRequests(withIdentifiers: IDs)
     }
 
+    /**
+     Function for deleting all user's pending notifications
+     */
+    func unregisteredFromNotifications() {
+        notificationCenter.removeAllPendingNotificationRequests()
+    }
+
+    // MARK: - Check permission for notifications
+    /**
+     Function for checking user permisin for showing notifications
+     */
     func permissionGranted(completion: @escaping (Bool) -> Void) {
         notificationCenter.getNotificationSettings { settings in
             completion(settings.authorizationStatus == .authorized)

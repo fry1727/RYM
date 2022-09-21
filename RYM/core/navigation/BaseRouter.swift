@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+/// This is a protocol for navigation in project
 protocol BaseRouter {
     var navigationController: UINavigationController? { get set }
 

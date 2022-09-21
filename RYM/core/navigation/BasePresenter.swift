@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+/// This is a struct for creating alerts in project
 struct AlertInfo {
     let title: String?
     let message: String?
@@ -20,6 +21,7 @@ struct AlertInfo {
     }
 }
 
+/// This is a protocol for working with alerts and action sheets in project
 protocol BasePresenter {
     var navigationController: UINavigationController? { get set }
 
