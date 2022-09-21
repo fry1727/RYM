@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BaseRouter Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/BaseRouter" class="dashAnchor"></a>
+    <a title="BaseRouter Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        BaseRouter Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppConfig.html">AppConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CoreDataStack.html">CoreDataStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomePresenter.html">HomePresenter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeRouter.html">HomeRouter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeViewController.html">HomeViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MedicineRemainder.html">MedicineRemainder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NavigationController.html">NavigationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Notifications.html">Notifications</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OnboardingRouter.html">OnboardingRouter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OnboardingViewModel.html">OnboardingViewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RemainderViewService.html">RemainderViewService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SettingViewModel.html">SettingViewModel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController.html">UINavigationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/BasePresenter.html">BasePresenter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BaseRouter.html">BaseRouter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AddNewRemainder.html">AddNewRemainder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AddNewRemainder_Previews.html">AddNewRemainder_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AlertInfo.html">AlertInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AlertInfo/Button.html">– Button</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LaunchScreenView.html">LaunchScreenView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MedicineReminderCard.html">MedicineReminderCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MedicineReminderCard_Previews.html">MedicineReminderCard_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingFeatureView.html">OnboardingFeatureView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingFeatureView_Previews.html">OnboardingFeatureView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingView.html">OnboardingView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingView_Previews.html">OnboardingView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RemaindersListView.html">RemaindersListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RemaindersListView_Previews.html">RemaindersListView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SettingsView.html">SettingsView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SettingsView_Previews.html">SettingsView_Previews</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>BaseRouter</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">BaseRouter</span></code></pre>
+
+                </div>
+              </div>
+            <p>This is a protocol for navigation in project</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM10BaseRouterP20navigationControllerSo012UINavigationE0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/navigationController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM10BaseRouterP20navigationControllerSo012UINavigationE0CSgvp">navigationController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM10BaseRouterP4push4view8animatedyqd___Sbt7SwiftUI4ViewRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/push(view:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM10BaseRouterP4push4view8animatedyqd___Sbt7SwiftUI4ViewRd__lF">push(view:<wbr>animated:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Function for push new View in App Navigation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">push</span><span class="o">&lt;</span><span class="kt">V</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">V</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="k">where</span> <span class="kt">V</span> <span class="p">:</span> <span class="kt">View</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM10BaseRouterP3popyyF"></a>
+                    <a name="//apple_ref/swift/Method/pop()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM10BaseRouterP3popyyF">pop()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Function for pop to previous view in App Navigation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pop</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM10BaseRouterP9popToRootyyF"></a>
+                    <a name="//apple_ref/swift/Method/popToRoot()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM10BaseRouterP9popToRootyyF">popToRoot()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Function for pop to root view in App Navigation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">popToRoot</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM10BaseRouterP7present4view10transitionyqd___So22UIModalTransitionStyleVt7SwiftUI4ViewRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/present(view:transition:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM10BaseRouterP7present4view10transitionyqd___So22UIModalTransitionStyleVt7SwiftUI4ViewRd__lF">present(view:<wbr>transition:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Function for present new View in App Navigation with crossDissolve transition</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">present</span><span class="o">&lt;</span><span class="kt">V</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">V</span><span class="p">,</span> <span class="nv">transition</span><span class="p">:</span> <span class="kt">UIModalTransitionStyle</span><span class="p">)</span> <span class="k">where</span> <span class="kt">V</span> <span class="p">:</span> <span class="kt">View</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM10BaseRouterP7dissmis8animated10completionySb_yycSgtF"></a>
+                    <a name="//apple_ref/swift/Method/dissmis(animated:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM10BaseRouterP7dissmis8animated10completionySb_yycSgtF">dissmis(animated:<wbr>completion:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Function for dismiss from current  View in App Navigation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dissmis</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM10BaseRouterP13dissmisToRootyyF"></a>
+                    <a name="//apple_ref/swift/Method/dissmisToRoot()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM10BaseRouterP13dissmisToRootyyF">dissmisToRoot()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Function for dismiss to root from current  View in App Navigation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dissmisToRoot</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM10BaseRouterPAAE5topVCSo16UIViewControllerCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/topVC" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM10BaseRouterPAAE5topVCSo16UIViewControllerCSgvp">topVC</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Implement custom navigation controller</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">topVC</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM10BaseRouterPAAE4push5views8animatedySayqd__G_Sbt7SwiftUI4ViewRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/push(views:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM10BaseRouterPAAE4push5views8animatedySayqd__G_Sbt7SwiftUI4ViewRd__lF">push(views:<wbr>animated:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Function for push new Views in App Navigation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">push</span><span class="o">&lt;</span><span class="kt">V</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">views</span><span class="p">:</span> <span class="p">[</span><span class="kt">V</span><span class="p">],</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">where</span> <span class="kt">V</span> <span class="p">:</span> <span class="kt">View</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2022-09-21)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

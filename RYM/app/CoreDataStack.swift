@@ -8,12 +8,12 @@
 import Foundation
 import CoreData
 
-
+// MARK: Main class for work with Core Data
 class CoreDataStack: NSObject {
-
+    
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
-
+        
         let container = NSPersistentContainer(name: "RYM")
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
@@ -22,7 +22,7 @@ class CoreDataStack: NSObject {
         })
         return container
     }()
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

@@ -58,9 +58,7 @@ extension BasePresenter {
         }
         topVC?.present(alertController, animated: true)
     }
-    /**
-     This is a func for show actionSheet in project
-     */
+    ///  This is a func for show actionSheet in project
     func show(actionSheet: AlertInfo) {
         let alertController = UIAlertController(title: actionSheet.title,
                                                 message: actionSheet.message,

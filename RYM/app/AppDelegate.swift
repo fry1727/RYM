@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreData
-
+// MARK: - Main class of application
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-
+/// For update notification permissin status  
     func applicationDidBecomeActive(_ application: UIApplication) {
         Notifications.shared.permissionGranted { granted in
             AppConfig.shared.notificationAccess = granted
