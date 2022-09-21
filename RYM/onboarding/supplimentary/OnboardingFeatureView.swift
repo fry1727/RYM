@@ -7,21 +7,22 @@
 
 import SwiftUI
 
+//MARK: - Struct for features on onboarding screen
 struct OnboardingFeatureView: View {
     var systemImageName: String
     var titleText: String
     var featureText: String
-
+    
     var body: some View {
         HStack(spacing: 0) {
             
             Spacer()
-
+            
             Image(systemName: systemImageName)
                 .font(.system(size: 35))
                 .foregroundColor(.orange)
             Spacer()
-
+            
             VStack(alignment: .leading, spacing: 4) {
                 Text(titleText)
                     .foregroundColor(.white)
@@ -45,7 +46,7 @@ struct OnboardingFeatureView_Previews: PreviewProvider {
                                       titleText: "Watch your medicine",
                                       featureText: "You can easily manage your medicine. You can easily manage your medicine. You can easily manage your medicine")
                 .padding(.bottom, 10)
-
+                
                 OnboardingFeatureView(systemImageName: "bell.circle",
                                       titleText: "Notification",
                                       featureText: "Flexibly set up notifications, never miss a dose of medication")
