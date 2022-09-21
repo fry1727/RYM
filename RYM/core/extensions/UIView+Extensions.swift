@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// This is a extension for UIView that allow use height and width of screen easly
+/// and allow to work with edges of frame
 extension UIView {
     var width: CGFloat {
         return frame.size.width
