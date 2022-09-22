@@ -47,7 +47,7 @@ struct SettingsView: View {
                     }
                 }
                 
-                Section(header: Text("Sleep tracking settings")) {
+                Section(header: Text("Get started from begining")) {
                     Button {
                         viewModel.deleteButtonPressed(contex: viewContext)
                     } label: {
