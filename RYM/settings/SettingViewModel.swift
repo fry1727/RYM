@@ -9,25 +9,28 @@ import Foundation
 import SwiftUI
 import CoreData
 
+//MARK: - ViewModel for setting
 class SettingViewModel: ObservableObject {
     
     private var viewService: RemainderViewService
     private var contex: NSManagedObjectContext
-
+    
     init(viewService: RemainderViewService, contex: NSManagedObjectContext) {
         self.viewService = viewService
         self.contex = contex
     }
     
+    /// Function for turn on notidication and turn on config notification state
     func turnOnNotifications() {
         self.viewService.turnOnAllNotifications(context: contex)
         AppConfig.shared.notificationsTurnOn = true
     }
     
+    /// Function for delete all panding notification
     func turnOffNotifications() {
         Notifications.shared.removePendingNotifications(IDs: self.viewService.notificationsIds)
     }
-    
+    /// Function for delete all data from Core Data
     func deleteButtonPressed(contex: NSManagedObjectContext) {
         let alertBtnYes = AlertInfo.Button(title: "Yes", style: .destructive, action: {
             self.viewService.deleteAllData(context: contex)
@@ -40,8 +43,8 @@ class SettingViewModel: ObservableObject {
         HomePresenter.shared.show(alert: alert)
     }
     
+    /// Function fow showing alert for deleting all data
     private func finishDeletionAlertPresent() {
-        
         let alertBtn = AlertInfo.Button(title: "OK", action: {})
         let alert = AlertInfo(title: "All remainders are deleted",
                               message: nil,
@@ -49,6 +52,7 @@ class SettingViewModel: ObservableObject {
         HomePresenter.shared.show(alert: alert)
     }
     
+    /// Function fow showing alert for turn on a notification from setting
     func goToSettingAlertPresent() {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
             return
@@ -65,7 +69,8 @@ class SettingViewModel: ObservableObject {
                               buttons: [ alertButtonCancel, alertButtonSettings ])
         HomePresenter.shared.show(alert: alert)
     }
-
+    
+    /// Function fow showing alert for turning off notifications
     func turnOffNotificationAlertPresent() {
         let alertButtonYes = AlertInfo.Button(title: "Yes") {
             self.turnOffNotifications()

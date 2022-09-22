@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+//MARK: - View for work with setting
 struct SettingsView: View {
     @EnvironmentObject var viewService: RemainderViewService
     @Environment(\.managedObjectContext) private var viewContext
@@ -42,7 +43,7 @@ struct SettingsView: View {
                                 viewModel.turnOffNotificationAlertPresent()
                             }
                         }
-
+                        
                     }
                 }
                 
