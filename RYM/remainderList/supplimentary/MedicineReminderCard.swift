@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//MARK: - Card for showing remainder in remainders list
 struct MedicineReminderCard: View {
     var medicineRemainder: MedicineRemainder
 
@@ -93,7 +94,7 @@ struct MedicineReminderCard: View {
             }
         }
     }
-
+///Convert date to string
     func dateToString(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd"
