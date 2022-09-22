@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Notifications Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Notifications" class="dashAnchor"></a>
+    <a title="Notifications Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        Notifications Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppConfig.html">AppConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CoreDataStack.html">CoreDataStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomePresenter.html">HomePresenter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeRouter.html">HomeRouter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeViewController.html">HomeViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MedicineRemainder.html">MedicineRemainder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NavigationController.html">NavigationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Notifications.html">Notifications</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OnboardingRouter.html">OnboardingRouter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OnboardingViewModel.html">OnboardingViewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RemainderViewService.html">RemainderViewService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SettingViewModel.html">SettingViewModel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController.html">UINavigationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/BasePresenter.html">BasePresenter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BaseRouter.html">BaseRouter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AddNewRemainder.html">AddNewRemainder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AddNewRemainder_Previews.html">AddNewRemainder_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AlertInfo.html">AlertInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AlertInfo/Button.html">– Button</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LaunchScreenView.html">LaunchScreenView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MedicineReminderCard.html">MedicineReminderCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MedicineReminderCard_Previews.html">MedicineReminderCard_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingFeatureView.html">OnboardingFeatureView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingFeatureView_Previews.html">OnboardingFeatureView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingView.html">OnboardingView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingView_Previews.html">OnboardingView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RemaindersListView.html">RemaindersListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RemaindersListView_Previews.html">RemaindersListView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SettingsView.html">SettingsView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SettingsView_Previews.html">SettingsView_Previews</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Notifications</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">Notifications</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UNUserNotificationCenterDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>This is a class for working with Notification in Project</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Variable/sharedNotifications" class="dashAnchor"></a>
+                    <a class="token" href="#/">sharedNotifications</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM13NotificationsC6sharedACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM13NotificationsC6sharedACvpZ">shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">Notifications</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM13NotificationsC10initializeyyF"></a>
+                    <a name="//apple_ref/swift/Method/initialize()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM13NotificationsC10initializeyyF">initialize()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initialize</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Properties"></a>
+                  <h3 class="section-name"><span>Properties</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM13NotificationsC18notificationCenterSo018UNUserNotificationD0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/notificationCenter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM13NotificationsC18notificationCenterSo018UNUserNotificationD0Cvp">notificationCenter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">notificationCenter</span><span class="p">:</span> <span class="kt">UNUserNotificationCenter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Request%20permissions"></a>
+                <a name="//apple_ref/swift/Section/Request permissions" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Request%20permissions"></a>
+                  <h3 class="section-name"><span>Request permissions</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM13NotificationsC19requestAutorizationyyF"></a>
+                    <a name="//apple_ref/swift/Method/requestAutorization()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM13NotificationsC19requestAutorizationyyF">requestAutorization()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Call this function for showing reuqest for showing user a Notifications.</p>
+
+<ul>
+<li>Iportant: acording via Apple GuideLines you can show request only 1 time</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">requestAutorization</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Create%20Notification"></a>
+                <a name="//apple_ref/swift/Section/Create Notification" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Create%20Notification"></a>
+                  <h3 class="section-name"><span>Create Notification</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM13NotificationsC20scheduleNotification13remainderText0E2Id14currentWeekDay0E4DateySS_SSSi10Foundation0K0VtF"></a>
+                    <a name="//apple_ref/swift/Method/scheduleNotification(remainderText:remainderId:currentWeekDay:remainderDate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM13NotificationsC20scheduleNotification13remainderText0E2Id14currentWeekDay0E4DateySS_SSSi10Foundation0K0VtF">scheduleNotification(remainderText:<wbr>remainderId:<wbr>currentWeekDay:<wbr>remainderDate:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Function for creating local user notifications.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">scheduleNotification</span><span class="p">(</span><span class="nv">remainderText</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">remainderId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">currentWeekDay</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">remainderDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Delete%20notifications"></a>
+                <a name="//apple_ref/swift/Section/Delete notifications" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Delete%20notifications"></a>
+                  <h3 class="section-name"><span>Delete notifications</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM13NotificationsC013removePendingB03IDsySaySSG_tF"></a>
+                    <a name="//apple_ref/swift/Method/removePendingNotifications(IDs:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM13NotificationsC013removePendingB03IDsySaySSG_tF">removePendingNotifications(IDs:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Function for deleting local user notifications by id</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removePendingNotifications</span><span class="p">(</span><span class="kt">IDs</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM13NotificationsC016unregisteredFromB0yyF"></a>
+                    <a name="//apple_ref/swift/Method/unregisteredFromNotifications()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM13NotificationsC016unregisteredFromB0yyF">unregisteredFromNotifications()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Function for deleting all user&rsquo;s pending notifications</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">unregisteredFromNotifications</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Check%20permission%20for%20notifications"></a>
+                <a name="//apple_ref/swift/Section/Check permission for notifications" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Check%20permission%20for%20notifications"></a>
+                  <h3 class="section-name"><span>Check permission for notifications</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM13NotificationsC17permissionGranted10completionyySbc_tF"></a>
+                    <a name="//apple_ref/swift/Method/permissionGranted(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM13NotificationsC17permissionGranted10completionyySbc_tF">permissionGranted(completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Function for checking user permisin for showing notifications</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">permissionGranted</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2022-09-22)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

@@ -8,6 +8,9 @@
 import SwiftUI
 import UIKit
 
+/**
+ This is a struct for creating alerts in project
+ */
 struct AlertInfo {
     let title: String?
     let message: String?
@@ -20,6 +23,7 @@ struct AlertInfo {
     }
 }
 
+/// This is a protocol for working with alerts and action sheets in project
 protocol BasePresenter {
     var navigationController: UINavigationController? { get set }
 
@@ -35,7 +39,13 @@ extension BasePresenter {
         }
         return topVC
     }
-
+    /**
+     This is a func for show alerts in project
+     ### Usage Example: ###
+     ````
+     HomePresenter.shared.show(alert: alert)
+     ````
+     */
     func show(alert: AlertInfo) {
         let alertController = UIAlertController(title: alert.title,
                                                 message: alert.message,
@@ -48,7 +58,7 @@ extension BasePresenter {
         }
         topVC?.present(alertController, animated: true)
     }
-
+    ///  This is a func for show actionSheet in project
     func show(actionSheet: AlertInfo) {
         let alertController = UIAlertController(title: actionSheet.title,
                                                 message: actionSheet.message,

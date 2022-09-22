@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+//MARK: - View for work with setting
 struct SettingsView: View {
     @EnvironmentObject var viewService: RemainderViewService
     @Environment(\.managedObjectContext) private var viewContext
@@ -42,11 +43,11 @@ struct SettingsView: View {
                                 viewModel.turnOffNotificationAlertPresent()
                             }
                         }
-
+                        
                     }
                 }
                 
-                Section(header: Text("Sleep tracking settings")) {
+                Section(header: Text("Get started from begining")) {
                     Button {
                         viewModel.deleteButtonPressed(contex: viewContext)
                     } label: {

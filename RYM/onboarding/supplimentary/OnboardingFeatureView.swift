@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//MARK: - Struct for features on onboarding screen
 struct OnboardingFeatureView: View {
     var systemImageName: String
     var titleText: String

@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+//MARK: - Struct for adding new reminder
 struct AddNewRemainder: View {
     @EnvironmentObject var viewModel: RemainderViewService
     @Environment(\.self) var environment

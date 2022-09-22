@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+//MARK: - Main view of the application
 struct RemaindersListView: View {
     @FetchRequest(entity: MedicineRemainder.entity(),
                   sortDescriptors: [NSSortDescriptor(keyPath: \MedicineRemainder.dateAdded, ascending: false)],
@@ -43,7 +44,6 @@ struct RemaindersListView: View {
                 let settingsModel = SettingViewModel(viewService: viewModel, contex: viewContext)
                 SettingsView(viewModel: settingsModel)
                     .environmentObject(viewModel)
-//                    .environment(\.managedObjectContext, viewContext)
             }
             .environment(\.managedObjectContext, viewContext)
 

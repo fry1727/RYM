@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+// MARK: - Second screen of application (after Launch screen)
 struct LaunchScreenView: View {
     weak var navigationController: UINavigationController?
     var viewContext: NSPersistentContainer
@@ -23,6 +24,7 @@ struct LaunchScreenView: View {
             .environment(\.managedObjectContext, viewContext.viewContext)
     }
 
+    /// Functuion that order what screen must be shown (onboarding or main screen)
     private func showInitialView() {
         if isFinishOnboarding {
             navigationController?.setViewControllers([HomeViewController(viewContex: viewContext)], animated: false)

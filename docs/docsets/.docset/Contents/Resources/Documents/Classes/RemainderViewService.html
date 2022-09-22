@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RemainderViewService Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/RemainderViewService" class="dashAnchor"></a>
+    <a title="RemainderViewService Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        RemainderViewService Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppConfig.html">AppConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CoreDataStack.html">CoreDataStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomePresenter.html">HomePresenter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeRouter.html">HomeRouter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeViewController.html">HomeViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MedicineRemainder.html">MedicineRemainder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NavigationController.html">NavigationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Notifications.html">Notifications</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OnboardingRouter.html">OnboardingRouter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OnboardingViewModel.html">OnboardingViewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RemainderViewService.html">RemainderViewService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SettingViewModel.html">SettingViewModel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UINavigationController.html">UINavigationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/BasePresenter.html">BasePresenter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BaseRouter.html">BaseRouter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AddNewRemainder.html">AddNewRemainder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AddNewRemainder_Previews.html">AddNewRemainder_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AlertInfo.html">AlertInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AlertInfo/Button.html">– Button</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LaunchScreenView.html">LaunchScreenView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MedicineReminderCard.html">MedicineReminderCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MedicineReminderCard_Previews.html">MedicineReminderCard_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingFeatureView.html">OnboardingFeatureView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingFeatureView_Previews.html">OnboardingFeatureView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingView.html">OnboardingView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OnboardingView_Previews.html">OnboardingView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RemaindersListView.html">RemaindersListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RemaindersListView_Previews.html">RemaindersListView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SettingsView.html">SettingsView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SettingsView_Previews.html">SettingsView_Previews</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>RemainderViewService</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">RemainderViewService</span> <span class="p">:</span> <span class="kt">ObservableObject</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/New%20Remainder%20Properties"></a>
+                <a name="//apple_ref/swift/Section/New Remainder Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/New%20Remainder%20Properties"></a>
+                  <h3 class="section-name"><span>New Remainder Properties</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC06addNewB0Sbvp"></a>
+                    <a name="//apple_ref/swift/Property/addNewRemainder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC06addNewB0Sbvp">addNewRemainder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">addNewRemainder</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC5titleSSvp"></a>
+                    <a name="//apple_ref/swift/Property/title" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC5titleSSvp">title</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC14remainderColorSSvp"></a>
+                    <a name="//apple_ref/swift/Property/remainderColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC14remainderColorSSvp">remainderColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">remainderColor</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC8weekDaysSaySSGvp"></a>
+                    <a name="//apple_ref/swift/Property/weekDays" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC8weekDaysSaySSGvp">weekDays</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">weekDays</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC02isB2OnSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isRemainderOn" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC02isB2OnSbvp">isRemainderOn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">isRemainderOn</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC13remainderTextSSvp"></a>
+                    <a name="//apple_ref/swift/Property/remainderText" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC13remainderTextSSvp">remainderText</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">remainderText</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC13remainderDate10Foundation0F0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/remainderDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC13remainderDate10Foundation0F0Vvp">remainderDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">remainderDate</span><span class="p">:</span> <span class="kt">Date</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Reminder%20Time%20Picker"></a>
+                <a name="//apple_ref/swift/Section/Reminder Time Picker" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Reminder%20Time%20Picker"></a>
+                  <h3 class="section-name"><span>Reminder Time Picker</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC14showTimePickerSbvp"></a>
+                    <a name="//apple_ref/swift/Property/showTimePicker" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC14showTimePickerSbvp">showTimePicker</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">showTimePicker</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Setting%20presenter"></a>
+                <a name="//apple_ref/swift/Section/Setting presenter" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Setting%20presenter"></a>
+                  <h3 class="section-name"><span>Setting presenter</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC16settingPresentedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/settingPresented" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC16settingPresentedSbvp">settingPresented</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">settingPresented</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Edit%20Remainder"></a>
+                <a name="//apple_ref/swift/Section/Edit Remainder" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Edit%20Remainder"></a>
+                  <h3 class="section-name"><span>Edit Remainder</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC04editB0AA08MedicineB0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/editRemainder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC04editB0AA08MedicineB0CSgvp">editRemainder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">editRemainder</span><span class="p">:</span> <span class="kt"><a href="../Classes/MedicineRemainder.html">MedicineRemainder</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Notification%20access%20status"></a>
+                <a name="//apple_ref/swift/Section/Notification access status" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Notification%20access%20status"></a>
+                  <h3 class="section-name"><span>Notification access status</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC18notificationAccessSbvp"></a>
+                    <a name="//apple_ref/swift/Property/notificationAccess" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC18notificationAccessSbvp">notificationAccess</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">notificationAccess</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC16notificationsIdsSaySSGvp"></a>
+                    <a name="//apple_ref/swift/Property/notificationsIds" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC16notificationsIdsSaySSGvp">notificationsIds</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">notificationsIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Adding%20remainder%20to%20Database"></a>
+                <a name="//apple_ref/swift/Section/Adding remainder to Database" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Adding%20remainder%20to%20Database"></a>
+                  <h3 class="section-name"><span>Adding remainder to Database</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC03addB07contextSbSo22NSManagedObjectContextC_tF"></a>
+                    <a name="//apple_ref/swift/Method/addRemainder(context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC03addB07contextSbSo22NSManagedObjectContextC_tF">addRemainder(context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addRemainder</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Deleting%20medicineRemainders%20from%20Database"></a>
+                <a name="//apple_ref/swift/Section/Deleting medicineRemainders from Database" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Deleting%20medicineRemainders%20from%20Database"></a>
+                  <h3 class="section-name"><span>Deleting medicineRemainders from Database</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC06deleteB07contextSbSo22NSManagedObjectContextC_tF"></a>
+                    <a name="//apple_ref/swift/Method/deleteRemainder(context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC06deleteB07contextSbSo22NSManagedObjectContextC_tF">deleteRemainder(context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteRemainder</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Delete%20ALL%20data"></a>
+                <a name="//apple_ref/swift/Section/Delete ALL data" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Delete%20ALL%20data"></a>
+                  <h3 class="section-name"><span>Delete ALL data</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC13deleteAllData7contextySo22NSManagedObjectContextC_tF"></a>
+                    <a name="//apple_ref/swift/Method/deleteAllData(context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC13deleteAllData7contextySo22NSManagedObjectContextC_tF">deleteAllData(context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteAllData</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Function%20for%20turn%20on%20all%20notifications"></a>
+                <a name="//apple_ref/swift/Section/Function for turn on all notifications" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Function%20for%20turn%20on%20all%20notifications"></a>
+                  <h3 class="section-name"><span>Function for turn on all notifications</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC22turnOnAllNotifications7contextySo22NSManagedObjectContextC_tF"></a>
+                    <a name="//apple_ref/swift/Method/turnOnAllNotifications(context:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC22turnOnAllNotifications7contextySo22NSManagedObjectContextC_tF">turnOnAllNotifications(context:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">turnOnAllNotifications</span><span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Erasing%20content"></a>
+                <a name="//apple_ref/swift/Section/Erasing content" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Erasing%20content"></a>
+                  <h3 class="section-name"><span>Erasing content</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC9resetDatayyF"></a>
+                    <a name="//apple_ref/swift/Method/resetData()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC9resetDatayyF">resetData()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resetData</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Restoring%20editing%20data"></a>
+                <a name="//apple_ref/swift/Section/Restoring editing data" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Restoring%20editing%20data"></a>
+                  <h3 class="section-name"><span>Restoring editing data</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC18restoreEditingDatayyF"></a>
+                    <a name="//apple_ref/swift/Method/restoreEditingData()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC18restoreEditingDatayyF">restoreEditingData()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">restoreEditingData</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Adding%20Notifications"></a>
+                <a name="//apple_ref/swift/Section/Adding Notifications" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Adding%20Notifications"></a>
+                  <h3 class="section-name"><span>Adding Notifications</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC32sheduleNotificationsAndCreateIdsyyF"></a>
+                    <a name="//apple_ref/swift/Method/sheduleNotificationsAndCreateIds()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC32sheduleNotificationsAndCreateIdsyyF">sheduleNotificationsAndCreateIds()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sheduleNotificationsAndCreateIds</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Done%20button%20status"></a>
+                <a name="//apple_ref/swift/Section/Done button status" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Done%20button%20status"></a>
+                  <h3 class="section-name"><span>Done button status</span>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3RYM20RemainderViewServiceC10doneStatusSbyF"></a>
+                    <a name="//apple_ref/swift/Method/doneStatus()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3RYM20RemainderViewServiceC10doneStatusSbyF">doneStatus()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">doneStatus</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2022-09-22)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

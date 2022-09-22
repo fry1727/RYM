@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// This is a extension for customizing navigation view
 extension UINavigationController: UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +28,11 @@ extension UINavigationController: UIGestureRecognizerDelegate {
         return viewControllers.count > 1
     }
 }
+/// This is a custom class of navigation controller
+/**
+ https://stackoverflow.com/a/60598558
+ */
 
-/// https://stackoverflow.com/a/60598558
 class NavigationController: UINavigationController {
     var isSwipeToBackEnabled = true
 

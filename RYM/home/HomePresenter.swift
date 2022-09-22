@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Basic class for navigation
 final class HomePresenter: BasePresenter {
     static let shared = HomePresenter()
 
