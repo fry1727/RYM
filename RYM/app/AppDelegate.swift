@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+
 // MARK: - Main class of application
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
