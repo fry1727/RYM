@@ -138,6 +138,16 @@ struct RemaindersListView: View {
                     viewModel.restoreEditingData()
                     viewModel.addNewRemainder.toggle()
                 }
+                .contextMenu {
+                    Button(action: {
+                        if let remainderContex = remainder.managedObjectContext {
+                            viewModel.editRemainder = remainder
+                            _ = viewModel.deleteRemainder(context: remainderContex)
+                        }
+                    } ) {
+                        Text("Delete")
+                    }
+                }
         }
     }
 }
