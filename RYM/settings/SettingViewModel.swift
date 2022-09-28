@@ -11,18 +11,15 @@ import CoreData
 
 //MARK: - ViewModel for setting
 class SettingViewModel: ObservableObject {
-    
     private var viewService: RemainderViewService
-    private var contex: NSManagedObjectContext
     
-    init(viewService: RemainderViewService, contex: NSManagedObjectContext) {
+    init(viewService: RemainderViewService) {
         self.viewService = viewService
-        self.contex = contex
     }
     
     /// Function for turn on notidication and turn on config notification state
     func turnOnNotifications() {
-        self.viewService.turnOnAllNotifications(context: contex)
+        self.viewService.turnOnAllNotifications()
         AppConfig.shared.notificationsTurnOn = true
     }
     
@@ -31,9 +28,9 @@ class SettingViewModel: ObservableObject {
         Notifications.shared.removePendingNotifications(IDs: self.viewService.notificationsIds)
     }
     /// Function for delete all data from Core Data
-    func deleteButtonPressed(contex: NSManagedObjectContext) {
+    func deleteButtonPressed() {
         let alertBtnYes = AlertInfo.Button(title: "Yes", style: .destructive, action: {
-            self.viewService.deleteAllData(context: contex)
+            self.viewService.deleteAllData()
             self.finishDeletionAlertPresent()
         })
         let alertBtnNo = AlertInfo.Button(title: "No", action: {})

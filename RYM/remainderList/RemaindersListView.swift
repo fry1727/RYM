@@ -10,10 +10,7 @@ import CoreData
 
 //MARK: - Main view of the application
 struct RemaindersListView: View {
-    @FetchRequest(entity: MedicineRemainder.entity(),
-                  sortDescriptors: [NSSortDescriptor(keyPath: \MedicineRemainder.dateAdded, ascending: false)],
-                  predicate: nil, animation: .easeInOut) var remainders: FetchedResults<MedicineRemainder>
-    @StateObject var viewModel = RemainderViewService()
+    @ObservedObject var viewService: RemainderViewService
     @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {
@@ -21,7 +18,7 @@ struct RemaindersListView: View {
             VStack {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 15) {
-                        if remainders.count == 0 {
+                        if viewService.remainders.count == 0 {
                             remaindersEmptyView
                         } else {
                             reminderCardList
@@ -32,21 +29,19 @@ struct RemaindersListView: View {
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .padding()
-            .sheet(isPresented: $viewModel.addNewRemainder) {
-                viewModel.resetData()
+            .sheet(isPresented: $viewService.addNewRemainder) {
+                viewService.resetData()
             } content: {
                 AddNewRemainder()
-                    .environmentObject(viewModel)
+                    .environmentObject(viewService)
                     .environment(\.managedObjectContext, viewContext)
             }
-            .sheet(isPresented: $viewModel.settingPresented) {
+            .sheet(isPresented: $viewService.settingPresented) {
             } content: {
-                let settingsModel = SettingViewModel(viewService: viewModel, contex: viewContext)
+                let settingsModel = SettingViewModel(viewService: viewService)
                 SettingsView(viewModel: settingsModel)
-                    .environmentObject(viewModel)
+                    .environmentObject(viewService)
             }
-            .environment(\.managedObjectContext, viewContext)
-
             .navigationBarTitle(Text("Remainders"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -59,27 +54,24 @@ struct RemaindersListView: View {
             }
             .overlay(bigPlusButton, alignment: .bottom)
         }
-
-
     }
 
     private var plusButton: some View {
         Group {
             Button {
-                viewModel.addNewRemainder.toggle()
+                viewService.addNewRemainder.toggle()
             } label: {
                 Image(systemName: "plus.circle")
                     .font(.title3)
                     .foregroundColor(.white)
             }
         }
-
     }
 
     private var settingsButton: some View {
         Group {
             Button {
-                viewModel.settingPresented.toggle()
+                viewService.settingPresented.toggle()
             } label: {
                 Image(systemName: "gearshape")
                     .font(.title3)
@@ -92,7 +84,7 @@ struct RemaindersListView: View {
         HStack {
             Spacer()
             Button {
-                viewModel.addNewRemainder.toggle()
+                viewService.addNewRemainder.toggle()
             } label: {
                 Image(systemName: "plus")
                     .resizable()
@@ -130,13 +122,24 @@ struct RemaindersListView: View {
     }
 
     private var reminderCardList: some View {
-        ForEach(remainders) { remainder in
+        ForEach(Array(zip(viewService.remainders.indices, viewService.remainders)), id: \.0) { index, remainder in
             MedicineReminderCard(medicineRemainder: remainder)
                 .padding(.bottom, 10)
+                .id(remainder.id)
                 .onTapGesture {
-                    viewModel.editRemainder = remainder
-                    viewModel.restoreEditingData()
-                    viewModel.addNewRemainder.toggle()
+                    viewService.editRemainder = remainder
+                    viewService.restoreEditingData()
+                    viewService.addNewRemainder.toggle()
+                }
+                .contextMenu {
+                    Button(action: {
+                        withAnimation(.easeOut(duration: 0.1)) {
+                            viewService.editRemainder = remainder
+                            _ = viewService.deleteRemainder()
+                        }
+                    } ) {
+                        Text("Delete")
+                    }
                 }
         }
     }
@@ -144,6 +147,7 @@ struct RemaindersListView: View {
 
 struct RemaindersListView_Previews: PreviewProvider {
     static var previews: some View {
-        RemaindersListView()
+        let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        RemaindersListView(viewService: RemainderViewService(context: context))
     }
 }

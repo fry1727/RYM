@@ -11,7 +11,6 @@ import CoreData
 //MARK: - View for work with setting
 struct SettingsView: View {
     @EnvironmentObject var viewService: RemainderViewService
-    @Environment(\.managedObjectContext) private var viewContext
     @StateObject var appConfig = AppConfig.shared
     @ObservedObject var viewModel : SettingViewModel
     
@@ -49,7 +48,7 @@ struct SettingsView: View {
                 
                 Section(header: Text("Get started from begining")) {
                     Button {
-                        viewModel.deleteButtonPressed(contex: viewContext)
+                        viewModel.deleteButtonPressed()
                     } label: {
                         Text("Delete all data")
                             .foregroundColor(Color.white)
@@ -85,6 +84,7 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(viewModel: SettingViewModel(viewService: RemainderViewService(), contex: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)))
+        let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        SettingsView(viewModel: SettingViewModel(viewService: RemainderViewService(context: context)))
     }
 }

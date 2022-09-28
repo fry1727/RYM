@@ -9,7 +9,7 @@ import SwiftUI
 
 //MARK: - Card for showing remainder in remainders list
 struct MedicineReminderCard: View {
-    var medicineRemainder: MedicineRemainder
+   @ObservedObject var medicineRemainder: MedicineRemainder
 
     var body: some View {
         VStack(spacing: 6) {

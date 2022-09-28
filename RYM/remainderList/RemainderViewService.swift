@@ -9,7 +9,23 @@ import SwiftUI
 import CoreData
 
 class RemainderViewService: ObservableObject {
-    
+    //MARK: All remainders
+    @Published var remainders: [MedicineRemainder] = []
+
+    //MARK: - Fetching Data from Core Data and setting content
+    init(context: NSManagedObjectContext) {
+        self.context = context
+        let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
+        do {
+            remainders = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error)")
+        }
+    }
+
+    //MARK: - Working with data from Core Data
+    private var context: NSManagedObjectContext
+
     // MARK: - New Remainder Properties
     @Published var addNewRemainder: Bool = false
     
@@ -35,7 +51,7 @@ class RemainderViewService: ObservableObject {
     var notificationsIds: [String] = []
     
     // MARK: Adding remainder to Database
-    func addRemainder(context: NSManagedObjectContext) -> Bool {
+    func addRemainder() -> Bool {
         var remainder: MedicineRemainder?
         if let editRemainder = editRemainder {
             remainder = editRemainder
@@ -58,10 +74,22 @@ class RemainderViewService: ObservableObject {
         if isRemainderOn {
             sheduleNotificationsAndCreateIds()
             remainder.notificationIDs = notificationsIds
+            if editRemainder == nil {
+                remainders.append(remainder)
+            }
             if let _ = try? context.save() {
                 return true
+            } else {
+                remainders.removeAll(where: { $0.id == remainder.id})
+                remainders.append(remainder)
             }
         } else {
+            if editRemainder == nil {
+                remainders.append(remainder)
+            } else {
+                remainders.removeAll(where: { $0.id == remainder.id})
+                remainders.append(remainder)
+            }
             if let _ = try? context.save() {
                 return true
             }
@@ -70,12 +98,13 @@ class RemainderViewService: ObservableObject {
     }
     
     // MARK: Deleting medicineRemainders from Database
-    func deleteRemainder(context: NSManagedObjectContext) -> Bool {
+    func deleteRemainder() -> Bool {
         if let editRemainder = editRemainder {
             if editRemainder.isRemainderOn {
                 UNUserNotificationCenter.current()
                     .removePendingNotificationRequests(withIdentifiers: editRemainder.notificationIDs ?? [])
             }
+            remainders.removeAll(where: { $0.id == editRemainder.id })
             context.delete(editRemainder)
             if let _ = try? context.save() {
                 return true
@@ -85,7 +114,7 @@ class RemainderViewService: ObservableObject {
     }
     
     // MARK: Delete ALL data
-    func deleteAllData(context: NSManagedObjectContext) {
+    func deleteAllData() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
             let managedContext = appDelegate.coreDataStack.persistentContainer.viewContext
             let deleteAllEntities = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "MedicineRemainder"))
@@ -102,6 +131,7 @@ class RemainderViewService: ObservableObject {
             for remainder in remainders {
                 context.delete(remainder)
             }
+            self.remainders = []
             self.notificationsIds = []
             do {
                 try managedContext.execute(deleteAllEntities)
@@ -113,7 +143,7 @@ class RemainderViewService: ObservableObject {
     }
     
     //MARK: - Function for turn on all notifications
-    func turnOnAllNotifications(context: NSManagedObjectContext) {
+    func turnOnAllNotifications() {
         var remainders: [MedicineRemainder] = []
         let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
         do {
@@ -142,18 +172,19 @@ class RemainderViewService: ObservableObject {
                 }
             }
         }
-        
     }
     
     // MARK: Erasing content
     func resetData() {
-        self.title = ""
-        self.remainderColor = "Card-1"
-        self.weekDays = []
-        self.isRemainderOn = false
-        self.remainderText = ""
-        self.remainderDate = Date()
-        self.editRemainder = nil
+        DispatchQueue.main.async {
+            self.title = ""
+            self.remainderColor = "Card-1"
+            self.weekDays = []
+            self.isRemainderOn = false
+            self.remainderText = ""
+            self.remainderDate = Date()
+            self.editRemainder = nil
+        }
         self.notificationsIds = []
     }
     
