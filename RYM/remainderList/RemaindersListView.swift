@@ -12,7 +12,7 @@ import CoreData
 struct RemaindersListView: View {
     @ObservedObject var viewService: RemainderViewService
     @Environment(\.managedObjectContext) private var viewContext
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -55,7 +55,7 @@ struct RemaindersListView: View {
             .overlay(bigPlusButton, alignment: .bottom)
         }
     }
-    
+
     private var plusButton: some View {
         Group {
             Button {
@@ -67,7 +67,7 @@ struct RemaindersListView: View {
             }
         }
     }
-    
+
     private var settingsButton: some View {
         Group {
             Button {
@@ -79,7 +79,7 @@ struct RemaindersListView: View {
             }
         }
     }
-    
+
     private var bigPlusButton: some View {
         HStack {
             Spacer()
@@ -99,7 +99,7 @@ struct RemaindersListView: View {
             .padding(.vertical, 130)
         }
     }
-    
+
     private var remaindersEmptyView: some View {
         VStack {
             Text("There is no medicine remainders")
@@ -120,7 +120,7 @@ struct RemaindersListView: View {
                 .multilineTextAlignment(.center)
         }
     }
-    
+
     private var reminderCardList: some View {
         ForEach(Array(zip(viewService.remainders.indices, viewService.remainders)), id: \.0) { index, remainder in
             MedicineReminderCard(medicineRemainder: remainder)
@@ -133,7 +133,7 @@ struct RemaindersListView: View {
                 }
                 .contextMenu {
                     Button(action: {
-                        withAnimation(.easeOut) {
+                        withAnimation(.easeOut(duration: 0.1)) {
                             viewService.editRemainder = remainder
                             _ = viewService.deleteRemainder()
                         }
