@@ -22,6 +22,7 @@
 		CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545828D074BB001CB65D /* CoreDataStack.swift */; };
 		CD86545C28D0B520001CB65D /* OnboardingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */; };
 		CD86545E28D0B895001CB65D /* OnboardingRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */; };
+		CD8CB1E728E447D600354F3B /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CB1E628E447D600354F3B /* HapticsManager.swift */; };
 		E625F32F28CF2FF000D24337 /* ReminderViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */; };
 		E673795128C5E5AA00C785F2 /* RemainderViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795028C5E5AA00C785F2 /* RemainderViewService.swift */; };
 		E673795328C5E79400C785F2 /* AddNewRemainder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795228C5E79400C785F2 /* AddNewRemainder.swift */; };
@@ -74,6 +75,7 @@
 		CD86545828D074BB001CB65D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTest.swift; sourceTree = "<group>"; };
 		CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouterTest.swift; sourceTree = "<group>"; };
+		CD8CB1E628E447D600354F3B /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModelTest.swift; sourceTree = "<group>"; };
 		E673795028C5E5AA00C785F2 /* RemainderViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewService.swift; sourceTree = "<group>"; };
 		E673795228C5E79400C785F2 /* AddNewRemainder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRemainder.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				E67EF1CF28C255FD0032A747 /* extensions */,
 				E67EF1CA28C255C10032A747 /* navigation */,
 				E67379A128C8DEF100C785F2 /* Notifications.swift */,
+				CD8CB1E628E447D600354F3B /* HapticsManager.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				E67EF1CE28C255E80032A747 /* BasePresenter.swift in Sources */,
 				E67EF1E228C2573F0032A747 /* OnboardingViewModel.swift in Sources */,
 				E67EF1E028C257220032A747 /* OnboardingView.swift in Sources */,
+				CD8CB1E728E447D600354F3B /* HapticsManager.swift in Sources */,
 				E67EF1D328C256430032A747 /* UIView+Extensions.swift in Sources */,
 				E67EF1C628C255590032A747 /* AppConfig.swift in Sources */,
 				E67379A228C8DEF100C785F2 /* Notifications.swift in Sources */,

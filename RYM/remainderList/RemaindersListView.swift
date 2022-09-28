@@ -12,6 +12,7 @@ import CoreData
 struct RemaindersListView: View {
     @ObservedObject var viewService: RemainderViewService
     @Environment(\.managedObjectContext) private var viewContext
+    let haptics = HapticsManager.shared
 
     var body: some View {
         NavigationView {
@@ -59,6 +60,7 @@ struct RemaindersListView: View {
     private var plusButton: some View {
         Group {
             Button {
+                haptics.vibrateForSelection()
                 viewService.addNewRemainder.toggle()
             } label: {
                 Image(systemName: "plus.circle")
@@ -71,6 +73,7 @@ struct RemaindersListView: View {
     private var settingsButton: some View {
         Group {
             Button {
+                haptics.vibrateForSelection()
                 viewService.settingPresented.toggle()
             } label: {
                 Image(systemName: "gearshape")
@@ -84,6 +87,7 @@ struct RemaindersListView: View {
         HStack {
             Spacer()
             Button {
+                haptics.vibrateForSelection()
                 viewService.addNewRemainder.toggle()
             } label: {
                 Image(systemName: "plus")
@@ -127,12 +131,14 @@ struct RemaindersListView: View {
                 .padding(.bottom, 10)
                 .id(remainder.id)
                 .onTapGesture {
+                    haptics.vibrateForSelection()
                     viewService.editRemainder = remainder
                     viewService.restoreEditingData()
                     viewService.addNewRemainder.toggle()
                 }
                 .contextMenu {
                     Button(action: {
+                        haptics.vibrateForSelection()
                         withAnimation(.easeOut(duration: 0.1)) {
                             viewService.editRemainder = remainder
                             _ = viewService.deleteRemainder()

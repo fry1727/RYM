@@ -49,6 +49,8 @@ class RemainderViewService: ObservableObject {
     @Published var notificationAccess: Bool = AppConfig.shared.notificationAccess
     
     var notificationsIds: [String] = []
+
+    let haptics = HapticsManager.shared
     
     // MARK: Adding remainder to Database
     func addRemainder() -> Bool {
@@ -78,6 +80,7 @@ class RemainderViewService: ObservableObject {
                 remainders.append(remainder)
             }
             if let _ = try? context.save() {
+                haptics.vibrate(for: .success)
                 return true
             } else {
                 remainders.removeAll(where: { $0.id == remainder.id})
@@ -91,6 +94,7 @@ class RemainderViewService: ObservableObject {
                 remainders.append(remainder)
             }
             if let _ = try? context.save() {
+                haptics.vibrate(for: .success)
                 return true
             }
         }
@@ -106,6 +110,7 @@ class RemainderViewService: ObservableObject {
             }
             remainders.removeAll(where: { $0.id == editRemainder.id })
             context.delete(editRemainder)
+            haptics.vibrate(for: .error)
             if let _ = try? context.save() {
                 return true
             }
@@ -134,6 +139,7 @@ class RemainderViewService: ObservableObject {
             self.remainders = []
             self.notificationsIds = []
             do {
+                haptics.vibrate(for: .error)
                 try managedContext.execute(deleteAllEntities)
             }
             catch {

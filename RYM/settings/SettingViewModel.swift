@@ -12,6 +12,7 @@ import CoreData
 //MARK: - ViewModel for setting
 class SettingViewModel: ObservableObject {
     private var viewService: RemainderViewService
+    let haptics = HapticsManager.shared
     
     init(viewService: RemainderViewService) {
         self.viewService = viewService
@@ -19,6 +20,7 @@ class SettingViewModel: ObservableObject {
     
     /// Function for turn on notidication and turn on config notification state
     func turnOnNotifications() {
+        haptics.vibrate(for: .success)
         self.viewService.turnOnAllNotifications()
         AppConfig.shared.notificationsTurnOn = true
     }
@@ -51,6 +53,7 @@ class SettingViewModel: ObservableObject {
     
     /// Function fow showing alert for turn on a notification from setting
     func goToSettingAlertPresent() {
+        haptics.vibrate(for: .warning)
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
             return
         }
@@ -69,6 +72,7 @@ class SettingViewModel: ObservableObject {
     
     /// Function fow showing alert for turning off notifications
     func turnOffNotificationAlertPresent() {
+        haptics.vibrate(for: .warning)
         let alertButtonYes = AlertInfo.Button(title: "Yes") {
             self.turnOffNotifications()
             AppConfig.shared.notificationsTurnOn = false
