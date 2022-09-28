@@ -12,8 +12,10 @@ import CoreData
 struct RemaindersListView: View {
     @ObservedObject var viewService: RemainderViewService
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var searchText = ""
+    
     let haptics = HapticsManager.shared
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -43,6 +45,7 @@ struct RemaindersListView: View {
                 SettingsView(viewModel: settingsModel)
                     .environmentObject(viewService)
             }
+            .searchable(text: $searchText)
             .navigationBarTitle(Text("Remainders"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -56,7 +59,15 @@ struct RemaindersListView: View {
             .overlay(bigPlusButton, alignment: .bottom)
         }
     }
-
+    
+    private var searchResults: [MedicineRemainder] {
+        if searchText.isEmpty {
+            return viewService.remainders
+        } else {
+            return viewService.remainders.filter { $0.title?.contains(searchText) ?? false }
+        }
+    }
+    
     private var plusButton: some View {
         Group {
             Button {
@@ -69,7 +80,7 @@ struct RemaindersListView: View {
             }
         }
     }
-
+    
     private var settingsButton: some View {
         Group {
             Button {
@@ -82,7 +93,7 @@ struct RemaindersListView: View {
             }
         }
     }
-
+    
     private var bigPlusButton: some View {
         HStack {
             Spacer()
@@ -103,7 +114,7 @@ struct RemaindersListView: View {
             .padding(.vertical, 130)
         }
     }
-
+    
     private var remaindersEmptyView: some View {
         VStack {
             Text("There is no medicine remainders")
@@ -124,9 +135,9 @@ struct RemaindersListView: View {
                 .multilineTextAlignment(.center)
         }
     }
-
+    
     private var reminderCardList: some View {
-        ForEach(Array(zip(viewService.remainders.indices, viewService.remainders)), id: \.0) { index, remainder in
+        ForEach(Array(zip(searchResults.indices, searchResults)), id: \.0) { index, remainder in
             MedicineReminderCard(medicineRemainder: remainder)
                 .padding(.bottom, 10)
                 .id(remainder.id)
