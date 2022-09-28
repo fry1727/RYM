@@ -12,8 +12,7 @@ import CoreData
 struct RemaindersListView: View {
     @ObservedObject var viewService: RemainderViewService
     @Environment(\.managedObjectContext) private var viewContext
-    @State private var isAnimated = false
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -56,7 +55,7 @@ struct RemaindersListView: View {
             .overlay(bigPlusButton, alignment: .bottom)
         }
     }
-
+    
     private var plusButton: some View {
         Group {
             Button {
@@ -68,7 +67,7 @@ struct RemaindersListView: View {
             }
         }
     }
-
+    
     private var settingsButton: some View {
         Group {
             Button {
@@ -80,7 +79,7 @@ struct RemaindersListView: View {
             }
         }
     }
-
+    
     private var bigPlusButton: some View {
         HStack {
             Spacer()
@@ -100,7 +99,7 @@ struct RemaindersListView: View {
             .padding(.vertical, 130)
         }
     }
-
+    
     private var remaindersEmptyView: some View {
         VStack {
             Text("There is no medicine remainders")
@@ -121,31 +120,27 @@ struct RemaindersListView: View {
                 .multilineTextAlignment(.center)
         }
     }
-
+    
     private var reminderCardList: some View {
-        ForEach(viewService.remainders, id: \.id) { remainder in
-                MedicineReminderCard(medicineRemainder: remainder)
-                .scaleEffect(isAnimated ? 0.2 : 1)
+        ForEach(Array(zip(viewService.remainders.indices, viewService.remainders)), id: \.0) { index, remainder in
+            MedicineReminderCard(medicineRemainder: remainder)
                 .padding(.bottom, 10)
-
-//                .id(remainder.id)
-//                .transition(AnyTransition.scale)
-                    .onTapGesture {
-                        self.isAnimated.toggle()
-                        viewService.editRemainder = remainder
-                        viewService.restoreEditingData()
-                        viewService.addNewRemainder.toggle()
-                    }
-                    .contextMenu {
-                        Button(action: {
-                            withAnimation(.linear) {
-                                viewService.editRemainder = remainder
-                                _ = viewService.deleteRemainder()
-                            }
-                        } ) {
-                            Text("Delete")
+                .id(remainder.id)
+                .onTapGesture {
+                    viewService.editRemainder = remainder
+                    viewService.restoreEditingData()
+                    viewService.addNewRemainder.toggle()
+                }
+                .contextMenu {
+                    Button(action: {
+                        withAnimation(.easeOut) {
+                            viewService.editRemainder = remainder
+                            _ = viewService.deleteRemainder()
                         }
+                    } ) {
+                        Text("Delete")
                     }
+                }
         }
     }
 }
