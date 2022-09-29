@@ -23,6 +23,15 @@
 		CD86545C28D0B520001CB65D /* OnboardingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */; };
 		CD86545E28D0B895001CB65D /* OnboardingRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */; };
 		CD8CB1E728E447D600354F3B /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CB1E628E447D600354F3B /* HapticsManager.swift */; };
+		CDCB9CFE28E5BBF200973060 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCB9CFD28E5BBF200973060 /* WidgetKit.framework */; };
+		CDCB9D0028E5BBF200973060 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCB9CFF28E5BBF200973060 /* SwiftUI.framework */; };
+		CDCB9D0328E5BBF200973060 /* RymWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB9D0228E5BBF200973060 /* RymWidget.swift */; };
+		CDCB9D0528E5BBF300973060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDCB9D0428E5BBF300973060 /* Assets.xcassets */; };
+		CDCB9D0928E5BBF300973060 /* com.rym.widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CDCB9CFB28E5BBF200973060 /* com.rym.widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CDCB9D1028E5C32A00973060 /* RYM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E67EF19A28C24D3F0032A747 /* RYM.xcdatamodeld */; };
+		CDCB9D1328E5C73500973060 /* RYMWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB9D1128E5C65200973060 /* RYMWidgetView.swift */; };
+		CDCB9D1428E5C83D00973060 /* RYMWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB9D1128E5C65200973060 /* RYMWidgetView.swift */; };
+		CDCB9D1528E5C8F300973060 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545828D074BB001CB65D /* CoreDataStack.swift */; };
 		E625F32F28CF2FF000D24337 /* ReminderViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */; };
 		E673795128C5E5AA00C785F2 /* RemainderViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795028C5E5AA00C785F2 /* RemainderViewService.swift */; };
 		E673795328C5E79400C785F2 /* AddNewRemainder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E673795228C5E79400C785F2 /* AddNewRemainder.swift */; };
@@ -51,6 +60,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CDCB9D0728E5BBF300973060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E67EF18628C24D3F0032A747 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDCB9CFA28E5BBF200973060;
+			remoteInfo = com.rym.widgetExtension;
+		};
 		E67EF1A828C24D410032A747 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E67EF18628C24D3F0032A747 /* Project object */;
@@ -67,6 +83,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CDCB9D0A28E5BBF300973060 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CDCB9D0928E5BBF300973060 /* com.rym.widgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		CD034D3628D1CE7E00106D65 /* AddRemainderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemainderUITests.swift; sourceTree = "<group>"; };
 		CD1653AE28D9E8FC003BFD49 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -76,6 +106,15 @@
 		CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTest.swift; sourceTree = "<group>"; };
 		CD86545D28D0B895001CB65D /* OnboardingRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouterTest.swift; sourceTree = "<group>"; };
 		CD8CB1E628E447D600354F3B /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		CDCB9CFB28E5BBF200973060 /* com.rym.widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = com.rym.widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDCB9CFD28E5BBF200973060 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		CDCB9CFF28E5BBF200973060 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CDCB9D0228E5BBF200973060 /* RymWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RymWidget.swift; sourceTree = "<group>"; };
+		CDCB9D0428E5BBF300973060 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CDCB9D0628E5BBF300973060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDCB9D0E28E5BCB100973060 /* RYM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RYM.entitlements; sourceTree = "<group>"; };
+		CDCB9D0F28E5BCC200973060 /* com.rym.widgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = com.rym.widgetExtension.entitlements; sourceTree = "<group>"; };
+		CDCB9D1128E5C65200973060 /* RYMWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RYMWidgetView.swift; sourceTree = "<group>"; };
 		E625F32E28CF2FF000D24337 /* ReminderViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModelTest.swift; sourceTree = "<group>"; };
 		E673795028C5E5AA00C785F2 /* RemainderViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainderViewService.swift; sourceTree = "<group>"; };
 		E673795228C5E79400C785F2 /* AddNewRemainder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRemainder.swift; sourceTree = "<group>"; };
@@ -108,6 +147,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CDCB9CF828E5BBF200973060 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDCB9D0028E5BBF200973060 /* SwiftUI.framework in Frameworks */,
+				CDCB9CFE28E5BBF200973060 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E67EF18B28C24D3F0032A747 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,6 +189,26 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
+		CDCB9CFC28E5BBF200973060 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB9CFD28E5BBF200973060 /* WidgetKit.framework */,
+				CDCB9CFF28E5BBF200973060 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDCB9D0128E5BBF200973060 /* com.rym.widget */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB9D1128E5C65200973060 /* RYMWidgetView.swift */,
+				CDCB9D0228E5BBF200973060 /* RymWidget.swift */,
+				CDCB9D0428E5BBF300973060 /* Assets.xcassets */,
+				CDCB9D0628E5BBF300973060 /* Info.plist */,
+			);
+			path = com.rym.widget;
+			sourceTree = "<group>";
+		};
 		E673795928C61A0E00C785F2 /* addMedicine */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,9 +228,12 @@
 		E67EF18528C24D3F0032A747 = {
 			isa = PBXGroup;
 			children = (
+				CDCB9D0F28E5BCC200973060 /* com.rym.widgetExtension.entitlements */,
 				E67EF19028C24D3F0032A747 /* RYM */,
 				E67EF1AA28C24D410032A747 /* RYMTests */,
 				E67EF1B428C24D410032A747 /* RYMUITests */,
+				CDCB9D0128E5BBF200973060 /* com.rym.widget */,
+				CDCB9CFC28E5BBF200973060 /* Frameworks */,
 				E67EF18F28C24D3F0032A747 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -173,6 +244,7 @@
 				E67EF18E28C24D3F0032A747 /* RYM.app */,
 				E67EF1A728C24D410032A747 /* RYMTests.xctest */,
 				E67EF1B128C24D410032A747 /* RYMUITests.xctest */,
+				CDCB9CFB28E5BBF200973060 /* com.rym.widgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +252,7 @@
 		E67EF19028C24D3F0032A747 /* RYM */ = {
 			isa = PBXGroup;
 			children = (
+				CDCB9D0E28E5BCB100973060 /* RYM.entitlements */,
 				E67EF1C428C24EC90032A747 /* app */,
 				E67EF1D428C2567E0032A747 /* home */,
 				E67EF1DE28C2570A0032A747 /* onboarding */,
@@ -298,6 +371,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CDCB9CFA28E5BBF200973060 /* com.rym.widgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDCB9D0D28E5BBF300973060 /* Build configuration list for PBXNativeTarget "com.rym.widgetExtension" */;
+			buildPhases = (
+				CDCB9CF728E5BBF200973060 /* Sources */,
+				CDCB9CF828E5BBF200973060 /* Frameworks */,
+				CDCB9CF928E5BBF200973060 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = com.rym.widgetExtension;
+			productName = com.rym.widgetExtension;
+			productReference = CDCB9CFB28E5BBF200973060 /* com.rym.widgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		E67EF18D28C24D3F0032A747 /* RYM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E67EF1BB28C24D410032A747 /* Build configuration list for PBXNativeTarget "RYM" */;
@@ -306,10 +396,12 @@
 				E67EF18B28C24D3F0032A747 /* Frameworks */,
 				E67EF18C28C24D3F0032A747 /* Resources */,
 				E67EF1E528C259160032A747 /* ShellScript */,
+				CDCB9D0A28E5BBF300973060 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CDCB9D0828E5BBF300973060 /* PBXTargetDependency */,
 			);
 			name = RYM;
 			packageProductDependencies = (
@@ -363,9 +455,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					CDCB9CFA28E5BBF200973060 = {
+						CreatedOnToolsVersion = 14.0;
+					};
 					E67EF18D28C24D3F0032A747 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -397,11 +492,20 @@
 				E67EF18D28C24D3F0032A747 /* RYM */,
 				E67EF1A628C24D410032A747 /* RYMTests */,
 				E67EF1B028C24D410032A747 /* RYMUITests */,
+				CDCB9CFA28E5BBF200973060 /* com.rym.widgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CDCB9CF928E5BBF200973060 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDCB9D0528E5BBF300973060 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E67EF18C28C24D3F0032A747 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +552,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CDCB9CF728E5BBF200973060 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDCB9D1328E5C73500973060 /* RYMWidgetView.swift in Sources */,
+				CDCB9D1028E5C32A00973060 /* RYM.xcdatamodeld in Sources */,
+				CDCB9D0328E5BBF200973060 /* RymWidget.swift in Sources */,
+				CDCB9D1528E5C8F300973060 /* CoreDataStack.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E67EF18A28C24D3F0032A747 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,6 +571,7 @@
 				E67EF19C28C24D3F0032A747 /* RYM.xcdatamodeld in Sources */,
 				E67EF1D828C256A30032A747 /* HomeRouter.swift in Sources */,
 				E67EF1CE28C255E80032A747 /* BasePresenter.swift in Sources */,
+				CDCB9D1428E5C83D00973060 /* RYMWidgetView.swift in Sources */,
 				E67EF1E228C2573F0032A747 /* OnboardingViewModel.swift in Sources */,
 				E67EF1E028C257220032A747 /* OnboardingView.swift in Sources */,
 				CD8CB1E728E447D600354F3B /* HapticsManager.swift in Sources */,
@@ -511,6 +627,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CDCB9D0828E5BBF300973060 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDCB9CFA28E5BBF200973060 /* com.rym.widgetExtension */;
+			targetProxy = CDCB9D0728E5BBF300973060 /* PBXContainerItemProxy */;
+		};
 		E67EF1A928C24D410032A747 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E67EF18D28C24D3F0032A747 /* RYM */;
@@ -535,6 +656,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CDCB9D0B28E5BBF300973060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = com.rym.widgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 797DJDX23K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = com.rym.widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RYMw;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RYM.com-rym-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CDCB9D0C28E5BBF300973060 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = com.rym.widgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 797DJDX23K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = com.rym.widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RYMw;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RYM.com-rym-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E67EF1B928C24D410032A747 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -652,13 +833,16 @@
 		E67EF1BC28C24D410032A747 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RYM/RYM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 797DJDX23K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RYM/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -680,13 +864,16 @@
 		E67EF1BD28C24D410032A747 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RYM/RYM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 797DJDX23K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RYM/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -784,6 +971,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CDCB9D0D28E5BBF300973060 /* Build configuration list for PBXNativeTarget "com.rym.widgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDCB9D0B28E5BBF300973060 /* Debug */,
+				CDCB9D0C28E5BBF300973060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E67EF18928C24D3F0032A747 /* Build configuration list for PBXProject "RYM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
