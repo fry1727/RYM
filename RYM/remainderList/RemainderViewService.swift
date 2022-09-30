@@ -70,6 +70,7 @@ class RemainderViewService: ObservableObject {
         remainder.weekDays = weekDays
         remainder.isRemainderOn = isRemainderOn
         remainder.remainderText = remainderText
+        remainder.dateAdded = Date()
         remainder.notificationDate = remainderDate
         remainder.notificationIDs = []
         

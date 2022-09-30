@@ -11,27 +11,27 @@ import CoreData
 
 struct Provider: TimelineProvider {
     let coreDataStack = CoreDataStack()
-    
+
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), remainders: [])
     }
-    
+
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         let entry = SimpleEntry(date: Date(), remainders: [])
         completion(entry)
     }
-    
+
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
         var remainders: [MedicineRemainder] = []
-        
+
         let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
         do {
             remainders = try coreDataStack.persistentContainer.viewContext.fetch(fetchRequest)
         } catch let error as NSError {
             print("Could not fetch. \(error)")
         }
-        
+
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
@@ -39,7 +39,7 @@ struct Provider: TimelineProvider {
             let entry = SimpleEntry(date: entryDate, remainders: remainders)
             entries.append(entry)
         }
-        
+
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
@@ -53,21 +53,21 @@ struct SimpleEntry: TimelineEntry {
 struct RymWidgetEntryView : View {
     @Environment(\.widgetFamily) var family
     var entry: Provider.Entry
-    
+
     var body: some View {
-        
+
         //        Text(entry.remainders.first?.title ?? "nill")
-        if case .systemMedium = family {
+//        if case .systemMedium = family {
             RYMWidgetView(remainders: entry.remainders)
-            
-        }
+
+//        }
     }
 }
 
 @main
 struct RymWidget: Widget {
     let kind: String = "com_rym_widget"
-    
+
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             RymWidgetEntryView(entry: entry)

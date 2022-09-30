@@ -62,7 +62,7 @@ struct RemaindersListView: View {
     
     private var searchResults: [MedicineRemainder] {
         if searchText.isEmpty {
-            return viewService.remainders
+            return viewService.remainders.sorted(by: { $0.dateAdded?.timeIntervalSince1970 ?? 0 > $1.dateAdded?.timeIntervalSince1970 ?? 0 })
         } else {
             return viewService.remainders.filter { $0.title?.contains(searchText) ?? false }
         }
