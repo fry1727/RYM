@@ -32,10 +32,15 @@ struct AddNewRemainder: View {
                 remainderToggle
                 
                 remainder
+                
             }
+
             .animation(.easeInOut, value: viewService.isRemainderOn)
             .frame(maxHeight: .infinity, alignment: .top)
             .padding()
+            .onTapGesture {
+                UIApplication.shared.endEditing()
+            }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(viewService.editRemainder == nil ? "Add Medicine Remainder" : "Edit Medicine Remainder")
             .toolbar {
@@ -58,44 +63,82 @@ struct AddNewRemainder: View {
     }
     
     private var titleTextField: some View {
-        Group {
+        VStack(spacing: 5){
+            HStack{
+                Text("Title:")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                Spacer()
+            }
             TextField("Title", text: $viewService.title)
                 .padding(.horizontal)
                 .padding(.vertical, 10)
                 .background(Color.gray.opacity(0.4),
                             in: RoundedRectangle(cornerRadius: 6, style: .continuous))
         }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
     }
     
     private var colorPicker: some View {
-        HStack(spacing: 0) {
-            ForEach(1...7, id: \.self) { index in
-                let color = "Card-\(index)"
-                Circle()
-                    .fill(Color(color))
-                    .frame(width: 30, height: 30)
-                    .overlay(content: {
-                        if color == viewService.remainderColor {
-                            Image(systemName: "checkmark")
-                                .font(.caption.bold())
-                        }
-                    })
-                    .onTapGesture {
-                        withAnimation {
-                            viewService.remainderColor = color
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
+        VStack(spacing: 8){
+            HStack {
+                Text("Color:")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                Spacer()
             }
+            HStack(spacing: 0) {
+                ForEach(1...7, id: \.self) { index in
+                    let color = "Card-\(index)"
+                    Circle()
+                        .fill(Color(color))
+                        .frame(width: 30, height: 30)
+                        .overlay(content: {
+                            if color == viewService.remainderColor {
+                                Image(systemName: "checkmark")
+                                    .font(.caption.bold())
+                            }
+                        })
+                        .onTapGesture {
+                            withAnimation {
+                                viewService.remainderColor = color
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            .padding(.bottom, 5)
+            .padding(.top, 5)
         }
-        .padding(.vertical)
     }
     
     private var frequencySelection: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text("Frequency")
-                .font(.callout.bold())
-            
+        VStack(alignment: .leading, spacing: 2) {
+            HStack {
+                Text("Frequency: ")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+
+                Spacer()
+
+                Text("Everyday")
+                    .font(.caption)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 6)
+                    .background {
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(viewService.weekDays.count == 7 ? Color(viewService.remainderColor) :
+                                    Color.gray.opacity(0.4))
+                    }
+                    .onTapGesture {
+                        viewService.weekDays.removeAll()
+                        for weekday in weekDays {
+                            viewService.weekDays.append(weekday)
+                        }
+                    }
+            }
             HStack(spacing: 10) {
                 ForEach(weekDays, id: \.self) { day in
                     let index = viewService.weekDays.firstIndex { value in
@@ -111,6 +154,7 @@ struct AddNewRemainder: View {
                                 .fill(index != -1 ? Color(viewService.remainderColor) : Color.gray.opacity(0.4))
                         }
                         .onTapGesture {
+                            UIApplication.shared.endEditing()
                             withAnimation {
                                 if index != -1 {
                                     viewService.weekDays.remove(at: index)
@@ -123,6 +167,9 @@ struct AddNewRemainder: View {
             }
             .padding(.top, 10)
         }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
     }
     
     private var remainderToggle: some View {
@@ -134,10 +181,16 @@ struct AddNewRemainder: View {
                     .font(.caption)
                     .foregroundColor(.gray)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
             
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .onTapGesture {
+                UIApplication.shared.endEditing()
+            }
             Toggle(isOn: $viewService.isRemainderOn) {}
                 .labelsHidden()
+                .onTapGesture {
+                    UIApplication.shared.endEditing()
+                }
         }
         .opacity(viewService.notificationAccess ? 1 : 0)
     }
@@ -150,13 +203,21 @@ struct AddNewRemainder: View {
                 .onTapGesture {
                     withAnimation {
                         viewService.showTimePicker.toggle()
+                        UIApplication.shared.endEditing()
                     }
                 }
-            DatePicker.init("", selection:
-                                $viewService.remainderDate, displayedComponents: [.hourAndMinute])
-            .datePickerStyle(.wheel)
-            .labelsHidden()
-            .padding()
+            VStack{
+                DatePicker.init("", selection:
+                                    $viewService.remainderDate, displayedComponents: [.hourAndMinute])
+                .datePickerStyle(.wheel)
+                .labelsHidden()
+                .padding([.top, .horizontal])
+
+                Text("* after choosing tap inside to close")
+                    .font(.callout)
+                    .foregroundColor(.white)
+                    .padding()
+            }
             .background {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.gray)
@@ -177,6 +238,7 @@ struct AddNewRemainder: View {
             .background(Color.gray.opacity(0.4),
                         in: RoundedRectangle(cornerRadius: 6, style: .continuous))
             .onTapGesture {
+                UIApplication.shared.endEditing()
                 withAnimation {
                     viewService.showTimePicker.toggle()
                 }
@@ -185,6 +247,11 @@ struct AddNewRemainder: View {
             TextField("Remainder text", text: $viewService.remainderText)
                 .padding(.horizontal)
                 .padding(.vertical, 10)
+                .onChange(of: viewService.isRemainderOn, perform: { newValue in
+                    if viewService.isRemainderOn {
+                        viewService.remainderText = viewService.title
+                    }
+                })
                 .background(Color.gray.opacity(0.4),
                             in: RoundedRectangle(cornerRadius: 6, style: .continuous))
         }
@@ -196,6 +263,7 @@ struct AddNewRemainder: View {
     private var xmarkButton: some View {
         Group {
             Button {
+                UIApplication.shared.endEditing()
                 environment.dismiss()
             } label: {
                 Image(systemName: "xmark.circle")
@@ -208,6 +276,7 @@ struct AddNewRemainder: View {
         Group {
             Button {
                 if viewService.deleteRemainder() {
+                    UIApplication.shared.endEditing()
                     environment.dismiss()
                 }
             } label: {
@@ -223,6 +292,7 @@ struct AddNewRemainder: View {
         Group {
             Button("Done") {
                 if viewService.addRemainder() {
+                    UIApplication.shared.endEditing()
                     environment.dismiss()
                 }
             }
@@ -236,11 +306,11 @@ struct AddNewRemainder: View {
         Group {
             Button("Save") {
                 if viewService.addRemainder() {
+                    UIApplication.shared.endEditing()
                     environment.dismiss()
                 }
             }
             .tint(.white)
-            
         }
     }
 }

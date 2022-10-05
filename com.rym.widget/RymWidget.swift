@@ -55,12 +55,7 @@ struct RymWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-
-        //        Text(entry.remainders.first?.title ?? "nill")
-//        if case .systemMedium = family {
-            RYMWidgetView(remainders: entry.remainders)
-
-//        }
+        RYMWidgetView(remainders: entry.remainders)
     }
 }
 

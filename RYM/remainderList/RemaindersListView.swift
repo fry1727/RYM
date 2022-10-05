@@ -50,7 +50,7 @@ struct RemaindersListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    plusButton
+                    addButton
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     settingsButton
@@ -68,14 +68,15 @@ struct RemaindersListView: View {
         }
     }
     
-    private var plusButton: some View {
+    private var addButton: some View {
         Group {
             Button {
                 haptics.vibrateForSelection()
                 viewService.addNewRemainder.toggle()
             } label: {
-                Image(systemName: "plus.circle")
+                Text("Add")
                     .font(.title3)
+                    .fontWeight(.semibold)
                     .foregroundColor(.white)
             }
         }

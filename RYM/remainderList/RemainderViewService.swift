@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import WidgetKit
 
 class RemainderViewService: ObservableObject {
     //MARK: All remainders
@@ -82,6 +83,7 @@ class RemainderViewService: ObservableObject {
             }
             if let _ = try? context.save() {
                 haptics.vibrate(for: .success)
+                WidgetCenter.shared.reloadTimelines(ofKind: "com_rym_widget")
                 return true
             } else {
                 remainders.removeAll(where: { $0.id == remainder.id})
@@ -96,6 +98,7 @@ class RemainderViewService: ObservableObject {
             }
             if let _ = try? context.save() {
                 haptics.vibrate(for: .success)
+                WidgetCenter.shared.reloadTimelines(ofKind: "com_rym_widget")
                 return true
             }
         }
@@ -113,6 +116,7 @@ class RemainderViewService: ObservableObject {
             context.delete(editRemainder)
             haptics.vibrate(for: .error)
             if let _ = try? context.save() {
+                WidgetCenter.shared.reloadTimelines(ofKind: "com_rym_widget")
                 return true
             }
         }
@@ -137,6 +141,7 @@ class RemainderViewService: ObservableObject {
             for remainder in remainders {
                 context.delete(remainder)
             }
+            WidgetCenter.shared.reloadTimelines(ofKind: "com_rym_widget")
             self.remainders = []
             self.notificationsIds = []
             do {
@@ -192,6 +197,7 @@ class RemainderViewService: ObservableObject {
             self.remainderDate = Date()
             self.editRemainder = nil
         }
+        WidgetCenter.shared.reloadTimelines(ofKind: "com_rym_widget")
         self.notificationsIds = []
     }
     

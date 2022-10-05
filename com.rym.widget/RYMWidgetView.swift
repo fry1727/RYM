@@ -6,43 +6,88 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct RYMWidgetView: View {
+    @Environment(\.widgetFamily) var family
     let remainders: [MedicineRemainder]
     
     var body: some View {
-        VStack {
-            Text("Todays remainders:")
-            if todaysRemainders.isEmpty {
-                Text("There are no reminders today")
-            } else {
-//                ForEach(todaysRemainders) { remainder in
-//                    MedicineReminderWidgetView(medicineRemainder: remainder)
-//                }
-                                    if let remainder =  todaysRemainders.first {
-                                        MedicineReminderWidgetView(medicineRemainder: remainder)
-                                        Divider()
-                                    }
-                if todaysRemainders.count > 1 {
-                    if let remainder = todaysRemainders[1] {
-                        MedicineReminderWidgetView(medicineRemainder: remainder)
-                        Divider()
+        ZStack {
+            Color.black
+            VStack(alignment: .leading, spacing: 0) {
+                widgetTitle
+                    .padding(.horizontal, 10)
+                Divider()
+                Spacer()
+                if todaysRemainders.isEmpty {
+                    Text("There are no reminders today")
+                } else {
+                    if case .systemMedium = family {
+                        mediumWidgetRemainderList
+                        Spacer()
+                    } else if case .systemLarge = family {
+                        largeWidgetRemainderList
+                        Spacer()
                     }
                 }
-                if todaysRemainders.count > 2 {
-                    if let remainder = todaysRemainders[2] {
-                        MedicineReminderWidgetView(medicineRemainder: remainder)
-                            .padding(.bottom, 5)
-                    }
-                }
+                Spacer()
             }
-
+            .padding(.top, 10)
+            .padding(5)
         }
-        .padding(.top, 10)
-        .padding(4)
     }
 
-    var todaysRemainders: [MedicineRemainder] {
+    private var mediumWidgetRemainderList: some View {
+        Group{
+            if let remainder =  todaysRemainders.first {
+                ReminderWidgetView(medicineRemainder: remainder)
+                Divider()
+            }
+            if todaysRemainders.count > 1 {
+                if let remainder = todaysRemainders[1] {
+                    ReminderWidgetView(medicineRemainder: remainder)
+                    Divider()
+                }
+            }
+            if todaysRemainders.count > 2 {
+                if let remainder = todaysRemainders[2] {
+                    ReminderWidgetView(medicineRemainder: remainder)
+                    Text("see more in the app")
+                        .frame(alignment: .center)
+                        .font(.system(size: 10))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 5)
+                }
+            }
+        }
+    }
+
+    private var largeWidgetRemainderList: some View {
+        Group{
+            ForEach(todaysRemainders) { reminder in
+                ReminderWidgetView(medicineRemainder: reminder)
+                Divider()
+            }
+        }
+    }
+
+    private var widgetTitle: some View {
+        HStack {
+            Image(systemName: "pills")
+                .font(.title2)
+                .foregroundColor(.orange)
+                .frame(width: 20, height: 20)
+            Text("Todays remainders:    \(todaysRemainders.count)")
+                .font(.callout)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+            Spacer()
+        }
+    }
+
+    private  var todaysRemainders: [MedicineRemainder] {
         let currentDay = Date().dayOfWeek() ?? ""
         return remainders.filter( { $0.weekDays?.contains(currentDay) ?? false })
     }
@@ -56,8 +101,3 @@ extension Date {
     }
 }
 
-//struct RYMWidgetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RYMWidgetView(remainders: FetchedResults<MedicineRemainder>)
-//    }
-//}
