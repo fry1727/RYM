@@ -55,7 +55,19 @@ struct RymWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        RYMWidgetView(remainders: entry.remainders)
+        switch family {
+        case .systemMedium:
+            RYMWidgetView(remainders: entry.remainders)
+        case .systemLarge:
+            RYMWidgetView(remainders: entry.remainders)
+        case .accessoryCircular:
+            CircuralWidgetView(remainders: entry.remainders)
+        case .accessoryInline:
+            InlineWidgetView(remainders: entry.remainders)
+        default:
+            Text("no")
+        }
+
     }
 }
 
@@ -69,7 +81,7 @@ struct RymWidget: Widget {
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
-        .supportedFamilies([.systemLarge, .systemMedium])
+        .supportedFamilies([.systemLarge, .systemMedium, .accessoryCircular, .accessoryInline])
     }
 }
 

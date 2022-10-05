@@ -25,6 +25,10 @@
 		CD8CB1E728E447D600354F3B /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CB1E628E447D600354F3B /* HapticsManager.swift */; };
 		CD94039228ED97FB005652A2 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94039128ED97FB005652A2 /* KeyboardResponder.swift */; };
 		CD94039428ED997D005652A2 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94039328ED997D005652A2 /* UIApplication+Extensions.swift */; };
+		CD94039628EDDB3C005652A2 /* InlineWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94039528EDDB3C005652A2 /* InlineWidgetView.swift */; };
+		CD94039728EDDBE2005652A2 /* InlineWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94039528EDDB3C005652A2 /* InlineWidgetView.swift */; };
+		CD94039928EDDC00005652A2 /* CircuralWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94039828EDDC00005652A2 /* CircuralWidgetView.swift */; };
+		CD94039A28EDDC00005652A2 /* CircuralWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94039828EDDC00005652A2 /* CircuralWidgetView.swift */; };
 		CDAAA76828E6F956003FABBD /* ReminderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAAA76628E6F94E003FABBD /* ReminderWidgetView.swift */; };
 		CDAAA76928E70353003FABBD /* ReminderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAAA76628E6F94E003FABBD /* ReminderWidgetView.swift */; };
 		CDCB9CFE28E5BBF200973060 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCB9CFD28E5BBF200973060 /* WidgetKit.framework */; };
@@ -112,6 +116,8 @@
 		CD8CB1E628E447D600354F3B /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		CD94039128ED97FB005652A2 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		CD94039328ED997D005652A2 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		CD94039528EDDB3C005652A2 /* InlineWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineWidgetView.swift; sourceTree = "<group>"; };
+		CD94039828EDDC00005652A2 /* CircuralWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuralWidgetView.swift; sourceTree = "<group>"; };
 		CDAAA76628E6F94E003FABBD /* ReminderWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderWidgetView.swift; sourceTree = "<group>"; };
 		CDCB9CFB28E5BBF200973060 /* com.rym.widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = com.rym.widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCB9CFD28E5BBF200973060 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -209,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				CDCB9D1628E6F8D700973060 /* supplimentary */,
-				CDCB9D1128E5C65200973060 /* RYMWidgetView.swift */,
 				CDCB9D0228E5BBF200973060 /* RymWidget.swift */,
 				CDCB9D0428E5BBF300973060 /* Assets.xcassets */,
 				CDCB9D0628E5BBF300973060 /* Info.plist */,
@@ -220,7 +225,10 @@
 		CDCB9D1628E6F8D700973060 /* supplimentary */ = {
 			isa = PBXGroup;
 			children = (
+				CDCB9D1128E5C65200973060 /* RYMWidgetView.swift */,
 				CDAAA76628E6F94E003FABBD /* ReminderWidgetView.swift */,
+				CD94039528EDDB3C005652A2 /* InlineWidgetView.swift */,
+				CD94039828EDDC00005652A2 /* CircuralWidgetView.swift */,
 			);
 			path = supplimentary;
 			sourceTree = "<group>";
@@ -575,9 +583,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDCB9D1328E5C73500973060 /* RYMWidgetView.swift in Sources */,
+				CD94039728EDDBE2005652A2 /* InlineWidgetView.swift in Sources */,
 				CDAAA76828E6F956003FABBD /* ReminderWidgetView.swift in Sources */,
 				CDCB9D1028E5C32A00973060 /* RYM.xcdatamodeld in Sources */,
 				CDCB9D0328E5BBF200973060 /* RymWidget.swift in Sources */,
+				CD94039A28EDDC00005652A2 /* CircuralWidgetView.swift in Sources */,
 				CDCB9D1528E5C8F300973060 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,6 +603,7 @@
 				CDCB9D1428E5C83D00973060 /* RYMWidgetView.swift in Sources */,
 				E67EF1E228C2573F0032A747 /* OnboardingViewModel.swift in Sources */,
 				E67EF1E028C257220032A747 /* OnboardingView.swift in Sources */,
+				CD94039928EDDC00005652A2 /* CircuralWidgetView.swift in Sources */,
 				CD8CB1E728E447D600354F3B /* HapticsManager.swift in Sources */,
 				E67EF1D328C256430032A747 /* UIView+Extensions.swift in Sources */,
 				E67EF1C628C255590032A747 /* AppConfig.swift in Sources */,
@@ -610,6 +621,7 @@
 				CD94039428ED997D005652A2 /* UIApplication+Extensions.swift in Sources */,
 				E67EF19228C24D3F0032A747 /* AppDelegate.swift in Sources */,
 				E67EF1C828C255A50032A747 /* LaunchScreenView.swift in Sources */,
+				CD94039628EDDB3C005652A2 /* InlineWidgetView.swift in Sources */,
 				CD94039228ED97FB005652A2 /* KeyboardResponder.swift in Sources */,
 				E673795128C5E5AA00C785F2 /* RemainderViewService.swift in Sources */,
 				E673795F28C641EF00C785F2 /* MedicineReminderCard.swift in Sources */,
