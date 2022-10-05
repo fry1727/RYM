@@ -13,8 +13,14 @@ class CoreDataStack: NSObject {
     
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
+
+        let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.RYM")!
+        let storeURL = containerURL.appendingPathComponent("DataModel.sqlite")
+        let description = NSPersistentStoreDescription(url: storeURL)
         
         let container = NSPersistentContainer(name: "RYM")
+        container.persistentStoreDescriptions = [description]
+
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

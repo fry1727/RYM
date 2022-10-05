@@ -50,7 +50,7 @@ struct RemaindersListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    plusButton
+                    addButton
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     settingsButton
@@ -62,20 +62,21 @@ struct RemaindersListView: View {
     
     private var searchResults: [MedicineRemainder] {
         if searchText.isEmpty {
-            return viewService.remainders
+            return viewService.remainders.sorted(by: { $0.dateAdded?.timeIntervalSince1970 ?? 0 > $1.dateAdded?.timeIntervalSince1970 ?? 0 })
         } else {
             return viewService.remainders.filter { $0.title?.contains(searchText) ?? false }
         }
     }
     
-    private var plusButton: some View {
+    private var addButton: some View {
         Group {
             Button {
                 haptics.vibrateForSelection()
                 viewService.addNewRemainder.toggle()
             } label: {
-                Image(systemName: "plus.circle")
+                Text("Add")
                     .font(.title3)
+                    .fontWeight(.semibold)
                     .foregroundColor(.white)
             }
         }
