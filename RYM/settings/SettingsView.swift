@@ -13,6 +13,7 @@ struct SettingsView: View {
     @EnvironmentObject var viewService: RemainderViewService
     @StateObject var appConfig = AppConfig.shared
     @ObservedObject var viewModel : SettingViewModel
+    private let homeRouter = HomeRouter.shared
     
     var body: some View {
         NavigationView {
@@ -42,15 +43,39 @@ struct SettingsView: View {
                                 viewModel.turnOffNotificationAlertPresent()
                             }
                         }
-                        
                     }
                 }
                 
-                Section(header: Text("Get started from begining")) {
+                Section(header: Text("Deleting all data")) {
                     Button {
                         viewModel.deleteButtonPressed()
                     } label: {
                         Text("Delete all data")
+                            .foregroundColor(Color.white)
+                    }
+                }
+
+                Section(header: Text("Privacy and Complience")) {
+                    Button {
+                        goToTermsOfUse()
+                    } label: {
+                        Text("Terms of use")
+                            .foregroundColor(Color.white)
+                    }
+
+                    Button {
+                        goToPrivacy()
+                    } label: {
+                        Text("Privacy policy")
+                            .foregroundColor(Color.white)
+                    }
+                }
+
+                Section(header: Text("Saharing")) {
+                    Button {
+                        shareAppSheet()
+                    } label: {
+                        Text("Share app")
                             .foregroundColor(Color.white)
                     }
                 }
@@ -79,6 +104,24 @@ struct SettingsView: View {
             }
             .tint(.white)
         }
+    }
+
+    private func goToTermsOfUse() {
+        guard let urlShare = URL(string: "https://google.com") else { return }
+        let view = WebViewSettingsPage(url: urlShare, header: "Terms of use")
+        homeRouter.present(view: view)
+    }
+
+    private func goToPrivacy() {
+        guard let urlShare = URL(string: "https://google.com") else { return }
+        let view = WebViewSettingsPage(url: urlShare, header: "Privacy Policy")
+        homeRouter.present(view: view)
+    }
+
+    private func shareAppSheet() {
+        guard let urlShare = URL(string: "https://apps.apple.com/us/app/id1632314541") else { return }
+        let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }
 }
 

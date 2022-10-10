@@ -18,6 +18,7 @@
 		CD034D4928D1E1CD00106D65 /* UINavigation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1D028C256250032A747 /* UINavigation+Extensions.swift */; };
 		CD1653AF28D9E8FC003BFD49 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1653AE28D9E8FC003BFD49 /* SettingViewModel.swift */; };
 		CD3748B628D370730049E01F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3748B528D370730049E01F /* SettingsView.swift */; };
+		CD66D56228F41D57000A6036 /* WebViewSettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD66D56128F41D57000A6036 /* WebViewSettingPage.swift */; };
 		CD86545528D07041001CB65D /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545428D07041001CB65D /* CoreDataTest.swift */; };
 		CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545828D074BB001CB65D /* CoreDataStack.swift */; };
 		CD86545C28D0B520001CB65D /* OnboardingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */; };
@@ -109,6 +110,7 @@
 		CD034D3628D1CE7E00106D65 /* AddRemainderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemainderUITests.swift; sourceTree = "<group>"; };
 		CD1653AE28D9E8FC003BFD49 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		CD3748B528D370730049E01F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CD66D56128F41D57000A6036 /* WebViewSettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewSettingPage.swift; sourceTree = "<group>"; };
 		CD86545428D07041001CB65D /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		CD86545828D074BB001CB65D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		CD86545B28D0B520001CB65D /* OnboardingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTest.swift; sourceTree = "<group>"; };
@@ -196,10 +198,19 @@
 		CD034D5128D2186E00106D65 /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				CD66D56028F41D3D000A6036 /* supplimentary */,
 				CD1653AE28D9E8FC003BFD49 /* SettingViewModel.swift */,
 				CD3748B528D370730049E01F /* SettingsView.swift */,
 			);
 			path = settings;
+			sourceTree = "<group>";
+		};
+		CD66D56028F41D3D000A6036 /* supplimentary */ = {
+			isa = PBXGroup;
+			children = (
+				CD66D56128F41D57000A6036 /* WebViewSettingPage.swift */,
+			);
+			path = supplimentary;
 			sourceTree = "<group>";
 		};
 		CDCB9CFC28E5BBF200973060 /* Frameworks */ = {
@@ -596,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD66D56228F41D57000A6036 /* WebViewSettingPage.swift in Sources */,
 				E673795328C5E79400C785F2 /* AddNewRemainder.swift in Sources */,
 				E67EF19C28C24D3F0032A747 /* RYM.xcdatamodeld in Sources */,
 				E67EF1D828C256A30032A747 /* HomeRouter.swift in Sources */,
@@ -699,7 +711,7 @@
 				CODE_SIGN_ENTITLEMENTS = com.rym.widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 797DJDX23K;
+				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = com.rym.widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RYMw;
@@ -729,7 +741,7 @@
 				CODE_SIGN_ENTITLEMENTS = com.rym.widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 797DJDX23K;
+				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = com.rym.widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RYMw;
@@ -873,9 +885,10 @@
 				CODE_SIGN_ENTITLEMENTS = RYM/RYM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 797DJDX23K;
+				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RYM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Rym;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -904,9 +917,10 @@
 				CODE_SIGN_ENTITLEMENTS = RYM/RYM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 797DJDX23K;
+				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RYM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Rym;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
