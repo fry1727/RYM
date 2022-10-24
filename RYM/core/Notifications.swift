@@ -54,7 +54,7 @@ final class Notifications: NSObject, UNUserNotificationCenterDelegate {
     func scheduleNotification(remainderText: String, remainderId: String, currentWeekDay: Int, remainderDate: Date) {
 
         let content = UNMutableNotificationContent()
-        content.title = "Medicine Remander"
+        content.title = "Medicine Reminder"
         content.subtitle = remainderText
         content.sound = UNNotificationSound.default
 

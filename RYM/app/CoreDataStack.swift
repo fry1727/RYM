@@ -10,14 +10,14 @@ import CoreData
 
 // MARK: Main class for work with Core Data
 class CoreDataStack: NSObject {
-    
+
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
 
         let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group..com.rym.new")!
         let storeURL = containerURL.appendingPathComponent("DataModel.sqlite")
         let description = NSPersistentStoreDescription(url: storeURL)
-        
+
         let container = NSPersistentContainer(name: "RYM")
         container.persistentStoreDescriptions = [description]
 
@@ -28,7 +28,7 @@ class CoreDataStack: NSObject {
         })
         return container
     }()
-    
+
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -41,5 +41,3 @@ class CoreDataStack: NSObject {
         }
     }
 }
-
-

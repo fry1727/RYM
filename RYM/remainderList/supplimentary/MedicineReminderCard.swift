@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//MARK: - Card for showing remainder in remainders list
+// MARK: - Card for showing remainder in remainders list
 struct MedicineReminderCard: View {
    @ObservedObject var medicineRemainder: MedicineRemainder
 
@@ -59,7 +59,10 @@ struct MedicineReminderCard: View {
         Group {
             let calendar = Calendar.current
             let currentWeek = calendar.dateInterval(of: .weekOfMonth, for: Date())
-            let symbols = calendar.weekdaySymbols
+            let calendarCurrentShort = Calendar.current.shortWeekdaySymbols
+            let calendarWirstWeekDay = Calendar.current.firstWeekday
+            let symbols = Array(calendarCurrentShort[calendarWirstWeekDay - 1 ..< calendarCurrentShort.count]
+                                + calendarCurrentShort[0 ..< calendarWirstWeekDay - 1])
             let startDay = currentWeek?.start ?? Date()
             let activeWeekDays = medicineRemainder.weekDays ?? []
             let activeDay = symbols.indices.compactMap { index -> (String, Date) in
@@ -98,7 +101,7 @@ struct MedicineReminderCard: View {
             }
         }
     }
-///Convert date to string
+/// Convert date to string
     func dateToString(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd"

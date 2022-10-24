@@ -8,31 +8,35 @@
 import SwiftUI
 import CoreData
 
-//MARK: - Struct for adding new reminder
+// MARK: - Struct for adding new reminder
 struct AddNewRemainder: View {
     @EnvironmentObject var viewService: RemainderViewService
     @Environment(\.self) var environment
-    let weekDays = Calendar.current.weekdaySymbols
-    
+//    let weekDays = NSCalendar.current.weekdaySymbols
+//    let shortWeekdaySymbols =
+
+    let weekDays: [String] = Array(Calendar.current.shortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.shortWeekdaySymbols.count]
+                                   + Calendar.current.shortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
+
     var body: some View {
         NavigationView {
             VStack(spacing: 15) {
-                
+
                 titleTextField
-                
+
                 colorPicker
-                
+
                 Divider()
-                
+
                 frequencySelection
-                
+
                 Divider()
                     .padding(.vertical, 10)
-                
+
                 remainderToggle
-                
+
                 remainder
-                
+
             }
 
             .animation(.easeInOut, value: viewService.isRemainderOn)
@@ -42,7 +46,7 @@ struct AddNewRemainder: View {
                 UIApplication.shared.endEditing()
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle(viewService.editRemainder == nil ? "Add Medicine Remainder" : "Edit Medicine Remainder")
+            .navigationTitle(viewService.editRemainder == nil ? "Add Medicine Reminder" : "Edit Medicine Reminder")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     xmarkButton
@@ -61,10 +65,10 @@ struct AddNewRemainder: View {
             }
         }
     }
-    
+
     private var titleTextField: some View {
-        VStack(spacing: 5){
-            HStack{
+        VStack(spacing: 5) {
+            HStack {
                 Text("Title:")
                     .font(.caption)
                     .foregroundColor(.gray)
@@ -80,9 +84,9 @@ struct AddNewRemainder: View {
             UIApplication.shared.endEditing()
         }
     }
-    
+
     private var colorPicker: some View {
-        VStack(spacing: 8){
+        VStack(spacing: 8) {
             HStack {
                 Text("Color:")
                     .font(.caption)
@@ -113,7 +117,7 @@ struct AddNewRemainder: View {
             .padding(.top, 5)
         }
     }
-    
+
     private var frequencySelection: some View {
         VStack(alignment: .leading, spacing: 2) {
             HStack {
@@ -144,7 +148,7 @@ struct AddNewRemainder: View {
                     let index = viewService.weekDays.firstIndex { value in
                         return value == day
                     } ?? -1
-                    
+
                     Text(day.prefix(2))
                         .fontWeight(.semibold)
                         .frame(maxWidth: .infinity)
@@ -171,17 +175,17 @@ struct AddNewRemainder: View {
             UIApplication.shared.endEditing()
         }
     }
-    
+
     private var remainderToggle: some View {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
-                Text("Turn On remainder")
+                Text("Turn On reminder")
                     .fontWeight(.semibold)
                 Text("App will send you a notification")
                     .font(.caption)
                     .foregroundColor(.gray)
             }
-            
+
             .frame(maxWidth: .infinity, alignment: .leading)
             .onTapGesture {
                 UIApplication.shared.endEditing()
@@ -194,7 +198,7 @@ struct AddNewRemainder: View {
         }
         .opacity(viewService.notificationAccess ? 1 : 0)
     }
-    
+
     private var timePickerOverlay: some View {
         ZStack {
             Rectangle()
@@ -206,14 +210,14 @@ struct AddNewRemainder: View {
                         UIApplication.shared.endEditing()
                     }
                 }
-            VStack{
+            VStack {
                 DatePicker.init("", selection:
                                     $viewService.remainderDate, displayedComponents: [.hourAndMinute])
                 .datePickerStyle(.wheel)
                 .labelsHidden()
                 .padding([.top, .horizontal])
 
-                Text("* after choosing tap inside to close")
+                Text("* after choosing tap outside to close")
                     .font(.callout)
                     .foregroundColor(.white)
                     .padding()
@@ -225,7 +229,7 @@ struct AddNewRemainder: View {
             .padding()
         }
     }
-    
+
     private var remainder: some View {
         HStack(spacing: 12) {
             Label {
@@ -243,11 +247,11 @@ struct AddNewRemainder: View {
                     viewService.showTimePicker.toggle()
                 }
             }
-            
-            TextField("Remainder text", text: $viewService.remainderText)
+
+            TextField("Reminder text", text: $viewService.remainderText)
                 .padding(.horizontal)
                 .padding(.vertical, 10)
-                .onChange(of: viewService.isRemainderOn, perform: { newValue in
+                .onChange(of: viewService.isRemainderOn, perform: { _ in
                     if viewService.isRemainderOn {
                         viewService.remainderText = viewService.title
                     }
@@ -259,7 +263,7 @@ struct AddNewRemainder: View {
         .opacity(viewService.isRemainderOn ? 1 : 0)
         .opacity(viewService.notificationAccess ? 1 : 0)
     }
-    
+
     private var xmarkButton: some View {
         Group {
             Button {
@@ -271,7 +275,7 @@ struct AddNewRemainder: View {
             .tint(.white)
         }
     }
-    
+
     private var deleteButton: some View {
         Group {
             Button {
@@ -284,10 +288,10 @@ struct AddNewRemainder: View {
             }
             .tint(.red)
             .opacity(viewService.editRemainder == nil ? 0 : 1)
-            
+
         }
     }
-    
+
     private var doneButton: some View {
         Group {
             Button("Done") {
@@ -301,7 +305,7 @@ struct AddNewRemainder: View {
             .opacity(viewService.doneStatus() ? 1 : 0.6)
         }
     }
-    
+
     private var saveButton: some View {
         Group {
             Button("Save") {

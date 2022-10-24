@@ -8,14 +8,15 @@
 import SwiftUI
 import CoreData
 
-//MARK: - Main view of the application
+// MARK: - Main view of the application
 struct RemaindersListView: View {
     @ObservedObject var viewService: RemainderViewService
     @Environment(\.managedObjectContext) private var viewContext
+
     @State private var searchText = ""
-    
+
     let haptics = HapticsManager.shared
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -46,7 +47,7 @@ struct RemaindersListView: View {
                     .environmentObject(viewService)
             }
             .searchable(text: $searchText)
-            .navigationBarTitle(Text("Remainders"))
+            .navigationBarTitle(Text("Reminders"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -59,19 +60,21 @@ struct RemaindersListView: View {
             .overlay(bigPlusButton, alignment: .bottom)
         }
     }
-    
+
     private var searchResults: [MedicineRemainder] {
         if searchText.isEmpty {
-            return viewService.remainders.sorted(by: { $0.dateAdded?.timeIntervalSince1970 ?? 0 > $1.dateAdded?.timeIntervalSince1970 ?? 0 })
+            return viewService.remainders.sorted(by: { $0.dateAdded?.timeIntervalSince1970 ?? 0 >
+                $1.dateAdded?.timeIntervalSince1970 ?? 0 })
         } else {
-            return viewService.remainders.filter { $0.title?.contains(searchText) ?? false }
+            return viewService.remainders.filter { $0.title?.lowercased().contains(searchText.lowercased()) ?? false }
         }
     }
-    
+
     private var addButton: some View {
         Group {
             Button {
                 haptics.vibrateForSelection()
+                viewService.editRemainder = nil
                 viewService.addNewRemainder.toggle()
             } label: {
                 Text("Add")
@@ -81,7 +84,7 @@ struct RemaindersListView: View {
             }
         }
     }
-    
+
     private var settingsButton: some View {
         Group {
             Button {
@@ -94,12 +97,13 @@ struct RemaindersListView: View {
             }
         }
     }
-    
+
     private var bigPlusButton: some View {
         HStack {
             Spacer()
             Button {
                 haptics.vibrateForSelection()
+                viewService.editRemainder = nil
                 viewService.addNewRemainder.toggle()
             } label: {
                 Image(systemName: "plus")
@@ -115,10 +119,10 @@ struct RemaindersListView: View {
             .padding(.vertical, 130)
         }
     }
-    
+
     private var remaindersEmptyView: some View {
         VStack {
-            Text("There is no medicine remainders")
+            Text("There is no medicine reminders")
                 .foregroundColor(.white)
                 .font(.title2.bold())
                 .frame(maxWidth: .infinity)
@@ -136,9 +140,9 @@ struct RemaindersListView: View {
                 .multilineTextAlignment(.center)
         }
     }
-    
+
     private var reminderCardList: some View {
-        ForEach(Array(zip(searchResults.indices, searchResults)), id: \.0) { index, remainder in
+        ForEach(Array(zip(searchResults.indices, searchResults)), id: \.0) { _, remainder in
             MedicineReminderCard(medicineRemainder: remainder)
                 .padding(.bottom, 10)
                 .id(remainder.id)
@@ -155,7 +159,8 @@ struct RemaindersListView: View {
                             viewService.editRemainder = remainder
                             _ = viewService.deleteRemainder()
                         }
-                    } ) {
+                    })
+                    {
                         Text("Delete")
                     }
                 }

@@ -16,12 +16,12 @@ struct Provider: TimelineProvider {
         SimpleEntry(date: Date(), remainders: [])
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
         let entry = SimpleEntry(date: Date(), remainders: [])
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         var entries: [SimpleEntry] = []
         var remainders: [MedicineRemainder] = []
 
@@ -50,7 +50,7 @@ struct SimpleEntry: TimelineEntry {
     let remainders: [MedicineRemainder]
 }
 
-struct RymWidgetEntryView : View {
+struct RymWidgetEntryView: View {
     @Environment(\.widgetFamily) var family
     var entry: Provider.Entry
 
@@ -85,7 +85,7 @@ struct RymWidget: Widget {
     }
 }
 
-struct com_rym_widget_Previews: PreviewProvider {
+struct RymWidget_Previews: PreviewProvider {
     static var previews: some View {
         RymWidgetEntryView(entry: SimpleEntry(date: Date(), remainders: []))
             .previewContext(WidgetPreviewContext(family: .systemSmall))

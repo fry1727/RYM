@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import CoreData
 @testable import RYM
 
 class ReminderViewModelTest: XCTestCase {
@@ -13,7 +14,7 @@ class ReminderViewModelTest: XCTestCase {
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        sut = RemainderViewService()
+        sut = RemainderViewService(context: NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType))
     }
 
     override func tearDownWithError() throws {

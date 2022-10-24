@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
-//MARK: - Router for onboarding functionality
+// MARK: - Router for onboarding functionality
 final class OnboardingRouter: BaseRouter, BasePresenter {
     weak var navigationController: UINavigationController?
 

@@ -12,12 +12,12 @@ import CoreData
 final class OnboardingViewModel: ObservableObject {
     let router: OnboardingRouter
     let viewContext: NSPersistentContainer
-    
+
     init(navController: UINavigationController? = nil, viewContext: NSPersistentContainer) {
         router = OnboardingRouter(navController: navController)
         self.viewContext = viewContext
     }
-    
+
     /// Function for changing isFinishOnboarding state and go to main screen
     func loginUser() {
         AppConfig.shared.isFinishOnboarding = true

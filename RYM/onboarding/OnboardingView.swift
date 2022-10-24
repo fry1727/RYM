@@ -11,28 +11,28 @@ import CoreData
 // MARK: - View for onboarding screen
 struct OnboardingView: View {
     var viewModel: OnboardingViewModel
-    
+
     var body: some View {
         VStack {
             Image(systemName: "pills.circle")
                 .font(.system(size: 90))
                 .foregroundColor(.orange)
                 .padding(.vertical, 40)
-            
+
             tittleView
-            
+
             Spacer()
-            
+
             featuresView
                 .padding(.horizontal, 5)
-            
+
             Spacer()
-            
+
             continueButton
                 .padding(.bottom, 30)
         }
     }
-    
+
     private var tittleView: some View {
         Group {
             Text("Welcome to")
@@ -43,14 +43,14 @@ struct OnboardingView: View {
                 .foregroundColor(.orange)
         }
     }
-    
+
     private var featuresView: some View {
         Group {
             OnboardingFeatureView(systemImageName: "list.bullet.circle",
                                   titleText: "Watch your medicine",
                                   featureText: "You can easily manage your medicine. Create, edite, remove your medicine reminders easely.")
             .padding(.bottom, 10)
-            
+
             OnboardingFeatureView(systemImageName: "bell.circle",
                                   titleText: "Notification",
                                   featureText: "Flexibly set up notifications, never miss a dose of medication. Easely control your staff.")
@@ -60,7 +60,7 @@ struct OnboardingView: View {
                                   featureText: "We care about privacy and store all you data on your phone. Get easy access to manage and delete all data quickly")
         }
     }
-    
+
     private var continueButton: some View {
         Group {
             Button {

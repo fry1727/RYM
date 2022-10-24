@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//MARK: - Struct for features on onboarding screen
+// MARK: - Struct for features on onboarding screen
 struct OnboardingFeatureView: View {
     var systemImageName: String
     var titleText: String
@@ -15,7 +15,7 @@ struct OnboardingFeatureView: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            
+
             Spacer()
 
             Image(systemName: systemImageName)

@@ -11,7 +11,7 @@ struct CircuralWidgetView: View {
     let remainders: [MedicineRemainder]
 
     var body: some View {
-        HStack(spacing: 4){
+        HStack(spacing: 4) {
             Image(systemName: "pills")
                 .foregroundColor(.orange)
                 .font(.headline)
@@ -19,7 +19,7 @@ struct CircuralWidgetView: View {
                 .font(.headline)
                 .fontWeight(.semibold)
         }
-        .background{
+        .background {
             Circle()
                 .frame(width: 60, height: 60)
                 .foregroundColor(Color.gray.opacity(0.6))
@@ -28,8 +28,6 @@ struct CircuralWidgetView: View {
 
     private  var todaysRemainders: [MedicineRemainder] {
         let currentDay = Date().dayOfWeek() ?? ""
-        return remainders.filter( { $0.weekDays?.contains(currentDay) ?? false })
+        return remainders.filter({ $0.weekDays?.contains(currentDay) ?? false })
     }
 }
-
-

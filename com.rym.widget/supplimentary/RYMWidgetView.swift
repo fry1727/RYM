@@ -11,7 +11,7 @@ import WidgetKit
 struct RYMWidgetView: View {
     @Environment(\.widgetFamily) var family
     let remainders: [MedicineRemainder]
-    
+
     var body: some View {
         ZStack {
             Color.black
@@ -39,7 +39,7 @@ struct RYMWidgetView: View {
     }
 
     private var mediumWidgetRemainderList: some View {
-        Group{
+        Group {
             if let remainder =  todaysRemainders.first {
                 ReminderWidgetView(medicineRemainder: remainder)
                 Divider()
@@ -65,7 +65,7 @@ struct RYMWidgetView: View {
     }
 
     private var largeWidgetRemainderList: some View {
-        Group{
+        Group {
             ForEach(todaysRemainders) { reminder in
                 ReminderWidgetView(medicineRemainder: reminder)
                 Divider()
@@ -79,7 +79,7 @@ struct RYMWidgetView: View {
                 .font(.title2)
                 .foregroundColor(.orange)
                 .frame(width: 20, height: 20)
-            Text("Todays remainders:    \(todaysRemainders.count)")
+            Text("Today's reminders:    \(todaysRemainders.count)")
                 .font(.callout)
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
@@ -89,7 +89,7 @@ struct RYMWidgetView: View {
 
     private  var todaysRemainders: [MedicineRemainder] {
         let currentDay = Date().dayOfWeek() ?? ""
-        return remainders.filter( { $0.weekDays?.contains(currentDay) ?? false })
+        return remainders.filter({ $0.weekDays?.contains(currentDay) ?? false })
     }
 }
 
@@ -100,4 +100,3 @@ extension Date {
         return dateFormatter.string(from: self).capitalized
     }
 }
-

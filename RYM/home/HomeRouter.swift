@@ -15,7 +15,7 @@ final class HomeRouter: BaseRouter, ObservableObject {
     weak var navigationController: UINavigationController?
 
     private init() {}
-    
+
 /// Function for reset to root all screens (used when logout and etc)
     func reset() {
         popToRoot()

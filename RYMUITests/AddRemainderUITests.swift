@@ -20,7 +20,6 @@ class AddRemainderUITests: XCTestCase {
         let addButton = app.scrollViews.otherElements.buttons["Add"]
         addButton.tap()
 
-
         let navigationbar = app.navigationBars["Add Medicine Remainder"]
         let title = navigationbar.staticTexts["Add Medicine Remainder"]
         XCTAssert(title.waitForExistence(timeout: 3))

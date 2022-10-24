@@ -94,7 +94,7 @@ class CoreDataTest: XCTestCase {
     func testRestoreEditingData() {
         let context = coreDataStack.persistentContainer.viewContext
         viewModel.editRemainder = MedicineRemainder(context: context)
-        
+
         viewModel.title = "NewTitle"
         viewModel.remainderColor = "Card-9"
         viewModel.weekDays = ["one", "two"]

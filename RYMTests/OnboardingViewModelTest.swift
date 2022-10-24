@@ -22,7 +22,6 @@ class OnboardingViewModelTest: XCTestCase {
         onboardingViewModel = OnboardingViewModel(navController: navigationController, viewContext: coreDataStack.persistentContainer)
     }
 
-
     override func tearDownWithError() throws {
         appConfig = nil
         onboardingViewModel = nil
@@ -38,8 +37,6 @@ class OnboardingViewModelTest: XCTestCase {
        let testVM = OnboardingViewModel(navController: navigationController, viewContext: coreDataStack.persistentContainer)
         XCTAssertEqual(testVM.viewContext, onboardingViewModel.viewContext)
         XCTAssertEqual(testVM.router.navigationController, onboardingViewModel.router.navigationController)
-
-
 
     }
 

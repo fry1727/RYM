@@ -38,7 +38,8 @@ final class HomeViewController: UIViewController {
         scrollView.contentSize = CGSize(width: view.width,
                                         height: scrollView.height)
         let viewService = RemainderViewService(context: viewContext.viewContext)
-        let contextView = RemaindersListView(viewService: viewService).environment(\.managedObjectContext, viewContext.viewContext)
+        let contextView = RemaindersListView(viewService: viewService).environment(\.managedObjectContext,
+                                                                                    viewContext.viewContext)
         let mainVC = UIHostingController(rootView: contextView)
         addChild(mainVC)
         scrollView.addSubview(mainVC.view)

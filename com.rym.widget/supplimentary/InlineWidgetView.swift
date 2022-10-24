@@ -16,8 +16,6 @@ struct InlineWidgetView: View {
 
     private  var todaysRemainders: [MedicineRemainder] {
         let currentDay = Date().dayOfWeek() ?? ""
-        return remainders.filter( { $0.weekDays?.contains(currentDay) ?? false })
+        return remainders.filter({ $0.weekDays?.contains(currentDay) ?? false })
     }
 }
-
-

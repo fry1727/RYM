@@ -10,10 +10,10 @@ import CoreData
 import WidgetKit
 
 class RemainderViewService: ObservableObject {
-    //MARK: All remainders
+    // MARK: All remainders
     @Published var remainders: [MedicineRemainder] = []
 
-    //MARK: - Fetching Data from Core Data and setting content
+    // MARK: - Fetching Data from Core Data and setting content
     init(context: NSManagedObjectContext) {
         self.context = context
         let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
@@ -24,35 +24,35 @@ class RemainderViewService: ObservableObject {
         }
     }
 
-    //MARK: - Working with data from Core Data
+    // MARK: - Working with data from Core Data
     private var context: NSManagedObjectContext
 
     // MARK: - New Remainder Properties
     @Published var addNewRemainder: Bool = false
-    
+
     @Published var title: String = ""
     @Published var remainderColor: String = "Card-1"
     @Published var weekDays: [String] = []
     @Published var isRemainderOn: Bool = false
     @Published var remainderText: String = ""
     @Published var remainderDate: Date = Date()
-    
+
     // MARK: Reminder Time Picker
     @Published var showTimePicker = false
-    
-    //MARK: Setting presenter
+
+    // MARK: Setting presenter
     @Published var settingPresented = false
-    
+
     // MARK: Edit Remainder
     @Published var editRemainder: MedicineRemainder?
-    
+
     // MARK: Notification access status
     @Published var notificationAccess: Bool = AppConfig.shared.notificationAccess
-    
+
     var notificationsIds: [String] = []
 
     let haptics = HapticsManager.shared
-    
+
     // MARK: Adding remainder to Database
     func addRemainder() -> Bool {
         var remainder: MedicineRemainder?
@@ -65,7 +65,7 @@ class RemainderViewService: ObservableObject {
         guard let remainder = remainder else {
             return false
         }
-        
+
         remainder.title = title
         remainder.color = remainderColor
         remainder.weekDays = weekDays
@@ -74,7 +74,7 @@ class RemainderViewService: ObservableObject {
         remainder.dateAdded = Date()
         remainder.notificationDate = remainderDate
         remainder.notificationIDs = []
-        
+
         if isRemainderOn {
             sheduleNotificationsAndCreateIds()
             remainder.notificationIDs = notificationsIds
@@ -104,7 +104,7 @@ class RemainderViewService: ObservableObject {
         }
         return false
     }
-    
+
     // MARK: Deleting medicineRemainders from Database
     func deleteRemainder() -> Bool {
         if let editRemainder = editRemainder {
@@ -122,13 +122,13 @@ class RemainderViewService: ObservableObject {
         }
         return false
     }
-    
+
     // MARK: Delete ALL data
     func deleteAllData() {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedContext = appDelegate.coreDataStack.persistentContainer.viewContext
             let deleteAllEntities = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "MedicineRemainder"))
-            
+
             Notifications.shared.removePendingNotifications(IDs: notificationsIds)
             var remainders: [MedicineRemainder] = []
             let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
@@ -137,7 +137,7 @@ class RemainderViewService: ObservableObject {
             } catch let error as NSError {
                 print("Could not fetch. \(error)")
             }
-            
+
             for remainder in remainders {
                 context.delete(remainder)
             }
@@ -147,14 +147,13 @@ class RemainderViewService: ObservableObject {
             do {
                 haptics.vibrate(for: .error)
                 try managedContext.execute(deleteAllEntities)
-            }
-            catch {
+            } catch {
                 print(error)
             }
         }
     }
-    
-    //MARK: - Function for turn on all notifications
+
+    // MARK: - Function for turn on all notifications
     func turnOnAllNotifications() {
         var remainders: [MedicineRemainder] = []
         let fetchRequest = NSFetchRequest<MedicineRemainder>(entityName: "MedicineRemainder")
@@ -170,7 +169,7 @@ class RemainderViewService: ObservableObject {
                 if let remainderWeekdays = remainder.weekDays {
                     for weekDay in remainderWeekdays {
                         let id = UUID().uuidString
-                        
+
                         let day = weekdaySymbols.firstIndex { currentDay in
                             return currentDay == weekDay } ?? -1
                         if day != -1 {
@@ -185,7 +184,7 @@ class RemainderViewService: ObservableObject {
             }
         }
     }
-    
+
     // MARK: Erasing content
     func resetData() {
         DispatchQueue.main.async {
@@ -200,7 +199,7 @@ class RemainderViewService: ObservableObject {
         WidgetCenter.shared.reloadTimelines(ofKind: "com_rym_widget")
         self.notificationsIds = []
     }
-    
+
     // MARK: Restoring editing data
     func restoreEditingData() {
         if let editRemainder = editRemainder {
@@ -213,14 +212,14 @@ class RemainderViewService: ObservableObject {
             notificationsIds = editRemainder.notificationIDs ?? []
         }
     }
-    
+
     // MARK: Adding Notifications
     func sheduleNotificationsAndCreateIds() {
         let calendar = Calendar.current
         let weekdaySymbols: [String] = calendar.weekdaySymbols
         for weekDay in weekDays {
             let id = UUID().uuidString
-            
+
             let day = weekdaySymbols.firstIndex { currentDay in
                 return currentDay == weekDay } ?? -1
             if day != -1 {
@@ -232,7 +231,7 @@ class RemainderViewService: ObservableObject {
             }
         }
     }
-    
+
     // MARK: Done button status
     func doneStatus() -> Bool {
         let remainderStatus = isRemainderOn ? remainderText == "" : false
@@ -241,5 +240,5 @@ class RemainderViewService: ObservableObject {
         }
         return true
     }
-    
+
 }

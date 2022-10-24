@@ -571,6 +571,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		E67EF1E528C259160032A747 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -710,7 +711,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = com.rym.widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = com.rym.widget/Info.plist;
@@ -740,7 +741,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = com.rym.widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = com.rym.widget/Info.plist;
@@ -884,7 +885,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RYM/RYM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RYM/Info.plist;
@@ -916,7 +917,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RYM/RYM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RYM/Info.plist;

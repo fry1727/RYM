@@ -8,13 +8,13 @@
 import SwiftUI
 import CoreData
 
-//MARK: - View for work with setting
+// MARK: - View for work with setting
 struct SettingsView: View {
     @EnvironmentObject var viewService: RemainderViewService
     @StateObject var appConfig = AppConfig.shared
-    @ObservedObject var viewModel : SettingViewModel
+    @ObservedObject var viewModel: SettingViewModel
     private let homeRouter = HomeRouter.shared
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -45,7 +45,7 @@ struct SettingsView: View {
                         }
                     }
                 }
-                
+
                 Section(header: Text("Deleting all data")) {
                     Button {
                         viewModel.deleteButtonPressed()
@@ -94,7 +94,7 @@ struct SettingsView: View {
             }
         }
     }
-    
+
     private var xmarkButton: some View {
         Group {
             Button {
@@ -107,13 +107,13 @@ struct SettingsView: View {
     }
 
     private func goToTermsOfUse() {
-        guard let urlShare = URL(string: "https://google.com") else { return }
+        guard let urlShare = URL(string: "https://telegra.ph/Terms--Conditions-10-22-2") else { return }
         let view = WebViewSettingsPage(url: urlShare, header: "Terms of use")
         homeRouter.present(view: view)
     }
 
     private func goToPrivacy() {
-        guard let urlShare = URL(string: "https://google.com") else { return }
+        guard let urlShare = URL(string: "https://telegra.ph/Privacy-Policy-10-22-17") else { return }
         let view = WebViewSettingsPage(url: urlShare, header: "Privacy Policy")
         homeRouter.present(view: view)
     }

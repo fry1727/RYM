@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ReminderWidgetView: View {
-    
+
     @ObservedObject var medicineRemainder: MedicineRemainder
-    
+
     var body: some View {
         VStack {
-            HStack{
+            HStack {
                 Circle()
                     .frame(width: 5, height: 5)
                     .foregroundColor(.orange)
@@ -26,7 +26,7 @@ struct ReminderWidgetView: View {
                     .foregroundColor(.white)
                 Spacer()
             }
-            
+
         }
         .padding(.vertical, 6)
         .padding(.horizontal, 6)
