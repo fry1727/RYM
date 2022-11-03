@@ -4,7 +4,8 @@
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isRemainderOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="notificationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="notificationDate" attributeType="Date" valueTransformerName="NSSecureUnarchiveFromDataTransformer" usesScalarValueType="NO" customClassName="[Date]"/>
+        <attribute name="notificationDates" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[Date]"/>
         <attribute name="notificationIDs" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
         <attribute name="remainderText" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>

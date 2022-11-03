@@ -41,10 +41,12 @@ struct MedicineReminderCard: View {
                 .foregroundColor(Color(medicineRemainder.color ?? "Card-1"))
                 .scaleEffect(0.9)
                 .opacity(medicineRemainder.isRemainderOn ? 1 : 0)
-            Text(medicineRemainder.notificationDate?.formatted(date: .omitted, time: .shortened) ?? "")
-                .font(.callout)
-                .foregroundColor(.white)
-                .opacity(medicineRemainder.isRemainderOn ? 1 : 0)
+            if let notificationDates = medicineRemainder.notificationDates {
+                    Text("\(notificationDates.count) per day")
+                        .font(.callout)
+                        .foregroundColor(.white)
+                        .opacity(medicineRemainder.isRemainderOn ? 1 : 0)
+            }
 
             Spacer()
 

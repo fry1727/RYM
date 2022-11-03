@@ -21,7 +21,7 @@ struct ReminderWidgetView: View {
                     .font(.callout)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
-                Text(medicineRemainder.isRemainderOn ? "at \(medicineRemainder.notificationDate?.formatted(date: .omitted, time: .shortened) ?? "")" : "")
+                Text(medicineRemainder.isRemainderOn ? "\(medicineRemainder.notificationDates?.count ?? 0) per day" : "")
                     .font(.callout)
                     .foregroundColor(.white)
                 Spacer()

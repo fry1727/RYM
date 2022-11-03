@@ -18,6 +18,9 @@ class CoreDataStack: NSObject {
         let storeURL = containerURL.appendingPathComponent("DataModel.sqlite")
         let description = NSPersistentStoreDescription(url: storeURL)
 
+        description.shouldMigrateStoreAutomatically = true
+        description.shouldInferMappingModelAutomatically = true
+
         let container = NSPersistentContainer(name: "RYM")
         container.persistentStoreDescriptions = [description]
 
