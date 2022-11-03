@@ -96,7 +96,7 @@ struct RYMWidgetView: View {
 extension Date {
     func dayOfWeek() -> String? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
+        dateFormatter.dateFormat = "E"
         return dateFormatter.string(from: self).capitalized
     }
 }

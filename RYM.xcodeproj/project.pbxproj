@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD017A962912DEAC006699E7 /* TaggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD017A952912DEAC006699E7 /* TaggedView.swift */; };
+		CD017A992912DF5F006699E7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD017A982912DF5F006699E7 /* View+Extensions.swift */; };
+		CD017A9B291409F3006699E7 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD017A9A291409F3006699E7 /* Array+Extensions.swift */; };
 		CD034D3728D1CE7E00106D65 /* AddRemainderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD034D3628D1CE7E00106D65 /* AddRemainderUITests.swift */; };
 		CD034D4128D1E18400106D65 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1E328C257590032A747 /* OnboardingRouter.swift */; };
 		CD034D4228D1E18E00106D65 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67EF1C528C255590032A747 /* AppConfig.swift */; };
@@ -32,6 +35,10 @@
 		CD94039A28EDDC00005652A2 /* CircuralWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94039828EDDC00005652A2 /* CircuralWidgetView.swift */; };
 		CDAAA76828E6F956003FABBD /* ReminderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAAA76628E6F94E003FABBD /* ReminderWidgetView.swift */; };
 		CDAAA76928E70353003FABBD /* ReminderWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAAA76628E6F94E003FABBD /* ReminderWidgetView.swift */; };
+		CDBDEDEF290BCBBD005D87CC /* RemindersNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBDEDEE290BCBBD005D87CC /* RemindersNotificationsView.swift */; };
+		CDBDEDF2290BE5B4005D87CC /* MedicineReminderMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBDEDF1290BE5B4005D87CC /* MedicineReminderMapping.swift */; };
+		CDBDEDF8290FB9A3005D87CC /* MedicineReminderMapingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = CDBDEDF7290FB9A3005D87CC /* MedicineReminderMapingModel.xcmappingmodel */; };
+		CDBDEDFE290FFE58005D87CC /* TimePickerOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBDEDFD290FFE58005D87CC /* TimePickerOverlay.swift */; };
 		CDCB9CFE28E5BBF200973060 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCB9CFD28E5BBF200973060 /* WidgetKit.framework */; };
 		CDCB9D0028E5BBF200973060 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCB9CFF28E5BBF200973060 /* SwiftUI.framework */; };
 		CDCB9D0328E5BBF200973060 /* RymWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCB9D0228E5BBF200973060 /* RymWidget.swift */; };
@@ -107,6 +114,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD017A952912DEAC006699E7 /* TaggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggedView.swift; sourceTree = "<group>"; };
+		CD017A982912DF5F006699E7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		CD017A9A291409F3006699E7 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		CD034D3628D1CE7E00106D65 /* AddRemainderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemainderUITests.swift; sourceTree = "<group>"; };
 		CD1653AE28D9E8FC003BFD49 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		CD3748B528D370730049E01F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -121,6 +131,11 @@
 		CD94039528EDDB3C005652A2 /* InlineWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineWidgetView.swift; sourceTree = "<group>"; };
 		CD94039828EDDC00005652A2 /* CircuralWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuralWidgetView.swift; sourceTree = "<group>"; };
 		CDAAA76628E6F94E003FABBD /* ReminderWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderWidgetView.swift; sourceTree = "<group>"; };
+		CDBDEDEE290BCBBD005D87CC /* RemindersNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersNotificationsView.swift; sourceTree = "<group>"; };
+		CDBDEDF0290BCE62005D87CC /* RYM 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "RYM 2.xcdatamodel"; sourceTree = "<group>"; };
+		CDBDEDF1290BE5B4005D87CC /* MedicineReminderMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineReminderMapping.swift; sourceTree = "<group>"; };
+		CDBDEDF7290FB9A3005D87CC /* MedicineReminderMapingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MedicineReminderMapingModel.xcmappingmodel; sourceTree = "<group>"; };
+		CDBDEDFD290FFE58005D87CC /* TimePickerOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerOverlay.swift; sourceTree = "<group>"; };
 		CDCB9CFB28E5BBF200973060 /* com.rym.widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = com.rym.widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCB9CFD28E5BBF200973060 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		CDCB9CFF28E5BBF200973060 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -213,6 +228,15 @@
 			path = supplimentary;
 			sourceTree = "<group>";
 		};
+		CDBDEDED290BCB8E005D87CC /* supplimentary */ = {
+			isa = PBXGroup;
+			children = (
+				CDBDEDEE290BCBBD005D87CC /* RemindersNotificationsView.swift */,
+				CDBDEDFD290FFE58005D87CC /* TimePickerOverlay.swift */,
+			);
+			path = supplimentary;
+			sourceTree = "<group>";
+		};
 		CDCB9CFC28E5BBF200973060 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +271,7 @@
 		E673795928C61A0E00C785F2 /* addMedicine */ = {
 			isa = PBXGroup;
 			children = (
+				CDBDEDED290BCB8E005D87CC /* supplimentary */,
 				E673795228C5E79400C785F2 /* AddNewRemainder.swift */,
 			);
 			path = addMedicine;
@@ -299,6 +324,7 @@
 				E67EF19F28C24D410032A747 /* LaunchScreen.storyboard */,
 				E67EF1A228C24D410032A747 /* Info.plist */,
 				E67EF19A28C24D3F0032A747 /* RYM.xcdatamodeld */,
+				CDBDEDF7290FB9A3005D87CC /* MedicineReminderMapingModel.xcmappingmodel */,
 			);
 			path = RYM;
 			sourceTree = "<group>";
@@ -331,6 +357,7 @@
 				E67EF1C528C255590032A747 /* AppConfig.swift */,
 				E67EF1C728C255A50032A747 /* LaunchScreenView.swift */,
 				CD86545828D074BB001CB65D /* CoreDataStack.swift */,
+				CDBDEDF1290BE5B4005D87CC /* MedicineReminderMapping.swift */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -343,6 +370,7 @@
 				E67379A128C8DEF100C785F2 /* Notifications.swift */,
 				CD8CB1E628E447D600354F3B /* HapticsManager.swift */,
 				CD94039128ED97FB005652A2 /* KeyboardResponder.swift */,
+				CD017A952912DEAC006699E7 /* TaggedView.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -362,6 +390,8 @@
 				E67EF1D028C256250032A747 /* UINavigation+Extensions.swift */,
 				E67EF1D228C256430032A747 /* UIView+Extensions.swift */,
 				CD94039328ED997D005652A2 /* UIApplication+Extensions.swift */,
+				CD017A982912DF5F006699E7 /* View+Extensions.swift */,
+				CD017A9A291409F3006699E7 /* Array+Extensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -624,21 +654,28 @@
 				E67EF1CC28C255D90032A747 /* BaseRouter.swift in Sources */,
 				E67EF1D128C256250032A747 /* UINavigation+Extensions.swift in Sources */,
 				E6E28D0428CA322B00300FC1 /* OnboardingFeatureView.swift in Sources */,
+				CD017A962912DEAC006699E7 /* TaggedView.swift in Sources */,
 				E67EF1D628C256900032A747 /* HomeViewController.swift in Sources */,
 				E67EF1E428C257590032A747 /* OnboardingRouter.swift in Sources */,
+				CDBDEDEF290BCBBD005D87CC /* RemindersNotificationsView.swift in Sources */,
 				E67EF1DD28C256F50032A747 /* RemaindersListView.swift in Sources */,
 				CD1653AF28D9E8FC003BFD49 /* SettingViewModel.swift in Sources */,
+				CD017A9B291409F3006699E7 /* Array+Extensions.swift in Sources */,
 				CDAAA76928E70353003FABBD /* ReminderWidgetView.swift in Sources */,
 				E67EF1DA28C256C50032A747 /* HomePresenter.swift in Sources */,
+				CDBDEDF8290FB9A3005D87CC /* MedicineReminderMapingModel.xcmappingmodel in Sources */,
 				CD86545928D074BB001CB65D /* CoreDataStack.swift in Sources */,
+				CDBDEDFE290FFE58005D87CC /* TimePickerOverlay.swift in Sources */,
 				CD94039428ED997D005652A2 /* UIApplication+Extensions.swift in Sources */,
 				E67EF19228C24D3F0032A747 /* AppDelegate.swift in Sources */,
 				E67EF1C828C255A50032A747 /* LaunchScreenView.swift in Sources */,
+				CD017A992912DF5F006699E7 /* View+Extensions.swift in Sources */,
 				CD94039628EDDB3C005652A2 /* InlineWidgetView.swift in Sources */,
 				CD94039228ED97FB005652A2 /* KeyboardResponder.swift in Sources */,
 				E673795128C5E5AA00C785F2 /* RemainderViewService.swift in Sources */,
 				E673795F28C641EF00C785F2 /* MedicineReminderCard.swift in Sources */,
 				CD3748B628D370730049E01F /* SettingsView.swift in Sources */,
+				CDBDEDF2290BE5B4005D87CC /* MedicineReminderMapping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,7 +748,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = com.rym.widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = com.rym.widget/Info.plist;
@@ -723,13 +760,13 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.RYM.com-rym-widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -741,7 +778,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = com.rym.widgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = com.rym.widget/Info.plist;
@@ -753,13 +790,13 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.RYM.com-rym-widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -885,7 +922,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RYM/RYM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RYM/Info.plist;
@@ -900,7 +937,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RYM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -917,7 +954,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RYM/RYM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R42FHEASVS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RYM/Info.plist;
@@ -932,7 +969,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RYM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1071,9 +1108,10 @@
 		E67EF19A28C24D3F0032A747 /* RYM.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CDBDEDF0290BCE62005D87CC /* RYM 2.xcdatamodel */,
 				E67EF19B28C24D3F0032A747 /* RYM.xcdatamodel */,
 			);
-			currentVersion = E67EF19B28C24D3F0032A747 /* RYM.xcdatamodel */;
+			currentVersion = CDBDEDF0290BCE62005D87CC /* RYM 2.xcdatamodel */;
 			path = RYM.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

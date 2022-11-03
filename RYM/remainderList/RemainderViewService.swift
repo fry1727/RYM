@@ -22,6 +22,17 @@ class RemainderViewService: ObservableObject {
         } catch let error as NSError {
             print("Could not fetch. \(error)")
         }
+
+        for remainder in remainders {
+            if remainder.notificationDate != nil && remainder.notificationDate != Date(timeIntervalSince1970: 0) {
+                if let notificationDate = remainder.notificationDate {
+                    remainder.notificationDates?.append(notificationDate)
+                    remainder.notificationDate = Date(timeIntervalSince1970: 0)
+                    if let _ = try? context.save() {
+                    }
+                }
+            }
+        }
     }
 
     // MARK: - Working with data from Core Data
@@ -36,6 +47,7 @@ class RemainderViewService: ObservableObject {
     @Published var isRemainderOn: Bool = false
     @Published var remainderText: String = ""
     @Published var remainderDate: Date = Date()
+    @Published var reminderDates: [Date] = []
 
     // MARK: Reminder Time Picker
     @Published var showTimePicker = false
@@ -58,6 +70,7 @@ class RemainderViewService: ObservableObject {
         var remainder: MedicineRemainder?
         if let editRemainder = editRemainder {
             remainder = editRemainder
+            remainder?.notificationDate = Date()
             Notifications.shared.removePendingNotifications(IDs: remainder?.notificationIDs ?? [])
         } else {
             remainder = MedicineRemainder(context: context)
@@ -74,6 +87,7 @@ class RemainderViewService: ObservableObject {
         remainder.dateAdded = Date()
         remainder.notificationDate = remainderDate
         remainder.notificationIDs = []
+        remainder.notificationDates = reminderDates
 
         if isRemainderOn {
             sheduleNotificationsAndCreateIds()
@@ -173,11 +187,14 @@ class RemainderViewService: ObservableObject {
                         let day = weekdaySymbols.firstIndex { currentDay in
                             return currentDay == weekDay } ?? -1
                         if day != -1 {
-                            Notifications.shared.scheduleNotification(remainderText: remainderText,
-                                                                      remainderId: id,
-                                                                      currentWeekDay: day,
-                                                                      remainderDate: remainderDate)
-                            notificationsIds.append(id)
+                            for remDay in reminderDates {
+                                Notifications.shared.scheduleNotification(remainderText: remainderText,
+                                                                          remainderId: id,
+                                                                          currentWeekDay: day,
+                                                                          remainderDate: remDay)
+                                notificationsIds.append(id)
+                            }
+
                         }
                     }
                 }
@@ -195,6 +212,7 @@ class RemainderViewService: ObservableObject {
             self.remainderText = ""
             self.remainderDate = Date()
             self.editRemainder = nil
+            self.reminderDates = []
         }
         WidgetCenter.shared.reloadTimelines(ofKind: "com_rym_widget")
         self.notificationsIds = []
@@ -208,26 +226,29 @@ class RemainderViewService: ObservableObject {
             weekDays = editRemainder.weekDays ?? []
             isRemainderOn = editRemainder.isRemainderOn
             remainderText = editRemainder.remainderText ?? ""
-            remainderDate = editRemainder.notificationDate ?? Date()
+//            remainderDate = editRemainder.notificationDate ?? Date()
             notificationsIds = editRemainder.notificationIDs ?? []
+            reminderDates = editRemainder.notificationDates ?? []
         }
     }
 
     // MARK: Adding Notifications
     func sheduleNotificationsAndCreateIds() {
         let calendar = Calendar.current
-        let weekdaySymbols: [String] = calendar.weekdaySymbols
+        let weekdaySymbols: [String] = calendar.shortStandaloneWeekdaySymbols
         for weekDay in weekDays {
             let id = UUID().uuidString
 
             let day = weekdaySymbols.firstIndex { currentDay in
                 return currentDay == weekDay } ?? -1
             if day != -1 {
-                Notifications.shared.scheduleNotification(remainderText: remainderText,
-                                                          remainderId: id,
-                                                          currentWeekDay: day,
-                                                          remainderDate: remainderDate)
-                notificationsIds.append(id)
+                for remainDate in reminderDates {
+                    Notifications.shared.scheduleNotification(remainderText: remainderText,
+                                                              remainderId: id,
+                                                              currentWeekDay: day,
+                                                              remainderDate: remainDate)
+                    notificationsIds.append(id)
+                }
             }
         }
     }

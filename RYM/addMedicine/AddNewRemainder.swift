@@ -12,8 +12,6 @@ import CoreData
 struct AddNewRemainder: View {
     @EnvironmentObject var viewService: RemainderViewService
     @Environment(\.self) var environment
-//    let weekDays = NSCalendar.current.weekdaySymbols
-//    let shortWeekdaySymbols =
 
     let weekDays: [String] = Array(Calendar.current.shortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.shortWeekdaySymbols.count]
                                    + Calendar.current.shortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
@@ -35,13 +33,13 @@ struct AddNewRemainder: View {
 
                 remainderToggle
 
-                remainder
-
+                RemindersNotificationsView()
+                    .environmentObject(viewService)
             }
-
             .animation(.easeInOut, value: viewService.isRemainderOn)
+            .padding(.vertical)
+            .padding(.horizontal, 6)
             .frame(maxHeight: .infinity, alignment: .top)
-            .padding()
             .onTapGesture {
                 UIApplication.shared.endEditing()
             }
@@ -57,11 +55,6 @@ struct AddNewRemainder: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     doneButton
                 }
-            }
-        }
-        .overlay {
-            if viewService.showTimePicker {
-                timePickerOverlay
             }
         }
     }
@@ -196,71 +189,6 @@ struct AddNewRemainder: View {
                     UIApplication.shared.endEditing()
                 }
         }
-        .opacity(viewService.notificationAccess ? 1 : 0)
-    }
-
-    private var timePickerOverlay: some View {
-        ZStack {
-            Rectangle()
-                .fill(.ultraThinMaterial)
-                .ignoresSafeArea()
-                .onTapGesture {
-                    withAnimation {
-                        viewService.showTimePicker.toggle()
-                        UIApplication.shared.endEditing()
-                    }
-                }
-            VStack {
-                DatePicker.init("", selection:
-                                    $viewService.remainderDate, displayedComponents: [.hourAndMinute])
-                .datePickerStyle(.wheel)
-                .labelsHidden()
-                .padding([.top, .horizontal])
-
-                Text("* after choosing tap outside to close")
-                    .font(.callout)
-                    .foregroundColor(.white)
-                    .padding()
-            }
-            .background {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray)
-            }
-            .padding()
-        }
-    }
-
-    private var remainder: some View {
-        HStack(spacing: 12) {
-            Label {
-                Text(viewService.remainderDate.formatted(date: .omitted, time: .shortened))
-            } icon: {
-                Image(systemName: "clock")
-            }
-            .padding(.horizontal)
-            .padding(.vertical, 12)
-            .background(Color.gray.opacity(0.4),
-                        in: RoundedRectangle(cornerRadius: 6, style: .continuous))
-            .onTapGesture {
-                UIApplication.shared.endEditing()
-                withAnimation {
-                    viewService.showTimePicker.toggle()
-                }
-            }
-
-            TextField("Reminder text", text: $viewService.remainderText)
-                .padding(.horizontal)
-                .padding(.vertical, 10)
-                .onChange(of: viewService.isRemainderOn, perform: { _ in
-                    if viewService.isRemainderOn {
-                        viewService.remainderText = viewService.title
-                    }
-                })
-                .background(Color.gray.opacity(0.4),
-                            in: RoundedRectangle(cornerRadius: 6, style: .continuous))
-        }
-        .frame(height: viewService.isRemainderOn ? nil : 0)
-        .opacity(viewService.isRemainderOn ? 1 : 0)
         .opacity(viewService.notificationAccess ? 1 : 0)
     }
 
