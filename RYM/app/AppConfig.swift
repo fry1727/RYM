@@ -27,4 +27,7 @@ final class AppConfig: ObservableObject {
     @AppStorage("isNotificationAccess") var notificationAccess = false
     /// Defines user notification permission turn on/off status
     @AppStorage("notificationsTurnOn") var notificationsTurnOn = true
+
+    @AppStorage("isVip") var isVip = false
+
 }

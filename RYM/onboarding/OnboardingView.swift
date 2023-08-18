@@ -64,7 +64,7 @@ struct OnboardingView: View {
     private var continueButton: some View {
         Group {
             Button {
-                viewModel.loginUser()
+                viewModel.showPaywallOnRegistration()
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10, style: .continuous)

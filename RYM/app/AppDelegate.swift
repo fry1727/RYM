@@ -7,12 +7,15 @@
 
 import SwiftUI
 import CoreData
+import FirebaseCore
 
 // MARK: - Main class of application
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var coreDataStack = CoreDataStack()
+    let validator = SubscriptionReceiptValidator()
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -29,7 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
 
+        FirebaseApp.configure()
+        SubscriptionService.shared.initialize()
         Notifications.shared.requestAutorization()
+        validator.validateReceipt { isVip in
+            AppConfig.shared.isVip = isVip
+        }
 
         // MARK: - Customizing SearchBar
         UISearchBar.appearance().tintColor = .black

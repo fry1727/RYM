@@ -69,7 +69,7 @@ struct RemindersNotificationsView: View {
                         let view = TimePickerOverlay(newDate: $viewService.reminderDates[indx])
                         homeRouter.present(view: view)
                     }
-                    .contextMenu{
+                    .contextMenu {
                         Button(action: {
                             haptics.vibrateForSelection()
                             withAnimation(.easeOut(duration: 0.1)) {

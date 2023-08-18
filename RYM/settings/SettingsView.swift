@@ -119,7 +119,7 @@ struct SettingsView: View {
     }
 
     private func shareAppSheet() {
-        guard let urlShare = URL(string: "https://apps.apple.com/us/app/id1632314541") else { return }
+        guard let urlShare = URL(string: "https://apps.apple.com/us/app/id6443776058") else { return }
         let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }

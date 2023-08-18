@@ -40,26 +40,22 @@ struct RYMWidgetView: View {
 
     private var mediumWidgetRemainderList: some View {
         Group {
-            if let remainder =  todaysRemainders.first {
+            if let remainder = todaysRemainders.first {
                 ReminderWidgetView(medicineRemainder: remainder)
                 Divider()
             }
             if todaysRemainders.count > 1 {
-                if let remainder = todaysRemainders[1] {
-                    ReminderWidgetView(medicineRemainder: remainder)
+                    ReminderWidgetView(medicineRemainder: todaysRemainders[1])
                     Divider()
-                }
             }
             if todaysRemainders.count > 2 {
-                if let remainder = todaysRemainders[2] {
-                    ReminderWidgetView(medicineRemainder: remainder)
+                    ReminderWidgetView(medicineRemainder: todaysRemainders[2])
                     Text("see more in the app")
                         .frame(alignment: .center)
                         .font(.system(size: 10))
                         .foregroundColor(.white)
                         .padding(.horizontal, 20)
                         .padding(.bottom, 5)
-                }
             }
         }
     }

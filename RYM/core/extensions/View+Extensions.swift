@@ -20,6 +20,22 @@ extension View {
     }
 }
 
+extension View {
+    func progress(_ isVisible: Bool, onTapped: @escaping () -> Void) -> some View {
+        ZStack(alignment: .center) {
+            self
+            if isVisible {
+                Group {
+                    Color.black.opacity(0.7).ignoresSafeArea()
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                }
+                .onTapGesture(perform: onTapped)
+            }
+        }
+    }
+}
+
 private struct SizePreferenceKey: PreferenceKey {
     static var defaultValue: CGSize = .zero
     static func reduce(value: inout CGSize, nextValue: () -> CGSize) {}

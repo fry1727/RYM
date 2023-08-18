@@ -12,6 +12,7 @@ import CoreData
 struct RemaindersListView: View {
     @ObservedObject var viewService: RemainderViewService
     @Environment(\.managedObjectContext) private var viewContext
+    let subscriptionPresenter = SubscriptionsPresenter.shared
 
     @State private var searchText = ""
 
@@ -74,8 +75,17 @@ struct RemaindersListView: View {
         Group {
             Button {
                 haptics.vibrateForSelection()
-                viewService.editRemainder = nil
-                viewService.addNewRemainder.toggle()
+                if viewService.remainders.count < 1 {
+                        viewService.editRemainder = nil
+                        viewService.addNewRemainder.toggle()
+                } else {
+                    if AppConfig.shared.isVip {
+                        viewService.editRemainder = nil
+                        viewService.addNewRemainder.toggle()
+                    } else {
+                        subscriptionPresenter.showPaywall()
+                    }
+                }
             } label: {
                 Text("Add")
                     .font(.title3)
@@ -103,8 +113,17 @@ struct RemaindersListView: View {
             Spacer()
             Button {
                 haptics.vibrateForSelection()
-                viewService.editRemainder = nil
-                viewService.addNewRemainder.toggle()
+                if viewService.remainders.count < 1 {
+                        viewService.editRemainder = nil
+                        viewService.addNewRemainder.toggle()
+                } else {
+                    if AppConfig.shared.isVip {
+                        viewService.editRemainder = nil
+                        viewService.addNewRemainder.toggle()
+                    } else {
+                        subscriptionPresenter.showPaywall()
+                    }
+                }
             } label: {
                 Image(systemName: "plus")
                     .resizable()

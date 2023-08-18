@@ -62,12 +62,12 @@ struct AddNewRemainder: View {
     private var titleTextField: some View {
         VStack(spacing: 5) {
             HStack {
-                Text("Title:")
+                Text("Reminder title:")
                     .font(.caption)
                     .foregroundColor(.gray)
                 Spacer()
             }
-            TextField("Title", text: $viewService.title)
+            TextField("Reminder title", text: $viewService.title)
                 .padding(.horizontal)
                 .padding(.vertical, 10)
                 .background(Color.gray.opacity(0.4),
@@ -172,9 +172,9 @@ struct AddNewRemainder: View {
     private var remainderToggle: some View {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
-                Text("Turn On reminder")
+                Text("Turn On notifications")
                     .fontWeight(.semibold)
-                Text("App will send you a notification")
+                Text("App will send you a notifications")
                     .font(.caption)
                     .foregroundColor(.gray)
             }

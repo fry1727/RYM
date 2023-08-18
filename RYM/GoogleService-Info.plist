@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>854179334111-6nqt235d9luounj18f2eutchaebe7vqo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.854179334111-6nqt235d9luounj18f2eutchaebe7vqo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBnaSsNL0G6SovaVEN5uq67L9PTIwynitg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>854179334111</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.RYM</string>
+	<key>PROJECT_ID</key>
+	<string>pills-reminder-d1928</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pills-reminder-d1928.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:854179334111:ios:c370cd3bde39b9b82b666a</string>
+</dict>
+</plist>
