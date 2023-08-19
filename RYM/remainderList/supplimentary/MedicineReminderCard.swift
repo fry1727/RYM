@@ -76,19 +76,19 @@ struct MedicineReminderCard: View {
             }
 
             HStack(spacing: 0) {
-                ForEach(activeDay.indices, id: \.self) { index in
-                    let item = activeDay[index]
+                ForEach(activeDay.indices, id: \.self) { ind in
+                    let item = activeDay.safeGet(ind)
 
                     VStack(spacing: 6) {
-                        Text(item.0.prefix(3))
+                        Text(item?.0.prefix(3) ?? "")
                             .font(.callout)
                             .foregroundColor(.gray)
 
                         let status = activeWeekDays.contains { day in
-                            return day == item.0
+                            return day == item?.0
                         }
 
-                        Text(dateToString(date: item.1))
+                        Text(dateToString(date: item?.1 ?? Date()))
                             .font(.system(size: 14))
                             .fontWeight(.semibold)
                             .padding(8)
