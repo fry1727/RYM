@@ -11,7 +11,7 @@ import SwiftUI
 
 struct LottieView: UIViewRepresentable {
     let animationView = LottieAnimationView()
-    var fileName = "medicine"
+    var fileName = "Flow 2"
 
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> some UIView {
         let view = UIView(frame: .zero)
